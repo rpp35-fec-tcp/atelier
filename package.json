@@ -1,0 +1,22 @@
+{
+  "name": "project-atelier",
+  "version": "1.0.0",
+  "description": "Front end work for a retail web-portal",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hr-rpp35-fec-tcp/project-atelier.git"
+  },
+  "keywords": [
+    "Front-end"
+  ],
+  "author": "rpp35-tcp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hr-rpp35-fec-tcp/project-atelier/issues"
+  },
+  "homepage": "https://github.com/hr-rpp35-fec-tcp/project-atelier#readme"
+}
