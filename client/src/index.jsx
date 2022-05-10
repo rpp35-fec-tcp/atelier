@@ -15,6 +15,19 @@ class Overview extends React.Component{
   }
 }
 
+class Related extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+  render() {
+    return (
+      <div>
+        <h1>Related Product</h1>
+      </div>
+    )
+  }
+}
 class Question extends React.Component{
   constructor(props) {
     super(props);
@@ -43,19 +56,7 @@ class Rating extends React.Component{
   }
 }
 
-class Related extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-  render() {
-    return (
-      <div>
-        <h1>Related Product</h1>
-      </div>
-    )
-  }
-}
+
 
 ReactDOM.createRoot(document.getElementById('Overview'))
 .render(<Overview />);
@@ -66,7 +67,3 @@ ReactDOM.createRoot(document.getElementById('Rating'))
 ReactDOM.createRoot(document.getElementById('Related'))
 .render(<Related />);
 
-// ReactDOM.render(<Overview />, document.getElementById('Overview'));
-// ReactDOM.render(<Question />, document.getElementById('Question'));
-// ReactDOM.render(<Rating />, document.getElementById('Rating'));
-// ReactDOM.render(<Related />, document.getElementById('Related'));
