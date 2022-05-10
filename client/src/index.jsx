@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from './components/relatedItems&comparison/card.jsx';
 class Overview extends React.Component{
