@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
-import 'semantic-ui-css/semantic.min.css';
 import Simple from './components/relatedItems&comparison/carousel.jsx';
+import './components/relatedItems&comparison/related.css';
 class Overview extends React.Component{
   constructor(props) {
     super(props);
