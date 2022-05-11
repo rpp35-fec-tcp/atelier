@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
-// import Card from './components/relatedItems&comparison/card.jsx';
-
+import 'semantic-ui-css/semantic.min.css';
 import Simple from './components/relatedItems&comparison/carousel.jsx';
 class Overview extends React.Component{
   constructor(props) {
@@ -26,7 +25,7 @@ class Related extends React.Component{
   }
   render() {
     return (
-      <div>
+      <div className='exceptOverview'>
         <h1>Related Product</h1>
         <Simple />
       </div>

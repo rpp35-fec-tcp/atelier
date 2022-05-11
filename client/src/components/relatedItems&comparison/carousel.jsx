@@ -1,6 +1,7 @@
-import Carousel from "react-multi-carousel";
-import { Image } from "semantic-ui-react";
+import Carousel from 'react-multi-carousel';
+import { Image } from 'semantic-ui-react';
 import React from 'react';
+import './related.css';
 
 const responsive = {
   desktop: {
@@ -40,7 +41,7 @@ const Simple = () => {
   return (
     <Carousel
       ssr
-      partialVisbile
+      partialVisibile
       // deviceType={deviceType}
       itemClass="image-item"
       responsive={responsive}
