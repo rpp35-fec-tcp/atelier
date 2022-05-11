@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from './components/relatedItems&comparison/card.jsx';
 class Overview extends React.Component{
   constructor(props) {
     super(props);
@@ -23,6 +25,7 @@ class Related extends React.Component{
     return (
       <div>
         <h1>Related Product</h1>
+        <Card />
       </div>
     )
   }
