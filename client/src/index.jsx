@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-multi-carousel/lib/styles.css';
-import Simple from './components/relatedItems&comparison/carousel.jsx';
-import './components/relatedItems&comparison/related.css';
+import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
 class Overview extends React.Component{
   constructor(props) {
     super(props);
@@ -25,9 +23,8 @@ class Related extends React.Component{
   }
   render() {
     return (
-      <div className='exceptOverview'>
-        <h1>Related Product</h1>
-        <Simple />
+      <div>
+        <RelatedComponent />
       </div>
     )
   }
