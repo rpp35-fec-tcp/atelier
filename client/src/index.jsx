@@ -37,14 +37,23 @@ class Related extends React.Component{
 class Questions extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      questions: [],
+      showMore: false
+    };
   }
+
   //function to send a request to the server for questions data
+
+  //invoke server req inside componentDidMount
+  //then update state with res dataa
+
   render() {
+    let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]}]
     return (
       <div>
         <h1>Question</h1>
-        <QuestionList />
+        <QuestionList questions={sampleData} />
       </div>
     )
   }
