@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
-
+const bodyParser = require('body-parser');
 const port = 3000;
 
 //Serve static files
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.json());
 
 const overviewRoute = require('./routes/overview.js');
 const questionRoute = require('./routes/question.js');
