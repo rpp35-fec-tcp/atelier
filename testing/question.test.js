@@ -19,3 +19,7 @@ describe("This is an example test", () => {
     expect(typeof(lastVar)).toBe('string');
   });
 });
+
+describe("Questions list is mounting", () => {
+  //some mounting test
+});
