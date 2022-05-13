@@ -49,11 +49,17 @@ class Questions extends React.Component{
   //then update state with res dataa
 
   render() {
-    let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]}]
+    let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
+     {question:'someQuestion3', answers: [{answer:'someAnswer3'}, {answer: 'anotherAnswer3'}]}];
+    let questionData = sampleData;
+    if (this.state.showMore === false) {
+      questionData = sampleData.slice(0,2);
+    }
+
     return (
       <div>
         <h1>Question</h1>
-        <QuestionList questions={sampleData} />
+        <QuestionList questions={questionData} />
       </div>
     )
   }
