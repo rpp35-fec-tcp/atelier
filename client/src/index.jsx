@@ -52,8 +52,12 @@ class Questions extends React.Component{
       .then((res) => {
         console.log(res.data);
       })
+      .catch((err) => {
+        console.log('error in fetchQuestionData', err.response.data)
+      })
       //then update state with res dataa
   }
+
   componentDidMount () {
     let options = {
       method: 'GET',
