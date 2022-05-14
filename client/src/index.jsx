@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from './components/relatedItems&comparison/card.jsx';
 import QuestionList from './components/questions&answers/listQuestions.jsx';
+import axios from 'axios';
 
 
 class Overview extends React.Component{
@@ -39,14 +40,37 @@ class Questions extends React.Component{
     super(props);
     this.state = {
       questions: [],
-      showMore: false
+      showMore: false,
+      currentProduct_id: null
     };
+    this.fetchQuestionData = this.fetchQuestionData.bind(this);
   }
 
   //function to send a request to the server for questions data
+  fetchQuestionData (options) {
+    axios(options)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log('error in fetchQuestionData', err.response.data)
+      })
+      //then update state with res dataa
+  }
+
+  componentDidMount () {
+    let options = {
+      method: 'GET',
+      url: 'http://localhost:3000/question',
+      params: {
+        product_id: 5
+      }
+    };
+
+    this.fetchQuestionData(options);
+  }
 
   //invoke server req inside componentDidMount
-  //then update state with res dataa
 
   render() {
     let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
