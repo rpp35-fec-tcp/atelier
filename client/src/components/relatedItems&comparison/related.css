@@ -7,12 +7,16 @@
 .unchecked {
   font-size: 20px;
 } */
+.image-item {
+  padding: 20px 0 20px 20px;
+}
 
-img {
-  float: middle;
-  width:  100px;
-  height: 100px;
-  object-fit: cover;
+
+.card-img-top {
+  height:100%;
+  width:100%;
+  /* float: left; */
+  /* object-fit: cover; */
 }
 
 .exceptOverview {

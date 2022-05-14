@@ -8,6 +8,10 @@ describe('Card component', () => {
   });
  })
 
+ ///1. unit test in card.jsx for getReviews to check rating function
+
+
+
 
 // Inside the describe block you descriptively name the test block
 // and can then write multiple tests that are related to each other

@@ -20,7 +20,7 @@ let getOneProductStyle = (id) => {
 }
 
 let getReviews = (id) => {
-  return axios.get(`/reviews/meta/${id}`)
+  return axios.get(`/reviews/meta`, {params: {product_id: id}});
 }
 
 

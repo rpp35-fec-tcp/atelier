@@ -39,7 +39,7 @@ class RelatedComponent extends React.Component{
   render () {
     return (
       <div className='exceptOverview'>
-        <h1>Related Product</h1>
+        <p style={{color: 'gray', marginLeft: '2%', fontSize:'20px'}}>Related Product</p>
         <SimpleCarousel relatedProducts={this.state.relatedProducts}/>
       </div>
     );

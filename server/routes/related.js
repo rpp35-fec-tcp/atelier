@@ -31,10 +31,9 @@ router.get('/getRelatedProducts', (req, res) => {
 });
 
 router.get('/getReviews', (req, res) => {
-  // let parsedUrl = url.parse(req.url);
-  // let parsedQs = querystring.parse(parsedUrl.query);
-  // let id = parsedQs.id;
-  var id = 71704;
+  let parsedUrl = url.parse(req.url);
+  let parsedQs = querystring.parse(parsedUrl.query);
+  let id = parsedQs.id;
   return getReviews(id)
     .then((response) => res.send(response.data))
     .catch((err) => {console.log(err); res.sendStatus(400)})
