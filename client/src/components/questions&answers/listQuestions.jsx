@@ -13,7 +13,7 @@ class QuestionList extends React.Component {
         <ul>
         {this.state.questions.map((item) => {
           return (
-              <li>
+              <li key={this.state.questions.indexOf(item)}>
                 <span className='question'>{item.question}</span>
                 <span className='answer'>{item.answers[0].answer}</span>
                 <span className='answer'>{item.answers[1].answer}</span>
