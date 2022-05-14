@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
+import {FaRegStar} from 'react-icons/fa';
 
 class Card extends React.Component {
   constructor(props) {
@@ -61,8 +62,8 @@ class Card extends React.Component {
       // console.log(data);
       this.setState({
         productInfo: data
-    })
-  });
+      })
+    });
     this.getOneProductStyle((data) => {
       // console.log('style data:', data);
       this.setState({
@@ -70,7 +71,6 @@ class Card extends React.Component {
       });
       this.getDefaultItem(data.results);
     });
-
     //unit test for getReviews, to check whether rating is calculated correctly, also check whether rating is hidden is there is no review
     this.getReviews((data) => {
       var ratings = data.ratings;
@@ -90,13 +90,13 @@ class Card extends React.Component {
       this.setState({
         reviewRating: rating
       })
-    })
+    });
   }
   rating (value) {
     if (value !== -1) {
       return (
         <Stack spacing={1}>
-          <Rating name="read-only" value={value} precision={0.1} readOnly />
+          <Rating name="read-only" size="small" value={value} precision={0.1} readOnly />
         </Stack>
       );
     }
@@ -118,28 +118,29 @@ class Card extends React.Component {
   price (defaultItem) {
     if (defaultItem.sale_price === null) {
       return (
-        <p>{defaultItem.original_price}</p>
+        <p style={{marginBottom: '5px', color:'gray', fontSize:'12px'}}>{defaultItem.original_price}</p>
       )
     } else {
       return (
         <div>
-          <p style={{textDecoration: 'line-through', display: 'inline'}}>{defaultItem.original_price}</p>
-          <p style={{color: 'red', display: 'inline'}}>{defaultItem.sale_price}</p>
+          <p style={{textDecoration: 'line-through', color: 'gray', fontSize:'12px', display: 'inline', marginBottom: '5px'}}>{defaultItem.original_price}</p>
+          <p style={{fontSize:'12px', color: 'red', display: 'inline', marginBottom: '5px'}}>{defaultItem.sale_price}</p>
         </div>
       )
     }
   }
   render () {
     return (
-      <div className="card" style={{border:'line', borderColor:'black', height:'450px'}}>
+      <div className="card" style={{border:'line', borderColor:'black', height:'430px'}}>
         {this.state.defaultItem !== null && <div style={{height:'300px', display:'block', backgroundColor: 'lightgray'}}><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
-        <div className="card-body" style={{display:"block", height:"150px"}}>
+        <div className="card-body" style={{display:"block", height:"130px"}}>
           {this.state.productInfo !== null && <h6 className="card-subtitle mb-2 text-muted" style={{fontSize:"12px"}}>{this.state.productInfo.category}</h6>}
           {this.state.productInfo !== null && <h5 className="card-title" style={{fontSize:"15px"}}>{this.state.productInfo.name}</h5>}
           {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
           {this.rating(this.state.reviewRating)}
         </div>
+        <FaRegStar className='star' />
       </div>
     );
   }
