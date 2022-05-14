@@ -8,7 +8,7 @@
     "react-dev": "webpack --mode=development --watch",
     "start": "nodemon ./server/index.js"
   },
-   "babel": {
+  "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
@@ -41,6 +41,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "bootstrap": "^5.1.3",
     "css-loader": "^6.7.1",
