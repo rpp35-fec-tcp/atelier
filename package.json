@@ -8,6 +8,15 @@
     "react-dev": "webpack --mode=development --watch",
     "start": "nodemon ./server/index.js"
   },
+   "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rpp35-fec-tcp/atelier.git"
