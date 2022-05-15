@@ -4,6 +4,8 @@ import $ from 'jquery';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import {FaRegStar} from 'react-icons/fa';
+import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
+import Compare from './compare.jsx';
 
 class Card extends React.Component {
   constructor(props) {
@@ -12,59 +14,23 @@ class Card extends React.Component {
       productInfo: null,
       productStyle: null,
       defaultItem: null,
-      reviewRating: 0
+      reviewRating: 0,
+      currentProductInfo: this.props.currentProductInfo,
+      show: false
     }
+    //this.changeShow = this.changeShow.bind();
   }
-  getOneProduct (successCB) {
-    $.ajax({
-      type: 'GET',
-      url: '/related/getOneProduct',
-      contentType: 'application/json',
-      data: {
-        id: this.props.id
-      },
-      success: successCB,
-      error: function(err) {
-        console.log(err);
-      }
-    })
-  }
-  getOneProductStyle (successCB) {
-    $.ajax({
-      type: 'GET',
-      url: '/related/getOneProductStyle',
-      data: {
-        id: this.props.id
-      },
-      contentType: 'application/json',
-      success: successCB,
-      error: function(err) {
-        console.log(err);
-      }
-    })
-  }
-  getReviews (successCB) {
-    $.ajax({
-      type: 'GET',
-      url: '/related/getReviews',
-      data: {
-        id: this.props.id
-      },
-      contentType: 'application/json',
-      success: successCB,
-      error: function(err) {
-        console.log(err);
-      }
-    })
+  changeShow () {
+    this.setState({show: false});
   }
   componentDidMount () {
-    this.getOneProduct((data) => {
+    getOneProduct(this.props.id, (data) => {
       // console.log(data);
       this.setState({
         productInfo: data
       })
     });
-    this.getOneProductStyle((data) => {
+    getOneProductStyle(this.props.id, (data) => {
       // console.log('style data:', data);
       this.setState({
         productStyle: data
@@ -72,7 +38,7 @@ class Card extends React.Component {
       this.getDefaultItem(data.results);
     });
     //unit test for getReviews, to check whether rating is calculated correctly, also check whether rating is hidden is there is no review
-    this.getReviews((data) => {
+    getReviews(this.props.id, (data) => {
       var ratings = data.ratings;
       var keys = Object.keys(ratings);
       var sum = 0;
@@ -108,8 +74,8 @@ class Card extends React.Component {
     //let results = this.state.productStyle.results;
     var defaultItem = results.filter((result) => result['default?']);
     defaultItem = defaultItem.length === 0 ? results[0] : defaultItem[0];
-    console.log('results: ', results)
-    console.log('defaultItem: ', defaultItem);
+    // console.log('results: ', results)
+    // console.log('defaultItem: ', defaultItem);
     //console.log(defaultItem);
     this.setState({
       defaultItem: defaultItem
@@ -140,7 +106,8 @@ class Card extends React.Component {
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
           {this.rating(this.state.reviewRating)}
         </div>
-        <FaRegStar className='star' />
+        <FaRegStar className='star' onClick={(e) => this.setState({show: true})}/>
+        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.productInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
       </div>
     );
   }

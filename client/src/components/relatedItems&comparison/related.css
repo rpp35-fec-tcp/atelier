@@ -21,6 +21,9 @@
   right: 5px; /*newly added*/
   top: 5px;/*newly added*/
 }
+.star:hover {
+  color: yellow;
+}
 
 .card-img-top {
   height:100%;
