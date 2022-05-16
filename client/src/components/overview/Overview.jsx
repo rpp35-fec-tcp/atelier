@@ -10,17 +10,26 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      styles: [],
+      currentPhoto: 0,
+      currentStyle: 0,
+      photo: '',
       productInfo: [],
+      maxLength: 0,
     };
+    this.changePhoto = this.changePhoto.bind(this);
   }
 
   componentDidMount() {
     axios.defaults.headers.common['Authorization'] = config.TOKEN;
     axios
-      .get(this.props.url + '/products/' + this.props.currentProduct + '/styles')
+      .get(
+        this.props.url + '/products/' + this.props.currentProduct + '/styles'
+      )
       .then((results) => {
-        this.setState({ styles: results.data.results });
+        this.setState({ photo: results.data.results[0].photos[0].url });
+        this.setState({
+          maxLength: results.data.results.map((id) => id.photos).length,
+        });
         console.log(results.data.results);
       });
     axios
@@ -30,13 +39,28 @@ class Overview extends React.Component {
       });
   }
 
+  changePhoto(e) {
+    let currentPhotoIndex = this.state.currentPhoto;
+    if (e.target.id === 'forward') {
+      if (this.state.currentPhoto < this.state.maxLength) {
+        this.setState({ currentPhoto: currentPhotoIndex + 1 });
+      } else {
+        this.setState({ currentPhoto: 0 });
+      }
+    }
+  }
+
   render() {
     return (
       <div>
-        <Gallery />
+        <Gallery
+          photo={this.state.photo}
+          currentStyle={this.state.currentStyle}
+          changePhoto={this.changePhoto}
+        />
         <Styles />
         <Cart />
-        <Description productInfo={this.state.productInfo}/>
+        <Description productInfo={this.state.productInfo} />
       </div>
     );
   }
