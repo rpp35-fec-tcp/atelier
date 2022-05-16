@@ -44,7 +44,7 @@ class Overview extends React.Component {
   changePhoto(event) {
     var currentPhotoIndex = this.state.currentPhoto;
     if (event.target.id === 'forward') {
-      if (this.state.currentPhoto < this.state.maxLength) {
+      if (this.state.currentPhoto < this.state.maxLength - 1) {
         this.setState({
           photo:
             this.state.styles[currentPhotoIndex + 1].photos[
@@ -55,7 +55,7 @@ class Overview extends React.Component {
         this.setState({ currentPhoto: currentPhotoIndex + 1 });
       } else {
         this.setState({
-          photo: this.state.styles[0].photos[this.state.currentStyle].url,
+          photo: this.state.styles[0].photos[0].url,
         });
         this.setState({ currentPhoto: 0 });
       }
@@ -71,9 +71,12 @@ class Overview extends React.Component {
         this.setState({ currentPhoto: currentPhotoIndex - 1 });
       } else {
         this.setState({
-          photo: this.state.styles[0].photos[this.state.currentStyle].url,
+          photo:
+            this.state.styles[this.state.styles.length - 1].photos[
+              this.state.currentStyle
+            ].url,
         });
-        this.setState({ currentPhoto: maxLength });
+        this.setState({ currentPhoto: this.state.styles.length - 1 });
       }
     }
   }
