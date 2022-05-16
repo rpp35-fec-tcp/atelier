@@ -2,7 +2,7 @@
 import Carousel from 'react-multi-carousel';
 // import { Image } from 'semantic-ui-react';
 import React from 'react';
-import './related.css';
+// import './related.css';
 import Card from './card.jsx';
 
 const responsive = {
@@ -24,6 +24,7 @@ const responsive = {
 };
 
 const SimpleCarousel = ({relatedProducts, currentProductInfo}) => {
+
   return (
     <Carousel
       ssr
