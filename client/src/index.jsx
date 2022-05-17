@@ -47,13 +47,11 @@ class Questions extends React.Component{
   }
 
   //function to send a request to the server for questions data
-  fetchQuestionData (options) {
+  fetchQuestionData (options, cb) {
     axios(options)
       .then((res) => {
         console.log('data', res.data.results);
-        this.setState({questions: res.data.results}, () => {
-          console.log(this.state.questions);
-        });
+        cb(res.data.results);
       })
       .catch((err) => {
         console.log('error in fetchQuestionData', err.response.data);
@@ -68,7 +66,10 @@ class Questions extends React.Component{
         product_id: 71697
       }
     };
-    this.fetchQuestionData(options);
+
+    this.fetchQuestionData(options, (data) => {
+      this.setState({questions: data});
+    });
   }
 
   // componentDidUpdate () {
@@ -85,15 +86,13 @@ class Questions extends React.Component{
   render() {
     // let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
     //  {question:'someQuestion3', answers: [{answer:'someAnswer3'}, {answer: 'anotherAnswer3'}]}];
-    let questionData = this.state.questions;
-    if (this.state.showMore === false) {
-      questionData = questionData.slice(0,2);
-    }
+
+   
 
     return (
       <div>
         <h1>Question</h1>
-        <QuestionList questions={questionData} />
+        <QuestionList questions={this.state.questions} showMore={this.state.showMore} />
       </div>
     )
   }
