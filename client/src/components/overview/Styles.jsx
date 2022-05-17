@@ -7,7 +7,20 @@ class Styles extends React.Component {
   }
   render() {
     return (
-    <div>{this.props.thumbnails ? this.props.thumbnails.map((image, id) => <img className='styles' key={id} src={image}></img>): ''}</div>)
+      <div>
+        {this.props.thumbnails
+          ? this.props.thumbnails.map((image, id) => (
+              <img
+                className='styles'
+                id={id}
+                key={'style' + id}
+                src={image}
+                onClick={this.props.changeStyle}
+              ></img>
+            ))
+          : ''}
+      </div>
+    );
   }
 }
 

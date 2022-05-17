@@ -10,12 +10,9 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // current product index
       currentPhoto: 0,
       currentStyle: 0,
-      // url
       photo: '',
-      // all data
       styles: [],
       productInfo: [],
       maxLength: 0,
@@ -82,6 +79,12 @@ class Overview extends React.Component {
     }
   }
 
+  changeStyle(e) {
+    let id = Number.parseInt(e.target.id);
+    this.setState({ currentStyle: id });
+    this.setState({ photo: this.state.styles[id].photos[0].url });
+  }
+
   render() {
     return (
       <div>
@@ -90,7 +93,12 @@ class Overview extends React.Component {
           currentStyle={this.state.currentStyle}
           changePhoto={this.changePhoto}
         />
-        <Styles thumbnails={this.state.styles.map(style => style.photos).map(arr => arr[0].thumbnail_url)}/>
+        <Styles
+          thumbnails={this.state.styles
+            .map((style) => style.photos)
+            .map((arr) => arr[0].thumbnail_url)}
+          changeStyle={this.changeStyle.bind(this)}
+        />
         <Cart />
         <Description productInfo={this.state.productInfo} />
       </div>

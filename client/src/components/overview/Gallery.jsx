@@ -9,7 +9,7 @@ class Gallery extends React.Component {
   }
   render() {
     return (
-      <>
+      <div>
         <button id='back' onClick={this.props.changePhoto}>
           ←
         </button>
@@ -17,7 +17,7 @@ class Gallery extends React.Component {
         <button id='forward' onClick={this.props.changePhoto}>
           →
         </button>
-      </>
+      </div>
     );
   }
 }
