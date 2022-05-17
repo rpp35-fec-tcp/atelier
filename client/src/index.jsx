@@ -50,12 +50,14 @@ class Questions extends React.Component{
   fetchQuestionData (options) {
     axios(options)
       .then((res) => {
-        console.log(res.data);
+        console.log('data', res.data.results);
+        this.setState({questions: res.data.results}, () => {
+          console.log(this.state.questions);
+        });
       })
       .catch((err) => {
-        console.log('error in fetchQuestionData', err.response.data)
+        console.log('error in fetchQuestionData', err.response.data);
       })
-      //then update state with res dataa
   }
 
   componentDidMount () {
@@ -63,21 +65,29 @@ class Questions extends React.Component{
       method: 'GET',
       url: 'http://localhost:3000/question',
       params: {
-        product_id: 5
+        product_id: 71697
       }
     };
-
     this.fetchQuestionData(options);
   }
 
-  //invoke server req inside componentDidMount
+  // componentDidUpdate () {
+  //   let options = {
+  //     method: 'GET',
+  //     url: 'http://localhost:3000/question',
+  //     params: {
+  //       product_id: 71697
+  //     }
+  //   };
+  //   this.fetchQuestionData(options);
+  // }
 
   render() {
-    let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
-     {question:'someQuestion3', answers: [{answer:'someAnswer3'}, {answer: 'anotherAnswer3'}]}];
-    let questionData = sampleData;
+    // let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
+    //  {question:'someQuestion3', answers: [{answer:'someAnswer3'}, {answer: 'anotherAnswer3'}]}];
+    let questionData = this.state.questions;
     if (this.state.showMore === false) {
-      questionData = sampleData.slice(0,2);
+      questionData = questionData.slice(0,2);
     }
 
     return (
