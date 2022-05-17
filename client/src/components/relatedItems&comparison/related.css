@@ -7,3 +7,32 @@
 .unchecked {
   font-size: 20px;
 } */
+.image-item {
+  /* padding: 20px 0 20px 20px; */
+  margin-left: 1%;
+  margin-Right: 1%;
+}
+
+.star {
+  display: block;
+  float: right;
+  z-index: 3;
+  position: absolute; /*newly added*/
+  right: 5px; /*newly added*/
+  top: 5px;/*newly added*/
+}
+.star:hover {
+  color: yellow;
+}
+
+.card-img-top {
+  height:100%;
+  width:100%;
+  /* float: left; */
+  /* object-fit: cover; */
+}
+
+.exceptOverview {
+  margin-left: 10%;
+  margin-right: 10%;
+}

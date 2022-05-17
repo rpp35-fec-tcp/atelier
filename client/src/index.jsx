@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from './components/relatedItems&comparison/card.jsx';
-import QuestionList from './components/questions&answers/listQuestions.jsx';
-
-
+import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
+import QuestionList from './components/questions&answers/listQuestions.jsx'
 class Overview extends React.Component{
   constructor(props) {
     super(props);
@@ -27,8 +25,7 @@ class Related extends React.Component{
   render() {
     return (
       <div>
-        <h1>Related Product</h1>
-        <Card />
+        <RelatedComponent />
       </div>
     )
   }
