@@ -8,7 +8,7 @@
     "react-dev": "webpack --mode=development --watch",
     "start": "nodemon ./server/index.js"
   },
-  "babel": {
+   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
