@@ -39,60 +39,18 @@ class Questions extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      questions: [],
       showMore: false,
       currentProduct_id: null
     };
-    this.fetchQuestionData = this.fetchQuestionData.bind(this);
   }
-
-  //function to send a request to the server for questions data
-  fetchQuestionData (options, cb) {
-    axios(options)
-      .then((res) => {
-        console.log('data', res.data.results);
-        cb(res.data.results);
-      })
-      .catch((err) => {
-        console.log('error in fetchQuestionData', err.response.data);
-      })
-  }
-
-  componentDidMount () {
-    let options = {
-      method: 'GET',
-      url: 'http://localhost:3000/question',
-      params: {
-        product_id: 71697
-      }
-    };
-
-    this.fetchQuestionData(options, (data) => {
-      this.setState({questions: data});
-    });
-  }
-
-  // componentDidUpdate () {
-  //   let options = {
-  //     method: 'GET',
-  //     url: 'http://localhost:3000/question',
-  //     params: {
-  //       product_id: 71697
-  //     }
-  //   };
-  //   this.fetchQuestionData(options);
-  // }
 
   render() {
-    // let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
-    //  {question:'someQuestion3', answers: [{answer:'someAnswer3'}, {answer: 'anotherAnswer3'}]}];
-
-   
 
     return (
       <div>
         <h1>Question</h1>
-        <QuestionList questions={this.state.questions} showMore={this.state.showMore} />
+        {/* change product_id prop to this.state.currentProduct_id */}
+        <QuestionList product_id={71697} showMore={this.state.showMore} />
       </div>
     )
   }
