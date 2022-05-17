@@ -24,7 +24,7 @@ class Answers extends React.Component{
       method: 'GET',
       url: 'http://localhost:3000/question/answers',
       params: {
-        question_id: this.props.question_id
+        question_id: 631371
       }
     };
 

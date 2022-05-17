@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
 //answer route//
 router.get('/answers', (req, res) => {
   let question_id = req.query.question_id;
+  console.log(question_id);
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
