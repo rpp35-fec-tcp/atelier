@@ -31,7 +31,7 @@ function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
         combinedFeatures[combinedFeatures.length] = [com[i].feature, '', com[i].value];
       }
     }
-    console.log(combinedFeatures);
+    //console.log(combinedFeatures);
     return (
         combinedFeatures.map((combine, index) => (
           <tr key={index}>

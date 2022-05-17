@@ -32,7 +32,7 @@ class RelatedComponent extends React.Component{
   }
   componentDidMount () {
     this.getRelatedProducts((data) => {
-      console.log(data);
+      //console.log(data);
       this.setState({
         relatedProducts: data
       })
