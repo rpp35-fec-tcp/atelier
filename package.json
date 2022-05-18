@@ -66,6 +66,7 @@
     "react-multi-carousel": "^2.8.0",
     "react-test": "^0.14.1",
     "react-test-renderer": "^18.1.0",
+    "regenerator-runtime": "^0.13.9",
     "semantic-ui-react": "^2.1.2",
     "style-loader": "^3.3.1"
   }

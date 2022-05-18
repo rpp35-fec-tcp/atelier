@@ -23,7 +23,7 @@ const responsive = {
   }
 };
 
-const SimpleCarousel = ({relatedProducts, currentProductInfo}) => {
+const SimpleCarousel = ({relatedProducts, currentProductInfo, changeCurrentProductId}) => {
 
   return (
     <Carousel
@@ -41,6 +41,7 @@ const SimpleCarousel = ({relatedProducts, currentProductInfo}) => {
             draggable={false}
             style={{ width: "100%", height: "100%"}}
             currentProductInfo={currentProductInfo}
+            changeCurrentProductId={changeCurrentProductId}
           />
         );
       })}
