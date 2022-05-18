@@ -1,9 +1,21 @@
 import React from 'react';
+import { getReviews } from '../../../../helpers/reviews.js';
+import Review from './Review.jsx';
 
-class Reviews extends React.Component{
+class Reviews extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      reviews: []
+    };
+  }
+
+  componentDidMount() {
+    getReviews()
+    // getReviews(this.props.currentProductId)
+      .then(({ data }) => {
+        this.setState({ reviews: data.results });
+      })
   }
 
   render() {
@@ -14,3 +26,5 @@ class Reviews extends React.Component{
     );
   }
 };
+
+export default Reviews;
