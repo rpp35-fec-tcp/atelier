@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Description(props) {
+function ProductInformation(props) {
   return (
     <table>
       <thead>
@@ -23,4 +23,4 @@ function Description(props) {
   );
 }
 
-export default Description;
+export default ProductInformation;

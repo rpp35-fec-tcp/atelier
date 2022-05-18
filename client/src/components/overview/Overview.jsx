@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import config from '../../../../config.js';
-import Description from './Description.jsx';
-import Styles from './Styles.jsx';
-import Cart from './Cart.jsx';
-import Gallery from './Gallery.jsx';
+import ProductInformation from './ProductInformation.jsx';
+import StyleSelector from './StyleSelector.jsx';
+import AddToCart from './AddToCart.jsx';
+import ImageGallery from './ImageGallery.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -88,20 +88,19 @@ class Overview extends React.Component {
   render() {
     return (
       <div>
-        <Gallery
+        <ImageGallery
           photoURL={this.state.photoURL}
           currentProduct={this.state.currentProduct}
           changePhoto={this.changePhoto}
-          styles={this.state.products}
         />
-        <Styles
+        <StyleSelector
           thumbnails={this.state.products
-            .map((style) => style.photos)
+            .map((product) => product.photos)
             .map((arr) => arr[0].thumbnail_url)}
           changeStyle={this.changeStyle.bind(this)}
         />
-        <Cart />
-        <Description productInfo={this.state.productInfo} />
+        <AddToCart />
+        <ProductInformation productInfo={this.state.productInfo} />
       </div>
     );
   }

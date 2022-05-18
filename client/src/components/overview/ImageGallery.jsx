@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Gallery extends React.Component {
+class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,4 +22,4 @@ class Gallery extends React.Component {
   }
 }
 
-export default Gallery;
+export default ImageGallery;
