@@ -11,7 +11,7 @@ class RelatedComponent extends React.Component{
     super(props);
     this.state = {
       //this id needs to to lift up a state to the index.jsx, so all 4 widgets could interact with it
-      currentProductId: 71704,
+      // currentProductId: 71704,
       currentProductInfo: null,
       relatedProducts: []
     };
@@ -22,7 +22,7 @@ class RelatedComponent extends React.Component{
       url: '/related/getRelatedProducts',
       contentType: 'application/json',
       data: {
-        id: this.state.currentProductId
+        id: this.props.currentProductId
       },
       success: successCB,
       error: function(err) {
@@ -37,7 +37,7 @@ class RelatedComponent extends React.Component{
         relatedProducts: data
       })
     })
-    getOneProduct(this.state.currentProductId, (data) => {this.setState({currentProductInfo: data})})
+    getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
   }
   render () {
     return (
