@@ -10,10 +10,10 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPhoto: 0,
       currentStyle: 0,
+      currentProduct: 0,
       photo: '',
-      styles: [],
+      products: [],
       productInfo: [],
       maxLength: 0,
     };
@@ -28,7 +28,7 @@ class Overview extends React.Component {
       )
       .then((results) => {
         this.setState({ photo: results.data.results[0].photos[0].url });
-        this.setState({ styles: results.data.results });
+        this.setState({ products: results.data.results });
         this.setState({
           maxLength: results.data.results.map((id) => id.photos).length,
         });
@@ -42,47 +42,48 @@ class Overview extends React.Component {
   }
 
   changePhoto(event) {
-    let currentPhotoIndex = this.state.currentPhoto;
+    let currentStyleIndex = this.state.currentStyle;
     let max = this.state.maxLength;
     if (event.target.id === 'forward') {
-      if (this.state.currentPhoto < this.state.maxLength - 1) {
+      if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
           photo:
-            this.state.styles[this.state.currentStyle].photos[
-              currentPhotoIndex + 1
+            this.state.products[this.state.currentProduct].photos[
+              currentStyleIndex + 1
             ].url,
         });
 
-        this.setState({ currentPhoto: currentPhotoIndex + 1 });
+        this.setState({ currentStyle: currentStyle + 1 });
       } else {
         this.setState({
-          photo: this.state.styles[0].photos[0].url,
+          photo: this.state.products[0].photos[0].url,
         });
-        this.setState({ currentPhoto: 0 });
+        this.setState({ currentStyle: 0 });
       }
     }
     if (event.target.id === 'back') {
-      if (this.state.currentPhoto > 0) {
+      if (this.state.currentStyle > 0) {
         this.setState({
           photo:
-            this.state.styles[this.state.currentStyle].photos[
-              currentPhotoIndex - 1
+            this.state.products[this.state.currentProduct].photos[
+              currentStyleIndex - 1
             ].url,
         });
-        this.setState({ currentPhoto: currentPhotoIndex - 1 });
+        this.setState({ currentStyle: currentStyleIndex - 1 });
       } else {
         this.setState({
-          photo: this.state.styles[this.state.currentStyle].photos[max - 1].url,
+          photo:
+            this.state.products[this.state.currentProduct].photos[max - 1].url,
         });
-        this.setState({ currentPhoto: this.state.styles.length - 1 });
+        this.setState({ currentStyle: this.state.styles.length - 1 });
       }
     }
   }
 
   changeStyle(e) {
     let id = Number.parseInt(e.target.id);
-    this.setState({ currentStyle: id });
-    this.setState({ photo: this.state.styles[id].photos[0].url });
+    this.setState({ currentProduct: id });
+    this.setState({ photo: this.state.products[id].photos[0].url });
   }
 
   render() {
@@ -90,11 +91,12 @@ class Overview extends React.Component {
       <div>
         <Gallery
           photo={this.state.photo}
-          currentStyle={this.state.currentStyle}
+          currentProduct={this.state.currentProduct}
           changePhoto={this.changePhoto}
+          styles={this.state.products}
         />
         <Styles
-          thumbnails={this.state.styles
+          thumbnails={this.state.products
             .map((style) => style.photos)
             .map((arr) => arr[0].thumbnail_url)}
           changeStyle={this.changeStyle.bind(this)}
