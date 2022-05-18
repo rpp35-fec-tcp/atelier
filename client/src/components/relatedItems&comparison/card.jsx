@@ -25,7 +25,7 @@ class Card extends React.Component {
   }
   componentDidMount () {
     getOneProduct(this.props.id, (data) => {
-      console.log(data);
+      //console.log(data);
       this.setState({
         productInfo: data
       })
