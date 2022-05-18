@@ -87,8 +87,9 @@ class Overview extends React.Component {
 
   changeStyle(e) {
     let id = Number.parseInt(e.target.id);
-    this.setState({ currentProduct: id });
-    this.setState({ photoURL: this.state.products[id].photos[0].url });
+    this.setState({
+      photoURL: this.state.products[this.state.currentProduct].photos[id].url,
+    });
   }
 
   render() {
