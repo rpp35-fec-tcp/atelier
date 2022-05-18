@@ -8,12 +8,12 @@ app.use(express.json())
 
 const overviewRoute = require('./routes/overview.js');
 const questionRoute = require('./routes/question.js');
-const ratingRoute = require('./routes/rating.js');
+const reviews = require('./routes/reviews.js');
 const relatedRoute = require('./routes/related.js');
 
 app.use('/overview', overviewRoute);
 app.use('/question', questionRoute);
-app.use('/rating', ratingRoute);
+app.use('/reviews', reviews);
 app.use('/related', relatedRoute);
 
 app.listen(port, () => {
