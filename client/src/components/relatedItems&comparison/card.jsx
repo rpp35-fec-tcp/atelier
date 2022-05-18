@@ -97,7 +97,7 @@ class Card extends React.Component {
   }
   render () {
     return (
-      <div className="card" style={{border:'line', borderColor:'black', height:'430px'}}>
+      <div className="card" style={{border:'line', borderColor:'black', height:'430px'}} onClick={() => this.props.changeCurrentProductId(this.state.productInfo.id)}>
         {this.state.defaultItem !== null && <div style={{height:'300px', display:'block', backgroundColor: 'lightgray'}}><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
         <div className="card-body" style={{display:"block", height:"130px"}}>
           {this.state.productInfo !== null && <h6 className="card-subtitle mb-2 text-muted" style={{fontSize:"12px"}}>{this.state.productInfo.category}</h6>}

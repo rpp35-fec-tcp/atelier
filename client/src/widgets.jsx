@@ -22,12 +22,15 @@ export class Overview extends React.Component{
 export class Related extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      // currentProductId: this.props.currentProductId
+    }
   }
   render() {
+    //console.log(this.props.currentProductId)
     return (
       <div>
-        <RelatedComponent currentProductId={this.props.currentProductId}/>
+        <RelatedComponent currentProductId={this.props.currentProductId} changeCurrentProductId={this.props.changeCurrentProductId}/>
       </div>
     )
   }
