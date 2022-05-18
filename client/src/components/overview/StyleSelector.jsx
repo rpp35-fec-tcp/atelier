@@ -8,13 +8,15 @@ class StyleSelector extends React.Component {
   render() {
     return (
       <div>
+        <h1>Style Selector</h1>
+        {console.log(this.props.thumbnails)}
         {this.props.thumbnails
-          ? this.props.thumbnails.map((image, id) => (
+          ? this.props.thumbnails.map((i, id) => (
               <img
                 className='styles'
                 id={id}
                 key={'style' + id}
-                src={image}
+                src={i.thumbnail_url}
                 onClick={this.props.changeStyle}
               ></img>
             ))

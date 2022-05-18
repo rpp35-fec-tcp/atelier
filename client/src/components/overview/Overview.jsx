@@ -29,10 +29,15 @@ class Overview extends React.Component {
       .then((results) => {
         this.setState({ photoURL: results.data.results[0].photos[0].url });
         this.setState({ products: results.data.results });
-        this.setState({
-          maxLength: results.data.results.map((id) => id.photos).length,
-        });
-        console.log(results.data.results);
+        this.setState(
+          {
+            maxLength: results.data.results.map((id) => id.photos).length,
+          },
+          () => {
+            console.log('products 1: ', this.state.products);
+          }
+        );
+        console.log('results: ', results.data.results);
       });
     axios
       .get(this.props.url + '/products/' + this.props.currentProduct)
@@ -44,6 +49,7 @@ class Overview extends React.Component {
   changePhoto(event) {
     let max = this.state.maxLength;
     if (event.target.id === 'forward') {
+      console.log('products: ', this.state.products);
       if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
           photoURL:
@@ -93,12 +99,12 @@ class Overview extends React.Component {
           currentProduct={this.state.currentProduct}
           changePhoto={this.changePhoto}
         />
-        <StyleSelector
-          thumbnails={this.state.products
-            .map((product) => product.photos)
-            .map((arr) => arr[0].thumbnail_url)}
-          changeStyle={this.changeStyle.bind(this)}
-        />
+        {this.state.products.length > 0 && (
+          <StyleSelector
+            thumbnails={this.state.products[this.state.currentProduct].photos}
+            changeStyle={this.changeStyle.bind(this)}
+          />
+        )}
         <AddToCart />
         <ProductInformation productInfo={this.state.productInfo} />
       </div>
