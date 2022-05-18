@@ -22,6 +22,9 @@ class Reviews extends React.Component {
     return (
       <div>
         <h1>Ratings & Reviews</h1>
+        {this.state.reviews.map((review) => {
+          return <Review review={review} key={review.review_id}/>
+        })}
       </div>
     );
   }
