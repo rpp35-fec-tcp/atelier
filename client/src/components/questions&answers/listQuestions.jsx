@@ -6,7 +6,7 @@ import Answers from './answers.jsx';
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {questions: [], moreAnswers: false };
+    this.state = { questions: [], moreAnswers: false };
     this.fetchData = this.fetchData.bind(this);
   }
 
@@ -40,6 +40,18 @@ class QuestionList extends React.Component {
 
   render() {
     let questionData = this.state.questions;
+    //sort by helpfulness
+    questionData.sort((a, b) => {
+      if (a.question_helpfulness > b.question_helpfulness) {
+        return -1;
+      } else if (a.question_helpfulness < b.question_helpfulness) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    //show only two questions until "show more" is clicked
     if (this.props.showMore === false) {
       questionData = questionData.slice(0, 2);
     }
@@ -47,7 +59,7 @@ class QuestionList extends React.Component {
 
     return (
       <div className="questionList">
-        <h5 id='question-header'>Product Questions</h5>
+        <h4 id='question-header'>Q: </h4>
         <ul>
           {questionData.map((item) => {
             return (
@@ -55,7 +67,8 @@ class QuestionList extends React.Component {
                 <div className='question'>{item.question_body}
                   {/* show more details from question */}
                   <div className='answerList'>
-                    <Answers question_id={item.question_id} />
+                    <Answers question_id={item.question_id}
+                      moreAnswers={this.state.moreAnswers} />
                   </div>
                 </div>
 

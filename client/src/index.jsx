@@ -47,7 +47,7 @@ class Questions extends React.Component{
       <div>
         <h1>Question</h1>
         {/* change product_id prop to this.state.currentProduct_id */}
-        <QuestionList product_id={71697} showMore={this.state.showMore} />
+        <QuestionList product_id={71698} showMore={this.state.showMore} />
       </div>
     )
   }

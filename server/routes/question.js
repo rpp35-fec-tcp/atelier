@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const axios = require('axios');
-const APIurl = 'https://app-hrsei-api.herokuapp.com/api/fec2/:hr-rpp/qa/questions';
+const APIurl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions';
 const config = require('/Users/josh/HRWork/Senior/atelier/config.js');
 
 //question route//
@@ -30,21 +30,19 @@ router.get('/', (req, res) => {
 //answer route//
 router.get('/answers', (req, res) => {
   let question_id = req.query.question_id;
-  console.log(question_id);
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
     },
     params: {
-      question_id: question_id,
       page: 1,
       count: 5
     }
   };
 
-  axios.get(APIurl+'/:question_id/answers', options)
-    .then((APIres) => {
-      res.status(200).send(APIres.data);
+  axios.get(`${APIurl}/${question_id}/answers`, options)
+    .then((answerAPIres) => {
+      res.status(200).send(answerAPIres.data);
     })
     .catch((err) => {
       console.log('error getting answer data in router', err.response.data);

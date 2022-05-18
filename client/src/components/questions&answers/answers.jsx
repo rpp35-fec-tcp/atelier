@@ -2,42 +2,83 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-class Answers extends React.Component{
-  constructor (props) {
+class Answers extends React.Component {
+  constructor(props) {
     super(props);
-    this.state = {answers: []}
+    this.state = { answers: [] }
     this.fetchAnswerData = this.fetchAnswerData.bind(this);
+    this.dateConverter = this.dateConverter.bind(this);
   }
 
-  fetchAnswerData (options, cb) {
+  fetchAnswerData(options, cb) {
     axios(options)
       .then((res) => {
-       console.log('answers', res.data);
+        cb(res.data);
       })
       .catch((err) => {
         console.log('error in fetchAnswerData', err.response.data);
       })
   }
 
-  componentDidMount () {
+  dateConverter (UTC) {
+    let date = new Date(UTC)
+    date = date.toLocaleString();
+    return date;
+  }
+
+  componentDidMount() {
     let options = {
       method: 'GET',
       url: 'http://localhost:3000/question/answers',
       params: {
-        question_id: 631371
+        question_id: this.props.question_id
       }
     };
 
     this.fetchAnswerData(options, (data) => {
-      this.setState({answers: data}, () => {
-        console.log('answer data', this.state.answers);
-      });
+      this.setState({ answers: data.results });
     });
   }
 
 
-  render () {
-    console.log('question id', this.props.question_id);
+  render() {
+    let answerData = this.state.answers;
+
+    answerData.sort((a, b) => {
+      if (a.helpfulness > b.helpfulness) {
+        return -1;
+      } else if (a.helpfulness > b.helpfulness) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    if (this.props.moreAnswers === false) {
+      answerData = answerData.slice(0, 2);
+    }
+
+
+
+
+    return (
+      <div className='answers'>
+        <h4 id='answer-header'>A:</h4>
+        <ul>
+          {answerData.map((item) => {
+            return (
+              <li key={item.answer_id}>
+                <span  className='answerBody'>{item.body}</span>
+                <div className='answerer-name/time'>
+                  <small className='answerer-name'>{item.answerer_name}</small>
+                  <small className='answer-time'>{this.dateConverter(item.date)}</small>
+                </div>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    )
 
   }
 
