@@ -12,7 +12,7 @@ class Overview extends React.Component {
     this.state = {
       currentStyle: 0,
       currentProduct: 0,
-      photo: '',
+      photoURL: '',
       products: [],
       productInfo: [],
       maxLength: 0,
@@ -27,7 +27,7 @@ class Overview extends React.Component {
         this.props.url + '/products/' + this.props.currentProduct + '/styles'
       )
       .then((results) => {
-        this.setState({ photo: results.data.results[0].photos[0].url });
+        this.setState({ photoURL: results.data.results[0].photos[0].url });
         this.setState({ products: results.data.results });
         this.setState({
           maxLength: results.data.results.map((id) => id.photos).length,
@@ -46,7 +46,7 @@ class Overview extends React.Component {
     if (event.target.id === 'forward') {
       if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
-          photo:
+          photoURL:
             this.state.products[this.state.currentProduct].photos[
               this.state.currentStyle + 1
             ].url,
@@ -55,7 +55,7 @@ class Overview extends React.Component {
         this.setState({ currentStyle: this.state.currentStyle + 1 });
       } else {
         this.setState({
-          photo: this.state.products[0].photos[0].url,
+          photoURL: this.state.products[0].photos[0].url,
         });
         this.setState({ currentStyle: 0 });
       }
@@ -63,7 +63,7 @@ class Overview extends React.Component {
     if (event.target.id === 'back') {
       if (this.state.currentStyle > 0) {
         this.setState({
-          photo:
+          photoURL:
             this.state.products[this.state.currentProduct].photos[
               this.state.currentStyle - 1
             ].url,
@@ -71,7 +71,7 @@ class Overview extends React.Component {
         this.setState({ currentStyle: this.state.currentStyle - 1 });
       } else {
         this.setState({
-          photo:
+          photoURL:
             this.state.products[this.state.currentProduct].photos[max - 1].url,
         });
         this.setState({ currentStyle: this.state.styles.length - 1 });
@@ -82,14 +82,14 @@ class Overview extends React.Component {
   changeStyle(e) {
     let id = Number.parseInt(e.target.id);
     this.setState({ currentProduct: id });
-    this.setState({ photo: this.state.products[id].photos[0].url });
+    this.setState({ photoURL: this.state.products[id].photos[0].url });
   }
 
   render() {
     return (
       <div>
         <Gallery
-          photo={this.state.photo}
+          photoURL={this.state.photoURL}
           currentProduct={this.state.currentProduct}
           changePhoto={this.changePhoto}
           styles={this.state.products}
