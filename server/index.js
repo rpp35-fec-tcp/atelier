@@ -1,11 +1,10 @@
 const express = require('express');
+
 const app = express();
-const bodyParser = require('body-parser');
 const port = 3000;
 
-//Serve static files
 app.use(express.static(__dirname + '/../client/dist'));
-app.use(bodyParser.json());
+app.use(express.json())
 
 const overviewRoute = require('./routes/overview.js');
 const questionRoute = require('./routes/question.js');
@@ -17,14 +16,6 @@ app.use('/question', questionRoute);
 app.use('/rating', ratingRoute);
 app.use('/related', relatedRoute);
 
-
-
-
-//listen on port
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-
-
-
