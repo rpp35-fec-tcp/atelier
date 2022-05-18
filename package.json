@@ -2,7 +2,7 @@
   "name": "atelier",
   "version": "1.0.0",
   "description": "Front end work for a retail web-portal",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "jest",
     "react-dev": "webpack --mode=development --watch",
