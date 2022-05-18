@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import widgets from './components/relatedItems&comparison/relatedItems&comparison.jsx';
-import { Overview, Reviews, Questions, Related } from './widgets.jsx';
+import { Overview, Questions, Related } from './widgets.jsx';
+import Reviews from './components/reviews/Reviews.jsx'
 
 class App extends React.Component{
   constructor(props){
