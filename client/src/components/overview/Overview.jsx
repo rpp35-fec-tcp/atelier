@@ -42,18 +42,17 @@ class Overview extends React.Component {
   }
 
   changePhoto(event) {
-    let currentStyleIndex = this.state.currentStyle;
     let max = this.state.maxLength;
     if (event.target.id === 'forward') {
       if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
           photo:
             this.state.products[this.state.currentProduct].photos[
-              currentStyleIndex + 1
+              this.state.currentStyle + 1
             ].url,
         });
 
-        this.setState({ currentStyle: currentStyle + 1 });
+        this.setState({ currentStyle: this.state.currentStyle + 1 });
       } else {
         this.setState({
           photo: this.state.products[0].photos[0].url,
@@ -66,10 +65,10 @@ class Overview extends React.Component {
         this.setState({
           photo:
             this.state.products[this.state.currentProduct].photos[
-              currentStyleIndex - 1
+              this.state.currentStyle - 1
             ].url,
         });
-        this.setState({ currentStyle: currentStyleIndex - 1 });
+        this.setState({ currentStyle: this.state.currentStyle - 1 });
       } else {
         this.setState({
           photo:
