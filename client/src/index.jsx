@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import widgets from './components/relatedItems&comparison/relatedItems&comparison.jsx';
-import { Overview, Questions, Related } from './widgets.jsx';
+import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx'
 
 class App extends React.Component{
@@ -25,9 +25,9 @@ class App extends React.Component{
     return (
       <div>
         <Overview currentProductId={this.state.currentProductId}/>
-        <Reviews currentProductId={this.state.currentProductId}/>
-        <Questions currentProductId={this.state.currentProductId}/>
         <Related currentProductId={this.state.currentProductId} changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
+        <Questions currentProductId={this.state.currentProductId}/>
+        <Reviews currentProductId={this.state.currentProductId}/>
       </div>
     )
   }
