@@ -1,7 +1,7 @@
 {
   "name": "atelier",
   "version": "1.0.0",
-  "description": "Front end work for a retail web-portal",
+  "description": "Frontend work for a retail web portal",
   "private": true,
   "scripts": {
     "test": "jest",
@@ -21,10 +21,8 @@
     "type": "git",
     "url": "git+https://github.com/rpp35-fec-tcp/atelier.git"
   },
-  "keywords": [
-    "Front-end"
-  ],
-  "author": "rpp35-tcp",
+  "keywords": [],
+  "author": "rpp35-fec-tcp",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rpp35-fec-tcp/atelier/issues"
