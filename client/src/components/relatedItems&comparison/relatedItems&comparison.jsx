@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'react-multi-carousel/lib/styles.css';
 import SimpleCarousel from './carousel.jsx';
-import './related.css';
+// import './related.css';
 import $ from 'jquery';
 import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
 
