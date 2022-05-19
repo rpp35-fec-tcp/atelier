@@ -10,10 +10,10 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentPicture: 0,
       currentStyle: 0,
-      currentProduct: 0,
       photoURL: '',
-      products: [],
+      styles: [],
       productInfo: [],
       maxLength: 0,
     };
@@ -27,17 +27,18 @@ class Overview extends React.Component {
         this.props.url + '/products/' + this.props.currentProduct + '/styles'
       )
       .then((results) => {
-        this.setState({ photoURL: results.data.results[0].photos[0].url });
-        this.setState({ products: results.data.results });
+        this.setState({
+          photoURL: results.data.results[this.state.currentStyle].photos[0].url,
+        });
+        this.setState({ styles: results.data.results });
         this.setState(
           {
             maxLength: results.data.results.map((id) => id.photos).length,
           },
           () => {
-            console.log('products 1: ', this.state.products);
+            console.log('styles: ', this.state.styles);
           }
         );
-        console.log('results: ', results.data.results);
       });
     axios
       .get(this.props.url + '/products/' + this.props.currentProduct)
@@ -49,19 +50,18 @@ class Overview extends React.Component {
   changePhoto(event) {
     let max = this.state.maxLength;
     if (event.target.id === 'forward') {
-      console.log('products: ', this.state.products);
       if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
           photoURL:
-            this.state.products[this.state.currentProduct].photos[
-              this.state.currentStyle + 1
+            this.state.styles[this.state.currentStyle].photos[
+              this.state.currentPicture + 1
             ].url,
         });
 
         this.setState({ currentStyle: this.state.currentStyle + 1 });
       } else {
         this.setState({
-          photoURL: this.state.products[0].photos[0].url,
+          photoURL: this.state.styles[0].photos[0].url,
         });
         this.setState({ currentStyle: 0 });
       }
@@ -70,17 +70,17 @@ class Overview extends React.Component {
       if (this.state.currentStyle > 0) {
         this.setState({
           photoURL:
-            this.state.products[this.state.currentProduct].photos[
-              this.state.currentStyle - 1
+            this.state.styles[this.state.currentStyle].photos[
+              this.state.currentPicture - 1
             ].url,
         });
-        this.setState({ currentStyle: this.state.currentStyle - 1 });
+        this.setState({ currentPicture: this.state.currentPicture - 1 });
       } else {
         this.setState({
           photoURL:
-            this.state.products[this.state.currentProduct].photos[max - 1].url,
+            this.state.styles[this.state.currentStyle].photos[max - 1].url,
         });
-        this.setState({ currentStyle: this.state.styles.length - 1 });
+        this.setState({ currentPicture: this.state.styles.length - 1 });
       }
     }
   }
@@ -88,7 +88,7 @@ class Overview extends React.Component {
   changeStyle(e) {
     let id = Number.parseInt(e.target.id);
     this.setState({
-      photoURL: this.state.products[this.state.currentProduct].photos[id].url,
+      photoURL: this.state.styles[this.state.currentStyle].photos[id].url,
     });
   }
 
@@ -97,12 +97,12 @@ class Overview extends React.Component {
       <div>
         <ImageGallery
           photoURL={this.state.photoURL}
-          currentProduct={this.state.currentProduct}
+          currentProduct={this.state.currentStyle}
           changePhoto={this.changePhoto}
         />
-        {this.state.products.length > 0 && (
+        {this.state.styles.length > 0 && (
           <StyleSelector
-            thumbnails={this.state.products[this.state.currentProduct].photos}
+            thumbnails={this.state.styles[this.state.currentStyle].photos}
             changeStyle={this.changeStyle.bind(this)}
           />
         )}
