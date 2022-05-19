@@ -18,17 +18,20 @@ class Card extends React.Component {
       currentProductInfo: this.props.currentProductInfo,
       show: false
     }
+    //this.changeShow = this.changeShow.bind();
   }
   changeShow () {
     this.setState({show: false});
   }
   componentDidMount () {
     getOneProduct(this.props.id, (data) => {
+      //console.log(data);
       this.setState({
         productInfo: data
       })
     });
     getOneProductStyle(this.props.id, (data) => {
+      // console.log('style data:', data);
       this.setState({
         productStyle: data
       });
@@ -68,8 +71,12 @@ class Card extends React.Component {
   //unit test for price whether default true is selected for pricing,
   //unit test for price whether sales price is used if it is not null
   getDefaultItem (results) {
+    //let results = this.state.productStyle.results;
     var defaultItem = results.filter((result) => result['default?']);
     defaultItem = defaultItem.length === 0 ? results[0] : defaultItem[0];
+    // console.log('results: ', results)
+    // console.log('defaultItem: ', defaultItem);
+    //console.log(defaultItem);
     this.setState({
       defaultItem: defaultItem
     })
@@ -77,32 +84,30 @@ class Card extends React.Component {
   price (defaultItem) {
     if (defaultItem.sale_price === null) {
       return (
-        <p className="originalPrice" >{defaultItem.original_price}</p>
+        <p style={{marginBottom: '5px', color:'gray', fontSize:'12px'}}>{defaultItem.original_price}</p>
       )
     } else {
       return (
         <div>
-          <p className="crossOutOriginalPrice">{defaultItem.original_price}</p>
-          <p className="salePrice" >{defaultItem.sale_price}</p>
+          <p style={{textDecoration: 'line-through', color: 'gray', fontSize:'12px', display: 'inline', marginBottom: '5px'}}>{defaultItem.original_price}</p>
+          <p style={{fontSize:'12px', color: 'red', display: 'inline', marginBottom: '5px'}}>{defaultItem.sale_price}</p>
         </div>
       )
     }
   }
   render () {
     return (
-      <div>
-       <div className="card" onClick={() => this.props.changeCurrentProductId(this.state.productInfo.id)}>
-        {this.state.defaultItem !== null && <div className='image-holder'><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
-        <div className="card-body" >
-          {this.state.productInfo !== null && <h6 className="card-subtitle mb-2 text-muted" >{this.state.productInfo.category}</h6>}
-          {this.state.productInfo !== null && <h5 className="card-title" >{this.state.productInfo.name}</h5>}
+      <div className="card" style={{border:'line', borderColor:'black', height:'430px'}} onClick={() => this.props.changeCurrentProductId(this.state.productInfo.id)}>
+        {this.state.defaultItem !== null && <div style={{height:'300px', display:'block', backgroundColor: 'lightgray'}}><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
+        <div className="card-body" style={{display:"block", height:"130px"}}>
+          {this.state.productInfo !== null && <h6 className="card-subtitle mb-2 text-muted" style={{fontSize:"12px"}}>{this.state.productInfo.category}</h6>}
+          {this.state.productInfo !== null && <h5 className="card-title" style={{fontSize:"15px"}}>{this.state.productInfo.name}</h5>}
           {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
           {this.rating(this.state.reviewRating)}
         </div>
+        <FaRegStar className='star' onClick={(e) => this.setState({show: true})}/>
         {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.productInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
-      </div>
-      <FaRegStar className='star' onClick={(e) => {e.stopPropagation();this.setState({show: true}); }}/>
       </div>
     );
   }

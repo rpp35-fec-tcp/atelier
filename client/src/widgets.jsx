@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
 import QuestionList from './components/questions&answers/listQuestions.jsx'
 import AppOverview from './components/overview/AppOverview.js';
