@@ -7,7 +7,9 @@ class Reviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      displayed: 2,
+      reviewCount: 0,
+      reviews: [],
     };
   }
 
