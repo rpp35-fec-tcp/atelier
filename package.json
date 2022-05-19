@@ -1,12 +1,12 @@
 {
   "name": "atelier",
   "version": "1.0.0",
-  "description": "Front end work for a retail web-portal",
-  "main": "index.js",
+  "description": "Frontend work for a retail web portal",
+  "private": true,
   "scripts": {
     "test": "jest",
     "react-dev": "webpack --mode=development --watch",
-    "start": "nodemon ./server/index.js"
+    "start": "nodemon server/index.js"
   },
   "babel": {
     "presets": [
@@ -21,10 +21,8 @@
     "type": "git",
     "url": "git+https://github.com/rpp35-fec-tcp/atelier.git"
   },
-  "keywords": [
-    "Front-end"
-  ],
-  "author": "rpp35-tcp",
+  "keywords": [],
+  "author": "rpp35-fec-tcp",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rpp35-fec-tcp/atelier/issues"
@@ -35,6 +33,7 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@iconify/react": "^3.2.1",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",

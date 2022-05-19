@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
 import QuestionList from './components/questions&answers/listQuestions.jsx'
+import AppOverview from './components/overview/AppOverview.js';
 
 export class Overview extends React.Component {
   constructor(props) {
@@ -12,9 +13,7 @@ export class Overview extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h1>Overview</h1>
-      </div>
+      <AppOverview currentProductId={this.props.currentProductId}/>
     )
   }
 }
