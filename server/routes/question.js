@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const axios = require('axios');
 const APIurl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions';
-const config = require('/Users/josh/HRWork/Senior/atelier/config.js');
+const config = require('../../config.js');
 
 //question route//
 router.get('/', (req, res) => {
