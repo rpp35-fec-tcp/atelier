@@ -1,9 +1,9 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: ["regenerator-runtime/runtime.js", __dirname + '/client/src/index.jsx'],
   module: {
     rules: [
       {
-        test: /\.js$|jsx/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
