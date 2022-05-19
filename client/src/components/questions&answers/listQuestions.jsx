@@ -7,10 +7,17 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { questions: [], moreAnswers: false };
-    this.fetchData = this.fetchData.bind(this);
+    this.fetchQuestionData = this.fetchQuestionData.bind(this);
   }
 
-  fetchData(options, cb) {
+  fetchQuestionData(cb) {
+    let options = {
+      method: 'GET',
+      url: 'http://localhost:3000/question',
+      params: {
+        product_id: this.props.product_id
+      }
+    };
     axios(options)
       .then((res) => {
         console.log('data', res.data.results);
@@ -22,21 +29,19 @@ class QuestionList extends React.Component {
   }
 
   componentDidMount() {
-    let options = {
-      method: 'GET',
-      url: 'http://localhost:3000/question',
-      params: {
-        product_id: this.props.product_id
-      }
-    };
 
-
-    this.fetchData(options, (data) => {
+    this.fetchQuestionData((data) => {
       this.setState({ questions: data });
     });
-
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.product_id !== prevProps.product_id) {
+      this.fetchQuestionData((data) => {
+        this.setState({ questions: data });
+      });
+    }
+  }
 
   render() {
     let questionData = this.state.questions;
