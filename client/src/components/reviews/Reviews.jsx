@@ -21,7 +21,7 @@ class Reviews extends React.Component {
   render() {
     return (
       <div>
-        <h1>Ratings & Reviews</h1>
+        <h1>RATINGS & REVIEWS</h1>
         {this.state.reviews.map((review) => {
           return <Review review={review} key={review.review_id}/>
         })}
