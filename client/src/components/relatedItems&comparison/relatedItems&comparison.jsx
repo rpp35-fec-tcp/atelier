@@ -5,15 +5,15 @@ import SimpleCarousel from './carousel.jsx';
 // import './related.css';
 import $ from 'jquery';
 import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class RelatedComponent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      //this id needs to to lift up a state to the index.jsx, so all 4 widgets could interact with it
-      //currentProductId: null,
       currentProductInfo: null,
-      relatedProducts: []
+      relatedProducts: [],
+      outfitList:[null, 71709, 71698, 71699, 71702]
     };
   }
   getRelatedProducts (successCB) {
@@ -29,6 +29,14 @@ class RelatedComponent extends React.Component{
         console.log(err);
       }
     })
+  }
+  addToOutfit (id) {
+    console.log(id);
+    if (!this.state.outfitList.includes(id)) {
+      this.setState({
+        outfitList: [...this.state.outfitList, id]
+      });
+    }
   }
   componentDidMount () {
     //console.log('id in related:', this.state.currentProductId)
@@ -56,8 +64,10 @@ class RelatedComponent extends React.Component{
   render () {
     return (
       <div className='exceptOverview'>
-        <p style={{color: 'gray', marginLeft: '2%', fontSize:'20px'}}>Related Product</p>
-        <SimpleCarousel relatedProducts={this.state.relatedProducts} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId}/>
+        <p style={{color: 'gray', marginLeft: '2%', marginTop:'5%', fontSize:'20px'}}>Related Product</p>
+        <SimpleCarousel relatedProducts={this.state.relatedProducts} currentProductId={this.props.currentProductId} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId} addToOutfit={this.addToOutfit.bind(this)}/>
+        <p style={{color: 'gray', marginLeft: '2%', marginTop:'5%', fontSize:'20px'}}>Related Product</p>
+        <SimpleCarousel relatedProducts={this.state.outfitList} currentProductId={this.props.currentProductId} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId} addToOutfit={this.addToOutfit.bind(this)}/>
       </div>
     );
   }
