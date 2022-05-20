@@ -18,7 +18,7 @@ const Reviews = (props) => {
   );
 
   const handleButtonClick = (e) => {
-    setDisplayed(displayed + 2);
+    setDisplayed(Math.min(displayed + 2, reviewCount));
   };
 
   useEffect(() => {
