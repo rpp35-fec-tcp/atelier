@@ -45,10 +45,17 @@ class Overview extends React.Component {
     axios
       .get(this.props.url + '/products/' + this.props.currentProduct)
       .then((results) => {
-        this.setState({ productInfo: results.data });
+        this.setState({ productInfo: results.data }, () => {
+          console.log('product Info: ', this.state.productInfo);
+        });
       });
+
     axios
-      .get(this.props.url + '/reviews/meta/?product_id=' + this.props.currentProduct)
+      .get(
+        this.props.url +
+          '/reviews/meta/?product_id=' +
+          this.props.currentProduct
+      )
       .then((res) => {
         console.log('get product ratings: ', res.data.ratings['1']);
         const reviewsCount =
@@ -68,7 +75,7 @@ class Overview extends React.Component {
         console.log('ratings: ', ratings);
         this.setState({ ratings, reviewsCount });
       })
-      .catch(err => console.error('get product rating error: ', err))
+      .catch((err) => console.error('get product rating error: ', err));
   }
 
   changePhoto(event) {
@@ -131,7 +138,11 @@ class Overview extends React.Component {
           />
         )}
         <AddToCart />
-        <ProductInformation productInfo={this.state.productInfo} />
+        <ProductInformation
+          productInfo={this.state.productInfo}
+          ratings={this.state.ratings}
+          reviewsCount={this.state.reviewsCount}
+        />
       </div>
     );
   }
