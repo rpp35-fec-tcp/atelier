@@ -4,7 +4,7 @@
 }
 
 .reviews h6 {
-  width: 1100px
+  width: 1015px
 }
 
 .reviews.row {
@@ -13,11 +13,11 @@
 }
 
 .reviews.column.left {
-  width: 350px;
-  padding-right: 70px;
+  width: 340px;
+  padding: 0 65px 0 0;
 }
 
 .reviews.column.right {
-  width: 750px;
-  padding-left: 70px;
+  width: 675px;
+  padding: 0;
 }
