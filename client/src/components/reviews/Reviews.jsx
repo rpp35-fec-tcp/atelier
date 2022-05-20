@@ -1,5 +1,4 @@
 import React from 'react';
-import { getReviews } from '../../../../helpers/reviews.js';
 import Review from './Review.jsx';
 import './Reviews.css'
 
@@ -11,17 +10,28 @@ class Reviews extends React.Component {
       reviewCount: 0,
       reviews: [],
     };
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  fetchData(product_id) {
+    fetch(`/reviews/?product_id=${product_id}`)
+    .then((response) => response.json())
+    .then((results) => {
+      this.setState({
+        reviewCount: results.length,
+        reviews: results,
+      });
+    })
   }
 
   componentDidMount() {
-    getReviews()
-    // getReviews(this.props.currentProductId)
-      .then(({ data }) => {
-        this.setState({
-          reviewCount: data.results.length,
-          reviews: data.results,
-        });
-      })
+    this.fetchData(this.props.currentProductId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentProductId !== prevProps.currentProductId) {
+      this.fetchData(this.props.currentProductId);
+    }
   }
 
   render() {
