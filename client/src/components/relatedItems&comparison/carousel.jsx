@@ -22,7 +22,7 @@ const responsive = {
 };
 
 const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit}) => {
-  console.log(relatedProducts)
+  //console.log(relatedProducts)
   return (
     <Carousel
       ssr
