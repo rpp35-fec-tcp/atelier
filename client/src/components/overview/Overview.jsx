@@ -45,6 +45,7 @@ class Overview extends React.Component {
       .then((results) => {
         this.setState({ productInfo: results.data });
       });
+      
   }
 
   changePhoto(event) {
