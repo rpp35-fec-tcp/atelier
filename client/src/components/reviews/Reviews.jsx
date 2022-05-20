@@ -28,7 +28,7 @@ const Reviews = (props) => {
   return (
     <div className='reviews'>
       <div className='reviews header'>
-        <h6>RATINGS & REVIEWS</h6>
+        <p>RATINGS & REVIEWS</p>
       </div>
       <div className='reviews row'>
         <div className='reviews column left'>
@@ -40,9 +40,10 @@ const Reviews = (props) => {
           })}
           {
             (reviewCount > 2) && (displayed < reviewCount)
-            ? <button onClick={handleButtonClick}>MORE REVIEWS</button>
+            ? <button onClick={handleButtonClick}><b>MORE REVIEWS</b></button>
             : null
           }
+          <button><b>ADD A REVIEW&nbsp;&nbsp;&#65291;</b></button>
         </div>
       </div>
     </div>
