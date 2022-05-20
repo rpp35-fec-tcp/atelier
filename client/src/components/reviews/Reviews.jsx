@@ -17,7 +17,7 @@ const Reviews = (props) => {
     []
   );
 
-  const handleButtonClick = (e) => {
+  const handleButtonClick = () => {
     setDisplayed(Math.min(displayed + 2, reviewCount));
   };
 
