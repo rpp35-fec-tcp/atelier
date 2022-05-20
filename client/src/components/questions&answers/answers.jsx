@@ -13,7 +13,7 @@ class Answers extends React.Component {
   }
 
   handleClick () {
-    this.setState({moreAnswers: !this.state.moreAnswers})
+    this.setState({moreAnswers: !this.state.moreAnswers});
   }
 
   fetchAnswerData(options, cb) {

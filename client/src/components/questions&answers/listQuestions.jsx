@@ -8,11 +8,29 @@ class QuestionList extends React.Component {
     super(props);
     this.state = { questions: [], showMore: false };
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleShowMoreClick = this.handleShowMoreClick.bind(this);
+    this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
   }
 
-  handleClick () {
+  handleShowMoreClick () {
     this.setState({showMore: !this.state.showMore})
+  }
+
+  handleUpvoteClick (id) {
+    //send a put req to server with question id as a param
+    //with axios.put
+    console.log(id);
+    axios.put('http://localhost:3000/question/upvoteQuestionHelpful',{
+      params:{
+        question_id: id
+      }
+    })
+      .then((res) => {
+        console.log('upvoted question');
+      })
+      .catch((err) => {
+        console.log('client side error upvoting question helpfulness', err.response.data);
+      })
   }
 
   fetchQuestionData(cb) {
@@ -25,7 +43,7 @@ class QuestionList extends React.Component {
     };
     axios(options)
       .then((res) => {
-        // console.log('data', res.data.results);
+        console.log('data', res.data.results);
         cb(res.data.results);
       })
       .catch((err) => {
@@ -81,6 +99,9 @@ class QuestionList extends React.Component {
             return (
               <li key={item.question_id}>
                 <h4 id='question-header'>Q: </h4>
+                <small className='question-helpfulness'> Helpful?
+                <button className="upvote-helpfulness" onClick={(item) => this.handleUpvoteClick(item.question_id)}>Yes</button>
+                  ({item.question_helpfulness})</small>
                 <div className='question'>{item.question_body}
                   {/* show more details from question */}
                   <div className='answerList'>
@@ -93,7 +114,7 @@ class QuestionList extends React.Component {
             )
           })}
         </ul>
-        <button id="moreQuestions" onClick={this.handleClick}>MORE ANSWERED QUESTIONS</button>
+        <button id="moreQuestions" onClick={this.handleShowMoreClick}>MORE ANSWERED QUESTIONS</button>
       </div>
     )
   }
