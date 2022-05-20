@@ -16,6 +16,8 @@ class Overview extends React.Component {
       styles: [],
       productInfo: [],
       maxLength: 0,
+      ratings: 0,
+      reviewsCount: 0,
     };
     this.changePhoto = this.changePhoto.bind(this);
   }
@@ -45,6 +47,28 @@ class Overview extends React.Component {
       .then((results) => {
         this.setState({ productInfo: results.data });
       });
+    axios
+      .get(this.props.url + '/reviews/meta/?product_id=' + this.props.currentProduct)
+      .then((res) => {
+        console.log('get product ratings: ', res.data.ratings['1']);
+        const reviewsCount =
+          Number(res.data.ratings['1'] || 0) +
+          Number(res.data.ratings['2'] || 0) +
+          Number(res.data.ratings['3'] || 0) +
+          Number(res.data.ratings['4'] || 0) +
+          Number(res.data.ratings['5'] || 0);
+        const ratings = (
+          (Number(res.data.ratings['1'] || 0) * 1 +
+            Number(res.data.ratings['2'] || 0) * 2 +
+            Number(res.data.ratings['3'] || 0) * 3 +
+            Number(res.data.ratings['4'] || 0) * 4 +
+            Number(res.data.ratings['5'] || 0) * 5) /
+          reviewsCount
+        ).toFixed(2);
+        console.log('ratings: ', ratings);
+        this.setState({ ratings, reviewsCount });
+      })
+      .catch(err => console.error('get product rating error: ', err))
   }
 
   changePhoto(event) {
