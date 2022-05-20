@@ -8,7 +8,7 @@ const Review = ({ review }) => {
       <div>{review.date}</div>
       <div>{review.summary}</div>
       <div>{review.body}</div>
-      <div>{review.photos}</div>
+      {/* <div>{review.photos}</div> */}
       <div>{review.recommend}</div>
       <div>{review.response}</div>
       {/* <div>{review.review_id}</div> */}
