@@ -17,6 +17,10 @@ const Reviews = (props) => {
     []
   );
 
+  const handleButtonClick = (e) => {
+    setDisplayed(displayed + 2);
+  };
+
   useEffect(() => {
     fetchData(props.currentProductId);
   }, [props.currentProductId]);
@@ -34,7 +38,11 @@ const Reviews = (props) => {
           {reviews.slice(0, displayed).map((review) => {
             return <Review review={review} key={review.review_id}/>
           })}
-          {reviewCount > 2 ? <button>MORE REVIEWS</button> : null}
+          {
+            (reviewCount > 2) && (displayed < reviewCount)
+            ? <button onClick={handleButtonClick}>MORE REVIEWS</button>
+            : null
+          }
         </div>
       </div>
     </div>
