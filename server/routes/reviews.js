@@ -1,9 +1,16 @@
+const axios = require('axios');
 const express = require('express');
+const { TOKEN: AUTH_TOKEN } = require('../../config.js');
+
+const instance = axios.create();
+const CAMPUS = 'hr-rpp';
+instance.defaults.baseURL = `https://app-hrsei-api.herokuapp.com/api/fec2/${CAMPUS}`;
+instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 const router = express.Router();
-const { getReviews } = require('../../helpers/reviews.js');
 
 router.get('/', (req, res) => {
-  getReviews()
+  instance
+    .get('/reviews', { params: { ...req.query } })
     .then(({ data }) => {
       res.send(data.results);
     })

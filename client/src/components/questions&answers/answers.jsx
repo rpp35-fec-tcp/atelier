@@ -5,7 +5,7 @@ import axios from 'axios';
 class Answers extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { answers: [] }
+    this.state = { answers: [], moreAnswers: false }
     this.fetchAnswerData = this.fetchAnswerData.bind(this);
     this.dateConverter = this.dateConverter.bind(this);
   }
@@ -54,11 +54,17 @@ class Answers extends React.Component {
       }
     });
 
-    if (this.props.moreAnswers === false) {
+    if (this.state.moreAnswers === false) {
       answerData = answerData.slice(0, 2);
     }
 
-
+    if (answerData.length === 0) {
+      return (
+        <div className="no-answers">
+          <h4>Be the first to answer this question!</h4>
+        </div>
+      )
+    }
 
 
     return (
