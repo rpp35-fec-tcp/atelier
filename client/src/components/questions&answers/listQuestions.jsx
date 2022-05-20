@@ -8,6 +8,11 @@ class QuestionList extends React.Component {
     super(props);
     this.state = { questions: [], showMore: false };
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick () {
+    this.setState({showMore: !this.state.showMore})
   }
 
   fetchQuestionData(cb) {
@@ -29,7 +34,6 @@ class QuestionList extends React.Component {
   }
 
   componentDidMount() {
-
     this.fetchQuestionData((data) => {
       this.setState({ questions: data });
     });
@@ -61,6 +65,7 @@ class QuestionList extends React.Component {
       questionData = questionData.slice(0, 2);
     }
 
+    //edge case for no question data
     if (questionData.length === 0) {
       return (
         <div className="no-questions">
@@ -88,6 +93,7 @@ class QuestionList extends React.Component {
             )
           })}
         </ul>
+        <button id="moreQuestions" onClick={this.handleClick}>MORE ANSWERED QUESTIONS</button>
       </div>
     )
   }
