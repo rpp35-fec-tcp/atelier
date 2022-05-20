@@ -6,7 +6,7 @@ import Answers from './answers.jsx';
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { questions: [], moreAnswers: false };
+    this.state = { questions: [], showMore: false };
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
   }
 
@@ -20,7 +20,7 @@ class QuestionList extends React.Component {
     };
     axios(options)
       .then((res) => {
-        console.log('data', res.data.results);
+        // console.log('data', res.data.results);
         cb(res.data.results);
       })
       .catch((err) => {
@@ -57,18 +57,25 @@ class QuestionList extends React.Component {
     });
 
     //show only two questions until "show more" is clicked
-    if (this.props.showMore === false) {
+    if (this.state.showMore === false) {
       questionData = questionData.slice(0, 2);
     }
 
+    if (questionData.length === 0) {
+      return (
+        <div className="no-questions">
+          <h4>Sorry, there are no questions listed for this product</h4>
+        </div>
+      )
+    }
 
     return (
       <div className="questionList">
-        <h4 id='question-header'>Q: </h4>
         <ul>
           {questionData.map((item) => {
             return (
               <li key={item.question_id}>
+                <h4 id='question-header'>Q: </h4>
                 <div className='question'>{item.question_body}
                   {/* show more details from question */}
                   <div className='answerList'>
