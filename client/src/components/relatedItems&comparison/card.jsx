@@ -11,8 +11,8 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productInfo: null,
-      productStyle: null,
+      relatedProductInfo: null,
+      relatedProductStyle: null,
       defaultItem: null,
       reviewRating: 0,
       currentProductInfo: this.props.currentProductInfo,
@@ -25,12 +25,12 @@ class Card extends React.Component {
   componentDidMount () {
     getOneProduct(this.props.id, (data) => {
       this.setState({
-        productInfo: data
+        relatedProductInfo: data
       })
     });
     getOneProductStyle(this.props.id, (data) => {
       this.setState({
-        productStyle: data
+        relatedProductStyle: data
       });
       this.getDefaultItem(data.results);
     });
@@ -91,16 +91,16 @@ class Card extends React.Component {
   render () {
     return (
       <div>
-       <div className="card" onClick={() => this.props.changeCurrentProductId(this.state.productInfo.id)}>
+        <div className="card" onClick={() => this.props.changeCurrentProductId(this.state.relatedProductInfo.id)}>
         {this.state.defaultItem !== null && <div className='image-holder'><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
         <div className="card-body" >
-          {this.state.productInfo !== null && <h6 className="card-subtitle mb-2 text-muted" >{this.state.productInfo.category}</h6>}
-          {this.state.productInfo !== null && <h5 className="card-title" >{this.state.productInfo.name}</h5>}
+          {this.state.relatedProductInfo !== null && <h6 className="card-subtitle mb-2 text-muted" >{this.state.relatedProductInfo.category}</h6>}
+          {this.state.relatedProductInfo !== null && <h5 className="card-title" >{this.state.relatedProductInfo.name}</h5>}
           {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
           {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
           {this.rating(this.state.reviewRating)}
         </div>
-        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.productInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
+        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.relatedProductInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
       </div>
       <FaRegStar className='star' onClick={(e) => {e.stopPropagation();this.setState({show: true}); }}/>
       </div>

@@ -1,6 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import React from 'react';
 import Card from './card.jsx';
+import AddToOutfit from './addToOutfit.jsx';
 
 const responsive = {
   desktop: {
@@ -20,8 +21,8 @@ const responsive = {
   }
 };
 
-const SimpleCarousel = ({relatedProducts, currentProductInfo, changeCurrentProductId}) => {
-
+const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit}) => {
+  console.log(relatedProducts)
   return (
     <Carousel
       ssr
@@ -29,9 +30,11 @@ const SimpleCarousel = ({relatedProducts, currentProductInfo, changeCurrentProdu
       itemClass="image-item"
       autoPlay={false}
       responsive={responsive}
+      showArrows={true}
     >
-      {relatedProducts.map(productId => {
-        return (
+      {(relatedProducts[0] === null) && (relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key ={currentProductId} addToOutfit={addToOutfit} draggable={false}/></div>}
+      {(relatedProducts[0] !== null) && relatedProducts.map(productId => (
+        <div>
           <Card
             id={productId}
             key={productId}
@@ -40,8 +43,17 @@ const SimpleCarousel = ({relatedProducts, currentProductInfo, changeCurrentProdu
             currentProductInfo={currentProductInfo}
             changeCurrentProductId={changeCurrentProductId}
           />
-        );
-      })}
+        </div>
+      ))}
+      {/* {(relatedProducts[0] === null) && relatedProducts.map(productId => {
+        <AddToOutfit
+          id={productId || 0}
+          key={productId || 0}
+          addToOutfit={addToOutfit}
+          draggable={false}
+          style={{ width: "100%", height: "100%"}}
+        />
+      })} */}
     </Carousel>
   );
 };
