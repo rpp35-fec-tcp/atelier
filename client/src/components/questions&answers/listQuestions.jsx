@@ -20,7 +20,7 @@ class QuestionList extends React.Component {
     };
     axios(options)
       .then((res) => {
-        console.log('data', res.data.results);
+        // console.log('data', res.data.results);
         cb(res.data.results);
       })
       .catch((err) => {
