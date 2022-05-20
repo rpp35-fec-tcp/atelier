@@ -1,0 +1,23 @@
+.reviews.header {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews h6 {
+  width: 1100px
+}
+
+.reviews.row {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews.column.left {
+  width: 350px;
+  padding-right: 70px;
+}
+
+.reviews.column.right {
+  width: 750px;
+  padding-left: 70px;
+}
