@@ -30,17 +30,10 @@ class Overview extends React.Component {
       )
       .then((results) => {
         this.setState({
+          styles: results.data.results,
+          maxLength: results.data.results.map((id) => id.photos).length,
           photoURL: results.data.results[this.state.currentStyle].photos[0].url,
         });
-        this.setState({ styles: results.data.results });
-        this.setState(
-          {
-            maxLength: results.data.results.map((id) => id.photos).length,
-          },
-          () => {
-            console.log('styles: ', this.state.styles);
-          }
-        );
       });
 
     axios
@@ -88,9 +81,8 @@ class Overview extends React.Component {
             this.state.styles[this.state.currentStyle].photos[
               this.state.currentPicture + 1
             ].url,
+          currentPicture: this.state.currentPicture + 1,
         });
-
-        this.setState({ currentStyle: this.state.currentStyle + 1 });
       } else {
         this.setState({
           photoURL: this.state.styles[0].photos[0].url,
@@ -136,6 +128,7 @@ class Overview extends React.Component {
           <StyleSelector
             thumbnails={this.state.styles[this.state.currentStyle].photos}
             changeStyle={this.changeStyle.bind(this)}
+            styles={this.state.styles}
           />
         )}
         <AddToCart />

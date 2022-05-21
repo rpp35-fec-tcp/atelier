@@ -12,6 +12,11 @@ describe('Overview', () => {
   test('Shows the overview component', () => {
     render(<Overview />);
   });
+
+  test('Loads and displays a Product Overview Component', () => {
+    render(<ProductOverview currentProduct={specificProduct} currentProductStyle={style} currentReview={dummyReviews.meta}
+      toggleFavorite={jest.fn()} currentStyleId={style.results[0].style_id} addToFavorites={[]} />);
+    expect(screen.getByTestId('Overview')).toBeInTheDocument();
 });
 
 describe('Gallery', () => {
