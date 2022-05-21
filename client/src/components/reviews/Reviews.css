@@ -1,23 +1,25 @@
-.reviews.header {
+.reviews-header {
   display: flex;
   justify-content: center;
 }
 
-.reviews h6 {
-  width: 1100px
+.reviews-header p {
+  width: 1015px
 }
 
-.reviews.row {
+.reviews-body {
   display: flex;
   justify-content: center;
 }
 
-.reviews.column.left {
-  width: 350px;
-  padding-right: 70px;
+.reviews-breakdown {
+  width: 340px;
+  padding: 0 65px 0 0;
 }
 
-.reviews.column.right {
-  width: 750px;
-  padding-left: 70px;
+.reviews-list {
+  width: 675px;
+  padding: 0;
 }
+
+/* TODO: 1335px height before scroll */
