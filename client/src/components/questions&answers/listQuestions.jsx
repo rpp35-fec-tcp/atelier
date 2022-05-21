@@ -100,7 +100,8 @@ class QuestionList extends React.Component {
               <li key={item.question_id}>
                 <h4 id='question-header'>Q: </h4>
                 <small className='question-helpfulness'> Helpful?
-                <button className="upvote-helpfulness" onClick={(item) => this.handleUpvoteClick(item.question_id)}>Yes</button>
+                <button className="upvote-helpfulness" id={item.question_id}
+                onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
                   ({item.question_helpfulness})</small>
                 <div className='question'>{item.question_body}
                   {/* show more details from question */}
