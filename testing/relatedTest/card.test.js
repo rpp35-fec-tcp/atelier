@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import fakeProductInfos from './fakeData.js';
 import {act} from 'react-dom/test-utils';
 import 'regenerator-runtime/runtime';
+import {render} from "@testing-library/react";
 
 describe('Card', function() {
 //   var {
@@ -32,21 +33,21 @@ describe('Card', function() {
   // })
 
 
-  // it('can render a card component', asyns () => {
-  //     await render(
-  //     <Card
-  //       // id={fakeProductInfos[0].id}
-  //       // key={fakeProductInfos[0].id}
-  //       // draggable={false}
-  //       // style={{ width: "100%", height: "100%"}}
-  //       // currentProductInfo={fakeProductInfos[1]}
-  //       // changeCurrentProductId={}
-  //     />
-  //     );
-  //   // const category = container.querySelector('h6');
-  //   //   console.log('category:', category)
-  //   //   expect(category).toBe('Kicks');
-  // })
+  it('can render a card component', async () => {
+      await render(
+      <Card
+        // id={fakeProductInfos[0].id}
+        // key={fakeProductInfos[0].id}
+        // draggable={false}
+        // style={{ width: "100%", height: "100%"}}
+        // currentProductInfo={fakeProductInfos[1]}
+        // changeCurrentProductId={}
+      />
+      );
+    // const category = container.querySelector('h6');
+    //   console.log('category:', category)
+    //   expect(category).toBe('Kicks');
+  })
 
   // it('should dynamically render a product\'s category', async function() {
   //   var c0 = await findRenderedDOMComponentWithClass(p0, 'card-subtitle');

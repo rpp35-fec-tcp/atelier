@@ -44,3 +44,17 @@ export function getReviews (id, successCB) {
   })
 }
 
+export function getRelatedProducts (id, successCB) {
+  $.ajax({
+    type: 'GET',
+    url: '/related/getRelatedProducts',
+    contentType: 'application/json',
+    data: {
+      id: id
+    },
+    success: successCB,
+    error: function(err) {
+      console.log(err);
+    }
+  })
+}

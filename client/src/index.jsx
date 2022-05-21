@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       currentProductId: 71697,
     };
+    this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
   }
 
   changeCurrentProductId(id) {
@@ -27,7 +28,7 @@ class App extends React.Component {
         <Overview currentProductId={this.state.currentProductId} />
         <Related
           currentProductId={this.state.currentProductId}
-          changeCurrentProductId={this.changeCurrentProductId.bind(this)}
+          changeCurrentProductId={this.changeCurrentProductId}
         />
         <Questions currentProductId={this.state.currentProductId} />
         <Reviews currentProductId={this.state.currentProductId} />
