@@ -21,7 +21,7 @@ const responsive = {
   }
 };
 
-const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
+const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
   return (
     <div>
       {(relatedProducts[0] !== null) &&
@@ -38,12 +38,12 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
               <Card
                 id={productId}
                 key={productId}
-                draggable={false}
-                style={{ width: "100%", height: "100%"}}
-                currentProductInfo={currentProductInfo}
                 changeCurrentProductId={changeCurrentProductId}
+                currentProductId={currentProductId}
                 type='related'
                 deleteOutfit={deleteOutfit}
+                draggable={false}
+                style={{ width: "100%", height: "100%"}}
               />
             </div>
           ))}
@@ -63,15 +63,15 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
           {relatedProducts.map(productId => (
             <div>
               <Card
-                id={productId || 0}
-                key={productId || 0}
+                id={productId}
+                key={productId}
                 addToOutfit={addToOutfit}
-                draggable={false}
-                style={{ width: "100%", height: "100%"}}
-                currentProductInfo={currentProductInfo}
                 changeCurrentProductId={changeCurrentProductId}
+                currentProductId={currentProductId}
                 type='outfit'
                 deleteOutfit={deleteOutfit}
+                draggable={false}
+                style={{ width: "100%", height: "100%"}}
               />
             </div>
           ))}

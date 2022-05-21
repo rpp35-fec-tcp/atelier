@@ -11,13 +11,12 @@ import Compare from './compare.jsx';
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    console.log('type:', this.props.type)
     this.state = {
       relatedProductInfo: null,
       relatedProductStyle: null,
       defaultItem: null,
       reviewRating: 0,
-      currentProductInfo: this.props.currentProductInfo,
+      currentProductInfo: null,
       show: false
     }
   }
@@ -35,6 +34,11 @@ class Card extends React.Component {
         relatedProductStyle: data
       });
       this.getDefaultItem(data.results);
+    });
+    getOneProduct(this.props.currentProductId, (data) => {
+      this.setState({
+        currentProductInfo: data
+      })
     });
     //unit test for getReviews, to check whether rating is calculated correctly, also check whether rating is hidden is there is no review
     getReviews(this.props.id, (data) => {
@@ -56,6 +60,15 @@ class Card extends React.Component {
         reviewRating: rating
       })
     });
+  }
+  componentDidUpdate (prevProps) {
+    if (prevProps.currentProductId !== this.props.currentProductId) {
+      getOneProduct(this.props.currentProductId, (data) => {
+        this.setState({
+          currentProductInfo: data
+        })
+      });
+    }
   }
   rating (value) {
     if (value !== -1) {

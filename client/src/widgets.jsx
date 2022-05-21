@@ -22,6 +22,7 @@ export class Related extends React.Component {
     super(props);
   }
   render() {
+    console.log('this.props.currentProductId: ', this.props.currentProductId);
     return (
       <div>
         <RelatedComponent currentProductId={this.props.currentProductId} changeCurrentProductId={this.props.changeCurrentProductId} />
