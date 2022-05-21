@@ -16,6 +16,8 @@ class Overview extends React.Component {
       styles: [],
       productInfo: [],
       maxLength: 0,
+      ratings: 0,
+      reviewsCount: 0,
     };
     this.changePhoto = this.changePhoto.bind(this);
   }
@@ -28,23 +30,46 @@ class Overview extends React.Component {
       )
       .then((results) => {
         this.setState({
+          styles: results.data.results,
+          maxLength: results.data.results.map((id) => id.photos).length,
           photoURL: results.data.results[this.state.currentStyle].photos[0].url,
         });
-        this.setState({ styles: results.data.results });
-        this.setState(
-          {
-            maxLength: results.data.results.map((id) => id.photos).length,
-          },
-          () => {
-            console.log('styles: ', this.state.styles);
-          }
-        );
       });
+
     axios
       .get(this.props.url + '/products/' + this.props.currentProduct)
       .then((results) => {
-        this.setState({ productInfo: results.data });
+        this.setState({ productInfo: results.data }, () => {
+          console.log('product Info: ', this.state.productInfo);
+        });
       });
+
+    axios
+      .get(
+        this.props.url +
+          '/reviews/meta/?product_id=' +
+          this.props.currentProduct
+      )
+      .then((res) => {
+        // console.log('get product ratings: ', res.data.ratings['1']);
+        const reviewsCount =
+          Number(res.data.ratings['1'] || 0) +
+          Number(res.data.ratings['2'] || 0) +
+          Number(res.data.ratings['3'] || 0) +
+          Number(res.data.ratings['4'] || 0) +
+          Number(res.data.ratings['5'] || 0);
+        const ratings = (
+          (Number(res.data.ratings['1'] || 0) * 1 +
+            Number(res.data.ratings['2'] || 0) * 2 +
+            Number(res.data.ratings['3'] || 0) * 3 +
+            Number(res.data.ratings['4'] || 0) * 4 +
+            Number(res.data.ratings['5'] || 0) * 5) /
+          reviewsCount
+        ).toFixed(2);
+        console.log('ratings: ', ratings);
+        this.setState({ ratings, reviewsCount });
+      })
+      .catch((err) => console.error('get product rating error: ', err));
   }
 
   changePhoto(event) {
@@ -56,9 +81,8 @@ class Overview extends React.Component {
             this.state.styles[this.state.currentStyle].photos[
               this.state.currentPicture + 1
             ].url,
+          currentPicture: this.state.currentPicture + 1,
         });
-
-        this.setState({ currentStyle: this.state.currentStyle + 1 });
       } else {
         this.setState({
           photoURL: this.state.styles[0].photos[0].url,
@@ -104,10 +128,15 @@ class Overview extends React.Component {
           <StyleSelector
             thumbnails={this.state.styles[this.state.currentStyle].photos}
             changeStyle={this.changeStyle.bind(this)}
+            styles={this.state.styles}
           />
         )}
         <AddToCart />
-        <ProductInformation productInfo={this.state.productInfo} />
+        <ProductInformation
+          productInfo={this.state.productInfo}
+          ratings={this.state.ratings}
+          reviewsCount={this.state.reviewsCount}
+        />
       </div>
     );
   }

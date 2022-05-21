@@ -2,24 +2,12 @@ import React from 'react';
 
 function ProductInformation(props) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Category</th>
-          <th>Description</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{props.productInfo.name}</td>
-          <td>{props.productInfo.category}</td>
-          <td>{props.productInfo.description}</td>
-          <td>{props.productInfo.default_price}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <h4>Product Information</h4>
+      <div>Ratings: {props.ratings}</div>
+      <div>Read All {props.reviewsCount} Reviews</div>
+      {/* <div>Title: {props.productInfo.category}</div> */}
+    </div>
   );
 }
 
