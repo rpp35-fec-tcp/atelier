@@ -27,23 +27,27 @@ const Reviews = (props) => {
 
   return (
     <div className='reviews'>
-      <div className='reviews header'>
+      <div className='reviews-header'>
         <p>RATINGS & REVIEWS</p>
       </div>
-      <div className='reviews row'>
-        <div className='reviews column left'>
-          &lt;left-column&gt;
+      <div className='reviews-body'>
+        <div className='reviews-breakdown'>
+          <div className='rating-breakdown'>&lt;rating breakdown&gt;</div>
+          <div className='product-breakdown'>&lt;product breakdown&gt;</div>
         </div>
-        <div className='reviews column right'>
+        <div className='reviews-list'>
+          <div className='sort'>&lt;sort&gt;</div>
           {reviews.slice(0, displayed).map((review) => {
             return <Review review={review} key={review.review_id}/>
           })}
-          {
-            (reviewCount > 2) && (displayed < reviewCount)
-            ? <button onClick={handleButtonClick}><b>MORE REVIEWS</b></button>
-            : null
-          }
-          <button><b>ADD A REVIEW&nbsp;&nbsp;&#65291;</b></button>
+          <div className='reviews-button'>
+            {
+              (reviewCount > 2) && (displayed < reviewCount)
+              ? <button onClick={handleButtonClick}><b>MORE REVIEWS</b></button>
+              : null
+            }
+            <button><b>ADD A REVIEW&nbsp;&nbsp;&#65291;</b></button>
+          </div>
         </div>
       </div>
     </div>

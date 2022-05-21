@@ -1,23 +1,23 @@
-.reviews.header {
+.reviews-header {
   display: flex;
   justify-content: center;
 }
 
-.reviews p {
+.reviews-header p {
   width: 1015px
 }
 
-.reviews.row {
+.reviews-body {
   display: flex;
   justify-content: center;
 }
 
-.reviews.column.left {
+.reviews-breakdown {
   width: 340px;
   padding: 0 65px 0 0;
 }
 
-.reviews.column.right {
+.reviews-list {
   width: 675px;
   padding: 0;
 }
