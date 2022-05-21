@@ -52,7 +52,8 @@ router.get('/answers', (req, res) => {
 
 //upvote answers route
 router.put('/upvoteQuestionHelpful', (req, res) => {
-  let question_id = req.query.question_id;
+  let question_id = req.body.params.question_id;
+
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
@@ -63,7 +64,7 @@ router.put('/upvoteQuestionHelpful', (req, res) => {
       res.sendStatus(204);
     })
     .catch((err) =>{
-      console.log(err.response.data);
+      console.log('upvote questions error', err.response.data);
       res.send(err);
     })
 })

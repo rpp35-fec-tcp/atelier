@@ -19,14 +19,12 @@ class QuestionList extends React.Component {
   handleUpvoteClick (id) {
     //send a put req to server with question id as a param
     //with axios.put
-    console.log(id);
     axios.put('http://localhost:3000/question/upvoteQuestionHelpful',{
       params:{
         question_id: id
       }
     })
       .then((res) => {
-        console.log('upvoted question');
       })
       .catch((err) => {
         console.log('client side error upvoting question helpfulness', err.response.data);
@@ -43,7 +41,7 @@ class QuestionList extends React.Component {
     };
     axios(options)
       .then((res) => {
-        console.log('data', res.data.results);
+        // console.log('data', res.data.results);
         cb(res.data.results);
       })
       .catch((err) => {
