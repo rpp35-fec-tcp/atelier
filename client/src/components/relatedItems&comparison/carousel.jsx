@@ -24,37 +24,58 @@ const responsive = {
 const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit}) => {
   //console.log(relatedProducts)
   return (
-    <Carousel
-      ssr
-      partialVisibile={true}
-      itemClass="image-item"
-      autoPlay={false}
-      responsive={responsive}
-      showArrows={true}
-    >
-      {(relatedProducts[0] === null) && (relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key ={currentProductId} addToOutfit={addToOutfit} draggable={false}/></div>}
-      {(relatedProducts[0] !== null) && relatedProducts.map(productId => (
-        <div>
-          <Card
-            id={productId}
-            key={productId}
-            draggable={false}
-            style={{ width: "100%", height: "100%"}}
-            currentProductInfo={currentProductInfo}
-            changeCurrentProductId={changeCurrentProductId}
-          />
-        </div>
-      ))}
-      {/* {(relatedProducts[0] === null) && relatedProducts.map(productId => {
-        <AddToOutfit
-          id={productId || 0}
-          key={productId || 0}
-          addToOutfit={addToOutfit}
-          draggable={false}
-          style={{ width: "100%", height: "100%"}}
-        />
-      })} */}
-    </Carousel>
+    <div>
+      {(relatedProducts[0] !== null) &&
+        <Carousel
+          ssr
+          partialVisibile={true}
+          itemClass="image-item"
+          autoPlay={false}
+          responsive={responsive}
+          showArrows={true}
+        >
+        {/* {(relatedProducts[0] === null) && (relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>} */}
+        {relatedProducts.map(productId => (
+          <div>
+            <Card
+              id={productId}
+              key={productId}
+              draggable={false}
+              style={{ width: "100%", height: "100%"}}
+              currentProductInfo={currentProductInfo}
+              changeCurrentProductId={changeCurrentProductId}
+            />
+          </div>
+        ))}
+      </Carousel>
+      }
+
+      {(relatedProducts[0] === null) &&
+        <Carousel
+          ssr
+          partialVisibile={true}
+          itemClass="image-item"
+          autoPlay={false}
+          responsive={responsive}
+          showArrows={true}
+        >
+        {(relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>}
+        {relatedProducts.map(productId => (
+          <div>
+            <Card
+              id={productId || 0}
+              key={productId || 0}
+              addToOutfit={addToOutfit}
+              draggable={false}
+              style={{ width: "100%", height: "100%"}}
+              currentProductInfo={currentProductInfo}
+              changeCurrentProductId={changeCurrentProductId}
+            />
+          </div>
+        ))}
+      </Carousel>
+      }
+    </div>
   );
 };
 

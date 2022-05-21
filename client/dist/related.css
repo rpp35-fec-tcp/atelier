@@ -10,6 +10,13 @@ Modal.Body {
   height:400px;
 }
 
+.list {
+  color: gray;
+  margin-left: 2%;
+  margin-top:5%;
+  font-size:20px;
+}
+
 .description {
   font-weight:bold;
 }
@@ -61,6 +68,7 @@ Modal.Body {
   position: absolute; /*newly added*/
   right: 5px; /*newly added*/
   top: 5px;/*newly added*/
+  /* padding: 1%; */
 }
 .star:hover {
   color: yellow;
@@ -87,4 +95,5 @@ Modal.Body {
   border:line;
   border-color: black;
   height: 430px;
+  z-index: 1;
 }
