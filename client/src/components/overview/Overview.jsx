@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import config from '../../../../config.js';
-import ProductInformation from './ProductInformation.jsx';
+import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
+import FillerComponent from './FillerComponent.jsx';
+import ProductDescription from './ProductDescription.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -23,7 +25,7 @@ class Overview extends React.Component {
     this.url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
   }
 
-  componentDidMount() {
+  getProductStyles() {
     axios.defaults.headers.common['Authorization'] = config.TOKEN;
     axios
       .get(
@@ -36,7 +38,9 @@ class Overview extends React.Component {
           photoURL: results.data.results[this.state.currentStyle].photos[0].url,
         });
       });
+  }
 
+  getProductInfo() {
     axios
       .get(this.props.url + '/products/' + this.props.currentProductId)
       .then((results) => {
@@ -44,7 +48,9 @@ class Overview extends React.Component {
           console.log('product Info: ', this.state.productInfo);
         });
       });
+  }
 
+  getReviews() {
     axios
       .get(
         this.props.url +
@@ -71,6 +77,16 @@ class Overview extends React.Component {
         this.setState({ ratings, reviewsCount });
       })
       .catch((err) => console.error('get product rating error: ', err));
+  }
+
+  componentDidMount() {
+    this.getProductStyles();
+    this.getProductInfo();
+    this.getReviews();
+  }
+
+  componentDidUpdate() {
+    this.getProductStyles();
   }
 
   changePhoto(event) {
@@ -119,25 +135,33 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div>
-        <ImageGallery
-          photoURL={this.state.photoURL}
-          currentProduct={this.state.currentStyle}
-          changePhoto={this.changePhoto}
-        />
-        {this.state.styles.length > 0 && (
-          <StyleSelector
-            thumbnails={this.state.styles[this.state.currentStyle].photos}
-            changeStyle={this.changeStyle.bind(this)}
-            styles={this.state.styles}
-          />
-        )}
-        <AddToCart />
-        <ProductInformation
-          productInfo={this.state.productInfo}
-          ratings={this.state.ratings}
-          reviewsCount={this.state.reviewsCount}
-        />
+      <div className='POOverview' data-testid='Overview'>
+        <div>
+          <ProductDescription productInfo={this.state.productInfo} />
+          <FillerComponent />
+          <div className='Infocontainer'>
+            <ProductInfo
+              productInfo={this.state.productInfo}
+              styles={this.state.styles[this.state.currentStyle]}
+              ratings={this.state.ratings}
+              reviewsCount={this.state.reviewsCount}
+            />
+
+            <ImageGallery
+              photoURL={this.state.photoURL}
+              currentProduct={this.state.currentStyle}
+              changePhoto={this.changePhoto}
+            />
+            {this.state.styles.length > 0 && (
+              <StyleSelector
+                thumbnails={this.state.styles[this.state.currentStyle].photos}
+                changeStyle={this.changeStyle.bind(this)}
+                styles={this.state.styles}
+              />
+            )}
+            <AddToCart />
+          </div>
+        </div>
       </div>
     );
   }

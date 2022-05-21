@@ -4,6 +4,8 @@ import Stack from '@mui/material/Stack';
 
 function ProductInformation(props) {
   const rating = () => {
+
+    
     return (
       <Stack spacing={1}>
         <Rating
