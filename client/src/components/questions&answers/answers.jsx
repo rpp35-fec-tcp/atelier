@@ -6,8 +6,14 @@ class Answers extends React.Component {
   constructor(props) {
     super(props);
     this.state = { answers: [], moreAnswers: false }
+
     this.fetchAnswerData = this.fetchAnswerData.bind(this);
     this.dateConverter = this.dateConverter.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick () {
+    this.setState({moreAnswers: !this.state.moreAnswers});
   }
 
   fetchAnswerData(options, cb) {
@@ -69,11 +75,11 @@ class Answers extends React.Component {
 
     return (
       <div className='answers'>
-        <h4 id='answer-header'>A:</h4>
         <ul>
           {answerData.map((item) => {
             return (
               <li key={item.answer_id}>
+                <h4 id='answer-header'>A:</h4>
                 <span  className='answerBody'>{item.body}</span>
                 <div className='answerer-name/time'>
                   <small className='answerer-name'>{item.answerer_name}</small>
@@ -83,6 +89,7 @@ class Answers extends React.Component {
             )
           })}
         </ul>
+        <button id="moreAnswers" onClick={this.handleClick}>LOAD MORE ANSWERS</button>
       </div>
     )
 
