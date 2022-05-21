@@ -20,13 +20,14 @@ class Overview extends React.Component {
       reviewsCount: 0,
     };
     this.changePhoto = this.changePhoto.bind(this);
+    this.url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
   }
 
   componentDidMount() {
     axios.defaults.headers.common['Authorization'] = config.TOKEN;
     axios
       .get(
-        this.props.url + '/products/' + this.props.currentProduct + '/styles'
+        this.props.url + '/products/' + this.props.currentProductId + '/styles'
       )
       .then((results) => {
         this.setState({
@@ -37,7 +38,7 @@ class Overview extends React.Component {
       });
 
     axios
-      .get(this.props.url + '/products/' + this.props.currentProduct)
+      .get(this.props.url + '/products/' + this.props.currentProductId)
       .then((results) => {
         this.setState({ productInfo: results.data }, () => {
           console.log('product Info: ', this.state.productInfo);
@@ -48,7 +49,7 @@ class Overview extends React.Component {
       .get(
         this.props.url +
           '/reviews/meta/?product_id=' +
-          this.props.currentProduct
+          this.props.currentProductId
       )
       .then((res) => {
         // console.log('get product ratings: ', res.data.ratings['1']);
