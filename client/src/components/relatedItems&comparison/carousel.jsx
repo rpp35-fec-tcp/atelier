@@ -32,7 +32,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
       responsive={responsive}
       showArrows={true}
     >
-      {(relatedProducts[0] === null) && (relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key ={currentProductId} addToOutfit={addToOutfit} draggable={false}/></div>}
+      {(relatedProducts[0] === null) && (relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>}
       {(relatedProducts[0] !== null) && relatedProducts.map(productId => (
         <div>
           <Card

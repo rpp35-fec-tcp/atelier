@@ -64,9 +64,9 @@ class RelatedComponent extends React.Component{
   render () {
     return (
       <div className='exceptOverview'>
-        <p style={{color: 'gray', marginLeft: '2%', marginTop:'5%', fontSize:'20px'}}>Related Product</p>
+        <p className='list' >RELATED PRODUCT</p>
         <SimpleCarousel relatedProducts={this.state.relatedProducts} currentProductId={this.props.currentProductId} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId} addToOutfit={this.addToOutfit.bind(this)}/>
-        <p style={{color: 'gray', marginLeft: '2%', marginTop:'5%', fontSize:'20px'}}>Related Product</p>
+        <p className='list'>YOUR OUTFIT</p>
         <SimpleCarousel relatedProducts={this.state.outfitList} currentProductId={this.props.currentProductId} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId} addToOutfit={this.addToOutfit.bind(this)}/>
       </div>
     );
