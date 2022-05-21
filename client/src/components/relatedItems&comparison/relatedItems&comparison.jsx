@@ -31,7 +31,6 @@ class RelatedComponent extends React.Component{
     })
   }
   addToOutfit (id) {
-    console.log(id);
     if (!this.state.outfitList.includes(id)) {
       this.setState({
         outfitList: [...this.state.outfitList, id]
@@ -39,9 +38,7 @@ class RelatedComponent extends React.Component{
     }
   }
   componentDidMount () {
-    //console.log('id in related:', this.state.currentProductId)
     this.getRelatedProducts((data) => {
-      //console.log(data);
       this.setState({
         relatedProducts: data
       })
@@ -51,7 +48,6 @@ class RelatedComponent extends React.Component{
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.getRelatedProducts((data) => {
-        //console.log(data);
         this.setState({
           relatedProducts: data
         })
@@ -62,6 +58,7 @@ class RelatedComponent extends React.Component{
     //console.log('id in related:', this.state.currentProductInfo.id, this.props.currentProductId)
   }
   render () {
+    //console.log('related:', this.state.relatedProducts)
     return (
       <div className='exceptOverview'>
         <p className='list' >RELATED PRODUCT</p>
