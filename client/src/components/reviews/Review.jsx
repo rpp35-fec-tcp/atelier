@@ -1,8 +1,9 @@
 import React from 'react';
+import './Review.css'
 
 const Review = ({ review }) => {
   return (
-    <div>
+    <div className='review'>
       <div>{review.rating}</div>
       <div>{review.reviewer_name}</div>
       <div>{review.date}</div>
