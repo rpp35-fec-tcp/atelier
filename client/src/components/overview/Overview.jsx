@@ -42,6 +42,7 @@ class Overview extends React.Component {
           }
         );
       });
+
     axios
       .get(this.props.url + '/products/' + this.props.currentProduct)
       .then((results) => {
@@ -57,7 +58,7 @@ class Overview extends React.Component {
           this.props.currentProduct
       )
       .then((res) => {
-        console.log('get product ratings: ', res.data.ratings['1']);
+        // console.log('get product ratings: ', res.data.ratings['1']);
         const reviewsCount =
           Number(res.data.ratings['1'] || 0) +
           Number(res.data.ratings['2'] || 0) +
