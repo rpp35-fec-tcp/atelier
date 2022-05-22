@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Overview from './client/src/components/overview/Overview.jsx';
+import Overview from '../client/src/components/overview/Overview.jsx';
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 
