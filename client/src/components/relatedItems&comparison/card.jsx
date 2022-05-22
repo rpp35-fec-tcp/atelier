@@ -24,22 +24,7 @@ class Card extends React.Component {
     this.setState({show: false});
   }
   componentDidMount () {
-    getOneProduct(this.props.id, (data) => {
-      this.setState({
-        relatedProductInfo: data
-      })
-    });
-    getOneProductStyle(this.props.id, (data) => {
-      this.setState({
-        relatedProductStyle: data
-      });
-      this.getDefaultItem(data.results);
-    });
-    getOneProduct(this.props.currentProductId, (data) => {
-      this.setState({
-        currentProductInfo: data
-      })
-    });
+    this.update();
     //unit test for getReviews, to check whether rating is calculated correctly, also check whether rating is hidden is there is no review
     getReviews(this.props.id, (data) => {
       var ratings = data.ratings;
@@ -63,12 +48,27 @@ class Card extends React.Component {
   }
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
-      getOneProduct(this.props.currentProductId, (data) => {
-        this.setState({
-          currentProductInfo: data
-        })
-      });
+      this.update();
     }
+  }
+  update () {
+    getOneProduct(this.props.id, (data) => {
+      console.log('card compared it:', this.props.id);
+      this.setState({
+        relatedProductInfo: data
+      })
+    });
+    getOneProductStyle(this.props.id, (data) => {
+      this.setState({
+        relatedProductStyle: data
+      });
+      this.getDefaultItem(data.results);
+    });
+    getOneProduct(this.props.currentProductId, (data) => {
+      this.setState({
+        currentProductInfo: data
+      })
+    });
   }
   rating (value) {
     if (value !== -1) {
@@ -84,6 +84,7 @@ class Card extends React.Component {
   //unit test for price whether sales price is used if it is not null
   getDefaultItem (results) {
     var defaultItem = results.filter((result) => result['default?']);
+    console.log('results: ', results, 'default:', defaultItem)
     defaultItem = defaultItem.length === 0 ? results[0] : defaultItem[0];
     this.setState({
       defaultItem: defaultItem

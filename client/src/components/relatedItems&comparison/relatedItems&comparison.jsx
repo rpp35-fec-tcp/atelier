@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'react-multi-carousel/lib/styles.css';
 import SimpleCarousel from './carousel.jsx';
 import $ from 'jquery';
-import {getOneProduct, getOneProductStyle, getReviews, getRelatedProducts} from './getAndPost.jsx';
+import {getOneProductStyle, getReviews, getRelatedProducts} from './getAndPost.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class RelatedComponent extends React.Component{

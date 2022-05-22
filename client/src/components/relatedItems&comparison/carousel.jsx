@@ -1,5 +1,5 @@
 import Carousel from 'react-multi-carousel';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './card.jsx';
 import AddToOutfit from './addToOutfit.jsx';
 
@@ -22,18 +22,23 @@ const responsive = {
 };
 
 const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
+  const [outfit, setOutfit] = useState(relatedProducts);
+  var products;
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    setOutfit(relatedProducts);
+  });
   return (
     <div>
-      {(relatedProducts[0] !== null) &&
+      {(outfit[0] !== null) &&
         <Carousel
           ssr
           partialVisibile={true}
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
-          showArrows={true}
         >
-          {relatedProducts.map(productId => (
+          {outfit.map(productId => (
             <div>
               <Card
                 id={productId}
@@ -50,17 +55,17 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
       </Carousel>
       }
 
-      {(relatedProducts[0] === null) &&
+      {(outfit[0] === null) &&
         <Carousel
           ssr
           partialVisibile={true}
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
-          showArrows={true}
+          extraData={outfit}
         >
-          {(relatedProducts = relatedProducts.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>}
-          {relatedProducts.map(productId => (
+          {(products = outfit.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>}
+          {products.map(productId => (
             <div>
               <Card
                 id={productId}
