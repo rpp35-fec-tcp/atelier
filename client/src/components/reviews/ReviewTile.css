@@ -24,6 +24,16 @@
   font-weight: bold;
 }
 
+.review-photo {
+  column-gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  height: 150px;
+}
+
 .review-response {
   padding: 20px;
 }

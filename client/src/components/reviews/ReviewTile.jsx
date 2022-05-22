@@ -12,7 +12,13 @@ const ReviewTile = ({ review }) => {
       </div>
       <div className='review-summary'>{review.summary}</div>
       <div className='review-body'>{review.body}</div>
-      {/* <div>{review.photos}</div> */}
+      {review.photos.length
+        ? <div className='review-photo'>
+            {review.photos.map((photo) => (
+              <img key={photo.id} src={photo.url} />
+            ))}
+          </div>
+        : null}
       {review.recommend
         ? <div className='review-recommend'>
             &#10003; I recommend this product
