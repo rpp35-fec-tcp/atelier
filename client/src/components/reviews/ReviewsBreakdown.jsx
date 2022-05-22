@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import ProductBreakdown from './ProductBreakdown.jsx';
-import RatingBreakdown from './RatingBreakdown.jsx';
-import RatingSummary from './RatingSummary.jsx';
+import ProductBreakdown from './ProductBreakdown';
+import RatingBreakdown from './RatingBreakdown';
+import RatingSummary from './RatingSummary';
 import './ReviewsBreakdown.css';
 
 const ReviewsBreakdown = (props) => {

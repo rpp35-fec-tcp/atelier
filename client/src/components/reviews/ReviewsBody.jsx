@@ -1,6 +1,6 @@
 import React from 'react';
-import ReviewsBreakdown from './ReviewsBreakdown.jsx';
-import ReviewsList from './ReviewsList.jsx';
+import ReviewsBreakdown from './ReviewsBreakdown';
+import ReviewsList from './ReviewsList';
 import './ReviewsBody.css';
 
 const ReviewsBody = (props) => (

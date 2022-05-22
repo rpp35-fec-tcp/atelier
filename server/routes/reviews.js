@@ -1,6 +1,6 @@
 const axios = require('axios');
 const express = require('express');
-const { TOKEN: AUTH_TOKEN } = require('../../config.js');
+const { TOKEN: AUTH_TOKEN } = require('../../config');
 
 const router = express.Router();
 const CAMPUS = 'hr-rpp';

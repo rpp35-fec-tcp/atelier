@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import ReviewTile from './ReviewTile.jsx';
-import ReviewsSummary from './ReviewsSummary.jsx';
+import ReviewTile from './ReviewTile';
+import ReviewsSummary from './ReviewsSummary';
 import './ReviewsList.css';
 
 const ReviewsList = (props) => {

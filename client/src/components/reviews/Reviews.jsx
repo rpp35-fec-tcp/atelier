@@ -1,6 +1,6 @@
 import React from 'react';
-import ReviewsBody from './ReviewsBody.jsx';
-import ReviewsHeader from './ReviewsHeader.jsx';
+import ReviewsBody from './ReviewsBody';
+import ReviewsHeader from './ReviewsHeader';
 import './Reviews.css'
 
 const Reviews = (props) => (

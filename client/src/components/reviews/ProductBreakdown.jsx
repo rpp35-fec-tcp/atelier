@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacteristicBar from './CharacteristicBar.jsx';
+import CharacteristicBar from './CharacteristicBar';
 import './ProductBreakdown.css';
 
 const ProductBreakdown = (props) => (

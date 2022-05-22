@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React from 'react';
-import StarRatings from './StarRatings.jsx';
+import StarRatings from './StarRatings';
 import './ReviewTile.css'
 
 const ReviewTile = ({ review }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingBar from './RatingBar.jsx';
+import RatingBar from './RatingBar';
 import './RatingBreakdown.css';
 
 const RatingBreakdown = (props) => {

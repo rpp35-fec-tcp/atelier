@@ -1,5 +1,5 @@
 import React from 'react';
-import './CharacteristicBar.jsx';
+import './CharacteristicBar';
 
 const CharacteristicBar = (props) => (
   <div className='characteristic-bar'>
