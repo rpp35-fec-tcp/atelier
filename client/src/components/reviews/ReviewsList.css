@@ -1,0 +1,12 @@
+.reviews-list {
+  flex: 0 675px;
+}
+
+.reviews-list > div {
+  padding: 10px 0 10px;
+}
+
+.reviews-buttons {
+  display: flex;
+  column-gap: 20px;
+}
