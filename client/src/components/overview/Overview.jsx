@@ -86,7 +86,7 @@ class Overview extends React.Component {
   }
 
   componentDidUpdate() {
-    this.getProductStyles();
+    // this.getProductStyles();
   }
 
   changePhoto(event) {
