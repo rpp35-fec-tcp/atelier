@@ -1,20 +1,19 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'react-multi-carousel/lib/styles.css';
 import SimpleCarousel from './carousel.jsx';
-// import './related.css';
-import $ from 'jquery';
-import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
+import { getOneProduct, getOneProductStyle, getReviews } from './getAndPost.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-multi-carousel/lib/styles.css';
 import './related.css';
 
 class RelatedComponent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      //this id needs to to lift up a state to the index.jsx, so all 4 widgets could interact with it
-      //currentProductId: null,
       currentProductInfo: null,
-      relatedProducts: []
+      relatedProducts: [],
+      outfitList:[null, 71709, 71698, 71699, 71702]
     };
   }
   getRelatedProducts (successCB) {
@@ -31,10 +30,15 @@ class RelatedComponent extends React.Component{
       }
     })
   }
+  addToOutfit (id) {
+    if (!this.state.outfitList.includes(id)) {
+      this.setState({
+        outfitList: [...this.state.outfitList, id]
+      });
+    }
+  }
   componentDidMount () {
-    //console.log('id in related:', this.state.currentProductId)
     this.getRelatedProducts((data) => {
-      //console.log(data);
       this.setState({
         relatedProducts: data
       })
@@ -44,7 +48,6 @@ class RelatedComponent extends React.Component{
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.getRelatedProducts((data) => {
-        //console.log(data);
         this.setState({
           relatedProducts: data
         })
@@ -55,10 +58,13 @@ class RelatedComponent extends React.Component{
     //console.log('id in related:', this.state.currentProductInfo.id, this.props.currentProductId)
   }
   render () {
+    //console.log('related:', this.state.relatedProducts)
     return (
       <div className='exceptOverview'>
-        <p style={{color: 'gray', marginLeft: '2%', fontSize:'20px'}}>Related Product</p>
-        <SimpleCarousel relatedProducts={this.state.relatedProducts} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId}/>
+        <p className='list' >RELATED PRODUCT</p>
+        <SimpleCarousel relatedProducts={this.state.relatedProducts} currentProductId={this.props.currentProductId} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId} addToOutfit={this.addToOutfit.bind(this)}/>
+        <p className='list'>YOUR OUTFIT</p>
+        <SimpleCarousel relatedProducts={this.state.outfitList} currentProductId={this.props.currentProductId} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId} addToOutfit={this.addToOutfit.bind(this)}/>
       </div>
     );
   }

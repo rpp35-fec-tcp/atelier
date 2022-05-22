@@ -8,6 +8,7 @@ axios.defaults.baseURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/`;
 axios.defaults.headers.common['Authorization'] = `${config.TOKEN}`;
 
 let getRelatedProducts = (id) => {
+  //console.log('current id: ', id)
   return axios.get(`/products/${id}/related`)
 }
 

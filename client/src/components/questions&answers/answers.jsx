@@ -5,9 +5,15 @@ import axios from 'axios';
 class Answers extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { answers: [] }
+    this.state = { answers: [], moreAnswers: false }
+
     this.fetchAnswerData = this.fetchAnswerData.bind(this);
     this.dateConverter = this.dateConverter.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick () {
+    this.setState({moreAnswers: !this.state.moreAnswers});
   }
 
   fetchAnswerData(options, cb) {
@@ -54,20 +60,26 @@ class Answers extends React.Component {
       }
     });
 
-    if (this.props.moreAnswers === false) {
+    if (this.state.moreAnswers === false) {
       answerData = answerData.slice(0, 2);
     }
 
-
+    if (answerData.length === 0) {
+      return (
+        <div className="no-answers">
+          <h4>Be the first to answer this question!</h4>
+        </div>
+      )
+    }
 
 
     return (
       <div className='answers'>
-        <h4 id='answer-header'>A:</h4>
         <ul>
           {answerData.map((item) => {
             return (
               <li key={item.answer_id}>
+                <h4 id='answer-header'>A:</h4>
                 <span  className='answerBody'>{item.body}</span>
                 <div className='answerer-name/time'>
                   <small className='answerer-name'>{item.answerer_name}</small>
@@ -77,6 +89,7 @@ class Answers extends React.Component {
             )
           })}
         </ul>
+        <button id="moreAnswers" onClick={this.handleClick}>LOAD MORE ANSWERS</button>
       </div>
     )
 

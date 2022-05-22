@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 // import widgets from './components/relatedItems&comparison/relatedItems&comparison.jsx';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProductId: 71702,
+      currentProductId: 71697,
     };
   }
 
@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProductId={this.state.currentProductId} />
+        <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
         <Related
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.changeCurrentProductId.bind(this)}
