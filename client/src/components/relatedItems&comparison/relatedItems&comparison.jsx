@@ -5,6 +5,7 @@ import SimpleCarousel from './carousel.jsx';
 // import './related.css';
 import $ from 'jquery';
 import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
+import './related.css';
 
 class RelatedComponent extends React.Component{
   constructor(props) {

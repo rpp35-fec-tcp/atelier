@@ -5,6 +5,7 @@ import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
 import ImageGallery from './ImageGallery.jsx';
+import './style.css';
 
 class Overview extends React.Component {
   constructor(props) {
