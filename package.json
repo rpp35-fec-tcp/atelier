@@ -4,18 +4,11 @@
   "description": "Frontend work for a retail web portal",
   "private": true,
   "scripts": {
-    "test": "jest --coverage",
-    "react-dev": "webpack --mode=development --watch",
-    "start": "nodemon server/index.js"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
-  "jest": {
-    "testEnvironment": "jsdom"
+    "build": "webpack --mode production",
+    "react-dev": "webpack --mode development -w",
+    "server": "node server/server.js",
+    "server-dev": "nodemon server/server.js",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
