@@ -11,7 +11,7 @@ const RatingBreakdown = (props) => {
     <div className='rating-breakdown'>
       {['5', '4', '3', '2', '1'].map((rating) => (
           <div className='rating' key={rating}>
-            <div>{rating} stars </div>
+            <div>{rating} stars</div>
             <RatingBar count={props.ratings[rating] || 0} maxCount={maxCount}/>
           </div>
       ))}
