@@ -85,8 +85,12 @@ class Overview extends React.Component {
     this.getReviews();
   }
 
-  componentDidUpdate() {
-    this.getProductStyles();
+  componentDidUpdate(prevProps) {
+    if (this.props.currentProductId !== prevProps.currentProductId) {
+      this.getProductStyles();
+      this.getProductInfo();
+      this.getReviews();
+    }
   }
 
   changePhoto(event) {
@@ -103,8 +107,8 @@ class Overview extends React.Component {
       } else {
         this.setState({
           photoURL: this.state.styles[0].photos[0].url,
+          currentStyle: 0,
         });
-        this.setState({ currentStyle: 0 });
       }
     }
     if (event.target.id === 'back') {
@@ -114,14 +118,14 @@ class Overview extends React.Component {
             this.state.styles[this.state.currentStyle].photos[
               this.state.currentPicture - 1
             ].url,
+          currentPicture: this.state.currentPicture - 1,
         });
-        this.setState({ currentPicture: this.state.currentPicture - 1 });
       } else {
         this.setState({
           photoURL:
             this.state.styles[this.state.currentStyle].photos[max - 1].url,
+          currentPicture: this.state.styles.length - 1,
         });
-        this.setState({ currentPicture: this.state.styles.length - 1 });
       }
     }
   }
@@ -142,7 +146,7 @@ class Overview extends React.Component {
           <div className='Infocontainer'>
             <ProductInfo
               productInfo={this.state.productInfo}
-              styles={this.state.styles[this.state.currentStyle]}
+              styles={this.state.styles}
               ratings={this.state.ratings}
               reviewsCount={this.state.reviewsCount}
             />
