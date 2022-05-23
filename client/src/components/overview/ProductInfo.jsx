@@ -2,10 +2,10 @@ import React from 'react';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 
-function ProductInformation(props) {
+function ProductInfo(props) {
   const rating = () => {
 
-    
+
     return (
       <Stack spacing={1}>
         <Rating
@@ -28,4 +28,4 @@ function ProductInformation(props) {
   );
 }
 
-export default ProductInformation;
+export default ProductInfo;

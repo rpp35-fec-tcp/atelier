@@ -1,12 +1,13 @@
-import React from 'react';
 import axios from 'axios';
-import config from '../../../../config.js';
+import React from 'react';
+import AddToCart from './AddToCart.jsx';
+import FillerComponent from './FillerComponent.jsx';
+import ImageGallery from './ImageGallery.jsx';
+import ProductDescription from './ProductDescription.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
-import AddToCart from './AddToCart.jsx';
-import ImageGallery from './ImageGallery.jsx';
-import FillerComponent from './FillerComponent.jsx';
-import ProductDescription from './ProductDescription.jsx';
+import config from '../../../../config.js';
+import './style.css';
 
 class Overview extends React.Component {
   constructor(props) {

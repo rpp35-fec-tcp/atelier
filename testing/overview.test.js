@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import AddToCart from '../client/src/components/overview/AddToCart.jsx';
 import ImageGallery from '../client/src/components/overview/ImageGallery.jsx';
 import Overview from '../client/src/components/overview/Overview.jsx';
-import ProductInformation from '../client/src/components/overview/ProductInfo.jsx';
+import ProductInfo from '../client/src/components/overview/ProductInfo.jsx';
 import StyleSelector from '../client/src/components/overview/StyleSelector.jsx';
 
 describe('Overview', () => {
@@ -27,7 +27,7 @@ describe('Gallery', () => {
 
 describe('Description', () => {
   test('Shows the product component', () => {
-    render(<ProductInformation />);
+    render(<ProductInfo />);
   });
 });
 
