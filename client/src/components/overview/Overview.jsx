@@ -102,6 +102,7 @@ class Overview extends React.Component {
             this.state.styles[this.state.currentStyle].photos[
               this.state.currentPicture + 1
             ].url,
+
           currentPicture: this.state.currentPicture + 1,
         });
       } else {
