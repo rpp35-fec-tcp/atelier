@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import {FaRegStar} from 'react-icons/fa';
+import {BsXLg} from "react-icons/bs";
 import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
 import Compare from './compare.jsx';
 
@@ -15,7 +16,7 @@ class Card extends React.Component {
       relatedProductStyle: null,
       defaultItem: null,
       reviewRating: 0,
-      currentProductInfo: this.props.currentProductInfo,
+      currentProductInfo: null,
       show: false
     }
   }
@@ -23,17 +24,7 @@ class Card extends React.Component {
     this.setState({show: false});
   }
   componentDidMount () {
-    getOneProduct(this.props.id, (data) => {
-      this.setState({
-        relatedProductInfo: data
-      })
-    });
-    getOneProductStyle(this.props.id, (data) => {
-      this.setState({
-        relatedProductStyle: data
-      });
-      this.getDefaultItem(data.results);
-    });
+    this.update();
     //unit test for getReviews, to check whether rating is calculated correctly, also check whether rating is hidden is there is no review
     getReviews(this.props.id, (data) => {
       var ratings = data.ratings;
@@ -52,6 +43,30 @@ class Card extends React.Component {
       }
       this.setState({
         reviewRating: rating
+      })
+    });
+  }
+  // componentDidUpdate (prevProps) {
+  //   if (prevProps.currentProductId !== this.props.currentProductId) {
+  //     console.log('in card component did update: ', prevProps.currentProductId, this.props.currentProductId)
+  //     this.update();
+  //   }
+  // }
+  update () {
+    getOneProduct(this.props.id, (data) => {
+      this.setState({
+        relatedProductInfo: data
+      })
+    });
+    getOneProductStyle(this.props.id, (data) => {
+      this.setState({
+        relatedProductStyle: data
+      });
+      this.getDefaultItem(data.results);
+    });
+    getOneProduct(this.props.currentProductId, (data) => {
+      this.setState({
+        currentProductInfo: data
       })
     });
   }
@@ -97,12 +112,12 @@ class Card extends React.Component {
           {this.state.relatedProductInfo !== null && <h6 className="card-subtitle mb-2 text-muted" >{this.state.relatedProductInfo.category}</h6>}
           {this.state.relatedProductInfo !== null && <h5 className="card-title" >{this.state.relatedProductInfo.name}</h5>}
           {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
-          {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
           {this.rating(this.state.reviewRating)}
         </div>
         {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.relatedProductInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
       </div>
-      <FaRegStar className='star' onClick={(e) => {e.stopPropagation();this.setState({show: true}); }}/>
+      {this.props.type === 'related' && <FaRegStar className='icon' onClick={(e) => {e.stopPropagation(); this.setState({show: true}); }}/>}
+      {this.props.type === 'outfit' && <BsXLg className='icon' onClick={(e) => {e.stopPropagation(); this.props.deleteOutfit(this.props.id) }}/>}
       </div>
     );
   }
