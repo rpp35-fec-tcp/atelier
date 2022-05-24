@@ -140,32 +140,35 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div className='POOverview' data-testid='Overview'>
-        <div>
+      <div className='product-overview'>
+        <div className='image-view'>
+          <ImageGallery
+            photoURL={this.state.photoURL}
+            currentProduct={this.state.currentStyle}
+            changePhoto={this.changePhoto}
+          />
+        </div>
+        <div className='product-info'>
+          <ProductInfo
+            productInfo={this.state.productInfo}
+            styles={this.state.styles}
+            ratings={this.state.ratings}
+            reviewsCount={this.state.reviewsCount}
+          />
           <ProductDescription productInfo={this.state.productInfo} />
           <FillerComponent />
-          <div className='Infocontainer'>
-            <ProductInfo
-              productInfo={this.state.productInfo}
+        </div>
+        <div className='style-selector'>
+          {this.state.styles.length > 0 && (
+            <StyleSelector
+              thumbnails={this.state.styles[this.state.currentStyle].photos}
+              changeStyle={this.changeStyle.bind(this)}
               styles={this.state.styles}
-              ratings={this.state.ratings}
-              reviewsCount={this.state.reviewsCount}
             />
-
-            <ImageGallery
-              photoURL={this.state.photoURL}
-              currentProduct={this.state.currentStyle}
-              changePhoto={this.changePhoto}
-            />
-            {this.state.styles.length > 0 && (
-              <StyleSelector
-                thumbnails={this.state.styles[this.state.currentStyle].photos}
-                changeStyle={this.changeStyle.bind(this)}
-                styles={this.state.styles}
-              />
-            )}
-            <AddToCart />
-          </div>
+          )}
+        </div>
+        <div className='add-to-cart'>
+          <AddToCart />
         </div>
       </div>
     );
