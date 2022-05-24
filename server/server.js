@@ -11,7 +11,7 @@ app.use(express.json())
 const overviewRoute = require('./routes/overview.js');
 const relatedRoute = require('./routes/related.js');
 const questionRoute = require('./routes/question.js');
-const reviews = require('./routes/reviews.js');
+const reviews = require('./routes/reviews');
 
 app.use('/overview', overviewRoute);
 app.use('/related', relatedRoute);

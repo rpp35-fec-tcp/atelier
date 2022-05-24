@@ -1,25 +1,14 @@
-.reviews-header {
+.reviews {
+  align-items: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  font-size: x-small;
 }
 
-.reviews-header p {
-  width: 1015px
+.reviews > div {
+  padding: 10px 0 10px;
 }
 
-.reviews-body {
-  display: flex;
-  justify-content: center;
+.reviews div {
+  /* border: 1px solid black; */
 }
-
-.reviews-breakdown {
-  width: 340px;
-  padding: 0 65px 0 0;
-}
-
-.reviews-list {
-  width: 675px;
-  padding: 0;
-}
-
-/* TODO: 1335px height before scroll */

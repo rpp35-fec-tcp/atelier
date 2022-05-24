@@ -24,16 +24,17 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <Overview currentProductId={this.state.currentProductId} /> */}
+        <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
         <Related
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.changeCurrentProductId}
         />
-        {/* <Questions currentProductId={this.state.currentProductId} />
-        <Reviews currentProductId={this.state.currentProductId} /> */}
+        <Questions currentProductId={this.state.currentProductId} />
+        <Reviews currentProductId={this.state.currentProductId} />
       </div>
     );
   }
 }
 
-ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

@@ -1,11 +1,10 @@
 import React from 'react';
-
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import Overview from '../client/src/components/overview/Overview.jsx';
-import ImageGallery from '../client/src/components/overview/ImageGallery.jsx';
-import ProductInformation from '../client/src/components/overview/ProductInformation.jsx';
 import AddToCart from '../client/src/components/overview/AddToCart.jsx';
+import ImageGallery from '../client/src/components/overview/ImageGallery.jsx';
+import Overview from '../client/src/components/overview/Overview.jsx';
+import ProductInfo from '../client/src/components/overview/ProductInfo.jsx';
 import StyleSelector from '../client/src/components/overview/StyleSelector.jsx';
 
 describe('Overview', () => {
@@ -17,6 +16,7 @@ describe('Overview', () => {
     render(<ProductOverview currentProduct={specificProduct} currentProductStyle={style} currentReview={dummyReviews.meta}
       toggleFavorite={jest.fn()} currentStyleId={style.results[0].style_id} addToFavorites={[]} />);
     expect(screen.getByTestId('Overview')).toBeInTheDocument();
+  });
 });
 
 describe('Gallery', () => {
@@ -27,7 +27,7 @@ describe('Gallery', () => {
 
 describe('Description', () => {
   test('Shows the product component', () => {
-    render(<ProductInformation />);
+    render(<ProductInfo />);
   });
 });
 
