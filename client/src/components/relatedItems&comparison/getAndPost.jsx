@@ -14,6 +14,7 @@ export function getOneProduct (id, successCB){
     }
   })
 };
+
 export function getOneProductStyle (id, successCB) {
   $.ajax({
     type: 'GET',

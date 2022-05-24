@@ -5,6 +5,7 @@ import Table from 'react-bootstrap/Table';
 import {useState} from 'react';
 import {getOneProduct, getReviews} from './getAndPost.jsx';
 import {GrCheckmark} from 'react-icons/gr';
+import {TableEntry} from './tableEntry.jsx';
 
 function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
   var cur = currentProductInfo.features;
@@ -31,53 +32,33 @@ function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
         combinedFeatures[combinedFeatures.length] = [com[i].feature, '', com[i].value];
       }
     }
-    //console.log(combinedFeatures);
-    return (
-        combinedFeatures.map((combine, index) => (
-          <tr key={index}>
-            <td>{(combine[1] === true && <GrCheckmark />) || combine[1]}</td><td style={{fontWeight:'bold'}}>{combine[0]}</td><td>{(combine[2] === true && <GrCheckmark />) || combine[2]}</td>
-          </tr>
-        ))
-    );
   }
+  getFeatures();
 
   return (
+
     <div>
       <Modal show={show} onHide={changeShow} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Comparing</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{paddingTop: '0', overflow:'scroll', height:'400px'}}>
+        <Modal.Body >
           <Table >
-            <thead style={{position: 'sticky', top: '0', backgroundColor:'white'}}>
-              <tr style={{position: 'sticky', top: '0', backgroundColor:'white'}}>
-                <th >{currentProductInfo.name}</th>
+            <thead >
+              <tr >
+                <th className="currentTitle">{currentProductInfo.name}</th>
                 <th ></th>
                 <th >{comparedProductInfo.name}</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{currentProductInfo.slogan || ''}</td>
-                <td style={{fontWeight:'bold'}}>slogan</td>
-                <td>{comparedProductInfo.slogan || ''}</td>
-              </tr>
-              <tr>
-                <td>{currentProductInfo.description || ''}</td>
-                <td style={{fontWeight:'bold'}}>description</td>
-                <td>{comparedProductInfo.description || ''}</td>
-              </tr>
-              <tr>
-                <td>{currentProductInfo.default_price || ''}</td>
-                <td style={{fontWeight:'bold'}}>default price</td>
-                <td>{comparedProductInfo.default_price || ''}</td>
-              </tr>
-              <tr>
-                <td>{currentProductInfo.category || ''}</td>
-                <td style={{fontWeight:'bold'}}>category</td>
-                <td>{comparedProductInfo.category || ''}</td>
-              </tr>
-              {getFeatures()}
+              <TableEntry current={currentProductInfo.slogan} description='slogan' compared={comparedProductInfo.slogan} />
+              <TableEntry current={currentProductInfo.description} description='description' compared={comparedProductInfo.description} />
+              <TableEntry current={currentProductInfo.default_price} description='default price' compared={comparedProductInfo.default_price} />
+              <TableEntry current={currentProductInfo.category} description='category' compared={comparedProductInfo.category} />
+              {combinedFeatures.length > 0 && combinedFeatures.map((combine, index) => (
+                <TableEntry key={index} current={(combine[1] === true && <GrCheckmark />) || combine[1]} description={combine[0]} compared={(combine[2] === true && <GrCheckmark />) || combine[2]} />
+              ))}
             </tbody>
           </Table>
         </Modal.Body>

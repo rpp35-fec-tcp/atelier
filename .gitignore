@@ -1,5 +1,17 @@
-.DS_Store
+# API Keys
 config.js
+
+# MacOS containing folder custom attributes
+.DS_Store
+
+# VS Code workspace settings
+.vscode/
+
+# Webpack compiled output
+*.eot
+*.ttf
+*.woff
+bundle.js*
 
 # Logs
 logs
@@ -9,9 +21,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-
-# Webpack build out
-bundle.js
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
