@@ -9,12 +9,12 @@ class ImageGallery extends React.Component {
   }
   render() {
     return (
-      <div>
-        <button id='back' onClick={this.props.changePhoto}>
+      <div className='image-gallery'>
+        <button className='image-gallery-buttons' id='back' onClick={this.props.changePhoto}>
           ←
         </button>
-        <img className='gallery' src={this.props.photoURL}></img>
-        <button id='forward' onClick={this.props.changePhoto}>
+        <img className='image-gallery-item' src={this.props.photoURL}></img>
+        <button className='image-gallery-buttons' id='forward' onClick={this.props.changePhoto}>
           →
         </button>
       </div>
