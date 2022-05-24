@@ -12,17 +12,16 @@ class RelatedComponent extends React.Component{
     this.state = {
       currentProductId: this.props.currentProductId,
       relatedProducts: [],
-      outfitList:[null, 71709, 71698, 71699, 71702]
+      outfitList:[null]
     };
     this.addToOutfit = this.addToOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
   }
   addToOutfit (id) {
-    console.log('add:', id)
     if (!this.state.outfitList.includes(id)) {
       this.setState({
         outfitList: [...this.state.outfitList, id]
-      }, () => console.log('add to outfit list:', this.state.outfitList));
+      })
     }
   }
   deleteOutfit (id) {
@@ -36,17 +35,15 @@ class RelatedComponent extends React.Component{
         relatedProducts: data
       })
     })
-    // getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
   }
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       getRelatedProducts(this.props.currentProductId, (data) => {
         this.setState({
           relatedProducts: data
-        }, ()=>console.log('relatedProducts: ', this.state.relatedProducts))
+        })
       })
       this.setState({currentProductId: this.props.currentProductId})
-      // getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
     }
   }
   render () {
@@ -57,7 +54,6 @@ class RelatedComponent extends React.Component{
         <SimpleCarousel
           relatedProducts={this.state.relatedProducts}
           currentProductId={this.state.currentProductId}
-          // currentProductInfo={this.state.currentProductInfo}
           changeCurrentProductId={this.props.changeCurrentProductId}
           addToOutfit={this.addToOutfit}
           deleteOutfit={this.deleteOutfit}
@@ -67,7 +63,6 @@ class RelatedComponent extends React.Component{
         <SimpleCarousel
           relatedProducts={this.state.outfitList}
           currentProductId={this.state.currentProductId}
-          // currentProductInfo={this.state.currentProductInfo}
           changeCurrentProductId={this.props.changeCurrentProductId}
           addToOutfit={this.addToOutfit}
           deleteOutfit={this.deleteOutfit}

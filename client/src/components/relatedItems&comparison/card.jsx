@@ -46,14 +46,14 @@ class Card extends React.Component {
       })
     });
   }
-  componentDidUpdate (prevProps) {
-    if (prevProps.currentProductId !== this.props.currentProductId) {
-      this.update();
-    }
-  }
+  // componentDidUpdate (prevProps) {
+  //   if (prevProps.currentProductId !== this.props.currentProductId) {
+  //     console.log('in card component did update: ', prevProps.currentProductId, this.props.currentProductId)
+  //     this.update();
+  //   }
+  // }
   update () {
     getOneProduct(this.props.id, (data) => {
-      console.log('card compared it:', this.props.id);
       this.setState({
         relatedProductInfo: data
       })
@@ -84,7 +84,6 @@ class Card extends React.Component {
   //unit test for price whether sales price is used if it is not null
   getDefaultItem (results) {
     var defaultItem = results.filter((result) => result['default?']);
-    console.log('results: ', results, 'default:', defaultItem)
     defaultItem = defaultItem.length === 0 ? results[0] : defaultItem[0];
     this.setState({
       defaultItem: defaultItem
