@@ -32,7 +32,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
     <div>
       {(outfit[0] !== null) &&
         <Carousel
-          ssr
+          //ssr
           partialVisibile={true}
           itemClass="image-item"
           autoPlay={false}
@@ -46,7 +46,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
                 changeCurrentProductId={changeCurrentProductId}
                 currentProductId={currentProductId}
                 type='related'
-                deleteOutfit={deleteOutfit}
+                // deleteOutfit={deleteOutfit}
                 draggable={false}
                 style={{ width: "100%", height: "100%"}}
               />
@@ -57,29 +57,35 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
 
       {(outfit[0] === null) &&
         <Carousel
-          ssr
+          //ssr
           partialVisibile={true}
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
-          extraData={outfit}
+          arrows={true}
+          renderArrowsWhenDisabled={false}
+          // extraData={outfit}
+          // arrows={true}
         >
-          {(products = outfit.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>}
-          {products.map(productId => (
-            <div>
-              <Card
-                id={productId}
-                key={productId}
-                addToOutfit={addToOutfit}
-                changeCurrentProductId={changeCurrentProductId}
-                currentProductId={currentProductId}
-                type='outfit'
-                deleteOutfit={deleteOutfit}
-                draggable={false}
-                style={{ width: "100%", height: "100%"}}
-              />
-            </div>
-          ))}
+          {/* {(products = outfit.slice(1)) && <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>} */}
+          {outfit.map(productId => (
+            (productId === null ?
+              <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>
+               :
+              <div>
+                <Card
+                  id={productId}
+                  key={productId}
+                  addToOutfit={addToOutfit}
+                  changeCurrentProductId={changeCurrentProductId}
+                  currentProductId={currentProductId}
+                  type='outfit'
+                  deleteOutfit={deleteOutfit}
+                  draggable={false}
+                  style={{ width: "100%", height: "100%"}}
+                />
+              </div>
+          )))}
       </Carousel>
       }
     </div>

@@ -12,15 +12,17 @@ class RelatedComponent extends React.Component{
     this.state = {
       currentProductId: this.props.currentProductId,
       relatedProducts: [],
-      outfitList:[null]
+      // outfitList:[null, 71699, 71698, 71697]
+      outfitList: [null]
     };
     this.addToOutfit = this.addToOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
+    //this.renderOutfit = this.renderOutfit.bind(this);
   }
   addToOutfit (id) {
     if (!this.state.outfitList.includes(id)) {
       this.setState({
-        outfitList: [...this.state.outfitList, id]
+        outfitList: [null, id, ...this.state.outfitList.slice(1)]
       })
     }
   }
@@ -35,6 +37,7 @@ class RelatedComponent extends React.Component{
         relatedProducts: data
       })
     })
+    //this.renderOutfit();
   }
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
@@ -46,6 +49,11 @@ class RelatedComponent extends React.Component{
       this.setState({currentProductId: this.props.currentProductId})
     }
   }
+  // renderOutfit () {
+  //   var $list = `<SimpleCarousel relatedProducts=${this.state.outfitList} currentProductId=${this.state.currentProductId} changeCurrentProductId=${this.props.changeCurrentProductId} addToOutfit=${this.addToOutfit} deleteOutfit=${this.deleteOutfit} />`
+  //   $('#outfit').empty();
+  //   $('#outfit').append($list);
+  // }
   render () {
     return (
       <div className='exceptOverview'>
@@ -55,8 +63,6 @@ class RelatedComponent extends React.Component{
           relatedProducts={this.state.relatedProducts}
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.props.changeCurrentProductId}
-          addToOutfit={this.addToOutfit}
-          deleteOutfit={this.deleteOutfit}
         />
 
         <p className='list'>YOUR OUTFIT</p>
