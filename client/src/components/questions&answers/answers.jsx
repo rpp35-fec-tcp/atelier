@@ -10,6 +10,24 @@ class Answers extends React.Component {
     this.fetchAnswerData = this.fetchAnswerData.bind(this);
     this.dateConverter = this.dateConverter.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
+  }
+
+  handleUpvoteClick (id) {
+    //send a put req to server with question id as a param
+    //with axios.put
+    console.log(id);
+    axios.put('http://localhost:3000/question/upvoteAnswerHelpful',{
+      params:{
+        answer_id: id
+      }
+    })
+      .then((res) => {
+        console.log('upvoted answer');
+      })
+      .catch((err) => {
+        console.log('client side error upvoting answer helpfulness', err.response.data);
+      })
   }
 
   handleClick () {
@@ -81,8 +99,13 @@ class Answers extends React.Component {
               <li key={item.answer_id}>
                 <h4 id='answer-header'>A:</h4>
                 <span  className='answerBody'>{item.body}</span>
+                  <br></br>
+                <small className='answer-helpfulness'> Helpful?
+                <button className="upvote-helpfulness" id={item.answer_id}
+                onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
+                  ({item.helpfulness})</small>
                 <div className='answerer-name/time'>
-                  <small className='answerer-name'>{item.answerer_name}</small>
+                  <small className='answerer-name'>by {item.answerer_name}, </small>
                   <small className='answer-time'>{this.dateConverter(item.date)}</small>
                 </div>
               </li>
