@@ -7,3 +7,15 @@
 .unchecked {
   font-size: 20px;
 } */
+
+img {
+  float: middle;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.exceptOverview {
+  margin-left: 10%;
+  margin-right: 10%;
+}

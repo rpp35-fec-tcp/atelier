@@ -1,15 +1,12 @@
 const express = require('express');
 const app = express();
-
-
+const bodyParser = require('body-parser');
 const port = 3000;
 
 //Serve static files
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.json());
 
-
-
-// Chloe, I think this is where we need the router?? or does it go before, the "express.static" statement?
 const overviewRoute = require('./routes/overview.js');
 const questionRoute = require('./routes/question.js');
 const ratingRoute = require('./routes/rating.js');
@@ -19,6 +16,8 @@ app.use('/overview', overviewRoute);
 app.use('/question', questionRoute);
 app.use('/rating', ratingRoute);
 app.use('/related', relatedRoute);
+
+
 
 
 //listen on port
