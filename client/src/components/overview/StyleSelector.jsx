@@ -9,11 +9,10 @@ class StyleSelector extends React.Component {
     return (
       <div>
         <h1>Style Selector</h1>
-        {console.log(this.props.thumbnails)}
         {this.props.thumbnails
           ? this.props.thumbnails.map((i, id) => (
               <img
-                className='styles'
+                className='overview-style-selector'
                 id={id}
                 key={'style' + id}
                 src={i.thumbnail_url}

@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProductId={this.state.currentProductId} />
+        <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
         <Related
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.changeCurrentProductId.bind(this)}
@@ -36,4 +36,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

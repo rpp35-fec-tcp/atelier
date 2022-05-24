@@ -1,0 +1,5 @@
+.reviews-body {
+  width: 1015px;
+  display: flex;
+  justify-content: space-between;
+}
