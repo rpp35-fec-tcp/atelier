@@ -1,9 +1,14 @@
+.star-ratings {
+  font-size: small;
+}
+
 .stars-empty {
   display: inline-block;
   position: relative;
 }
 
 .stars-empty::before {
+  color: #d3ced2;
   content: attr(data-content);
 }
 
@@ -15,5 +20,6 @@
 }
 
 .stars-filled::before {
+  color: #eabe12;
   content: attr(data-content)
 }
