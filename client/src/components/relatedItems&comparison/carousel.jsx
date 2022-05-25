@@ -32,7 +32,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
           autoPlay={false}
           responsive={responsive}
         >
-          {relatedProducts.map(productId => (
+          {relatedProducts.map(productId => (setTimeout(
             <div>
               <Card
                 id={productId}
@@ -44,7 +44,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
                 style={{ width: "100%", height: "100%"}}
               />
             </div>
-          ))}
+          )), 10000)}
       </Carousel>
       }
 
@@ -54,7 +54,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
-          arrows={true}
+          //arrows={true}
           renderArrowsWhenDisabled={false}
         >
           {relatedProducts.map(productId => (

@@ -16,7 +16,7 @@ class Card extends React.Component {
       relatedProductStyle: null,
       defaultItem: null,
       reviewRating: 0,
-      currentProductInfo: null,
+      starClicked: false,
       show: false
     }
   }
@@ -46,12 +46,6 @@ class Card extends React.Component {
       })
     });
   }
-  // componentDidUpdate (prevProps) {
-  //   if (prevProps.currentProductId !== this.props.currentProductId) {
-  //     console.log('in card component did update: ', prevProps.currentProductId, this.props.currentProductId)
-  //     this.update();
-  //   }
-  // }
   update () {
     getOneProduct(this.props.id, (data) => {
       this.setState({
@@ -63,11 +57,6 @@ class Card extends React.Component {
         relatedProductStyle: data
       });
       this.getDefaultItem(data.results);
-    });
-    getOneProduct(this.props.currentProductId, (data) => {
-      this.setState({
-        currentProductInfo: data
-      })
     });
   }
   rating (value) {
@@ -106,7 +95,13 @@ class Card extends React.Component {
   render () {
     return (
       <div>
-        <div className="card" onClick={() => this.props.changeCurrentProductId(this.state.relatedProductInfo.id)}>
+        <div className="card" onClick={() => {
+          if (this.state.starClicked === false) {
+            this.props.changeCurrentProductId(this.state.relatedProductInfo.id)
+          } else {
+            this.setState({starClicked: false})
+          }
+          }}>
         {this.state.defaultItem !== null && <div className='image-holder'><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
         <div className="card-body" >
           {this.state.relatedProductInfo !== null && <h6 className="card-subtitle mb-2 text-muted" >{this.state.relatedProductInfo.category}</h6>}
@@ -114,7 +109,7 @@ class Card extends React.Component {
           {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
           {this.rating(this.state.reviewRating)}
         </div>
-        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.relatedProductInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
+        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.relatedProductInfo} currentProductId={this.props.currentProductId} changeShow={this.changeShow.bind(this)}/>}
       </div>
       {this.props.type === 'related' && <FaRegStar className='icon' onClick={(e) => {e.stopPropagation(); this.setState({show: true}); }}/>}
       {this.props.type === 'outfit' && <BsXLg className='icon' onClick={(e) => {e.stopPropagation(); this.props.deleteOutfit(this.props.id) }}/>}
