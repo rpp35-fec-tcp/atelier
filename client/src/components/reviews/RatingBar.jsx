@@ -3,7 +3,7 @@ import React from 'react';
 import './RatingBar.css';
 
 function RatingBar({ count, maxCount }) {
-  return <div className="rating-bar">{count / maxCount}</div>;
+  return <progress className="rating-bar" max={maxCount} value={count} />;
 }
 
 RatingBar.defaultProps = {
