@@ -38,7 +38,7 @@ function ReviewTile({ review }) {
         )
         : null}
       <div className="review-helpfulness">
-        {`Helpful?  Yes (${review.helpfulness})    |    Report`}
+        {`Helpful?  Yes (${review.helpfulness})\u00A0\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0\u00A0Report`}
       </div>
       <hr className="hr" />
     </div>
