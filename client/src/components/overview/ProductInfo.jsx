@@ -2,7 +2,7 @@ import React from 'react';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 
-function ProductInformation(props) {
+function ProductInfo(props) {
   const price = () => {
     if (props.styles[0]?.sale_price) {
       return (
@@ -50,4 +50,4 @@ function ProductInformation(props) {
   );
 }
 
-export default ProductInformation;
+export default ProductInfo;

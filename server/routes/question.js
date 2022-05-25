@@ -50,5 +50,23 @@ router.get('/answers', (req, res) => {
     })
 });
 
+//upvote answers route
+router.put('/upvoteQuestionHelpful', (req, res) => {
+  let question_id = req.query.question_id;
+  let options = {
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }}
+
+  axios.put(`${APIurl}/${question_id}/helpful`)
+    .then((APIres) => {
+      res.sendStatus(204);
+    })
+    .catch((err) =>{
+      console.log(err.response.data);
+      res.send(err);
+    })
+})
+
 
 module.exports = router;
