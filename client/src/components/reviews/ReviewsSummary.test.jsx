@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { act } from 'react-dom/test-utils';
 import ReviewsSummary from './ReviewsSummary';
 
@@ -19,7 +20,8 @@ it('renders reviews summary data', async () => {
   const reviewCount = 0;
 
   act(() => {
-    render(<ReviewsSummary reviewCount={reviewCount} />, container);
+    const root = createRoot(container);
+    root.render(<ReviewsSummary reviewCount={reviewCount} />);
   });
 
   expect(container.querySelector('span').textContent)
