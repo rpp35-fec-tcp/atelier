@@ -99,6 +99,23 @@ router.put('/upvoteAnswerHelpful', (req, res) => {
 // Report Q&A  ///
 /////////////////
 
+router.put('/reportQuestion', (req, res) => {
+  let question_id = req.body.params.question_id;
+  let options = {
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }}
+
+  axios.put(`${APIurl}/qa/questions/${question_id}/report`)
+    .then((APIres) => {
+      res.sendStatus(204);
+    })
+    .catch((err) =>{
+      console.log(err.response.data);
+      res.send(err);
+    })
+})
+
 router.put('/reportAnswer', (req, res) => {
   let answer_id = req.body.params.answer_id;
   let options = {

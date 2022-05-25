@@ -10,6 +10,23 @@ class QuestionList extends React.Component {
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
     this.handleShowMoreClick = this.handleShowMoreClick.bind(this);
     this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
+    this.handleReportClick = this.handleReportClick.bind(this);
+  }
+
+  handleReportClick (id, name) {
+    document.getElementById(id).disabled = true;
+
+    axios.put('http://localhost:3000/question/reportQuestion', {
+      params: {
+        question_id: name
+      }
+    })
+      .then((res) => {
+        console.log('reported question');
+      })
+      .catch((err) => {
+        console.log ('client side error report question', err.response.data);
+      })
   }
 
   handleShowMoreClick () {
@@ -102,7 +119,9 @@ class QuestionList extends React.Component {
                 <small className='question-helpfulness'> Helpful?
                 <button className="upvote-helpfulness" id={item.question_id}
                 onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
-                  ({item.question_helpfulness})</small>
+                  ({item.question_helpfulness})
+                  <button className="report-question" id={item.question_id + "report"} name={item.question_id}
+                  onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button></small>
                 <div className='question'>{item.question_body}
                   {/* show more details from question */}
                   <div className='answerList'>
