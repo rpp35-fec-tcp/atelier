@@ -11,20 +11,41 @@ class Answers extends React.Component {
     this.dateConverter = this.dateConverter.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
+    this.handleReportClick = this.handleReportClick.bind(this);
+  }
+
+  addAnswer (question_id) {
+    //make an axios call to server with question id and added answer data
+
+  }
+
+  handleReportClick (id, name) {
+    document.getElementById(id).disabled = true;
+
+    axios.put('http://localhost:3000/question/reportAnswer', {
+      params: {
+        answer_id: name
+      }
+    })
+      .then((res) => {
+        console.log('reported answer');
+      })
+      .catch((err) => {
+        console.log ('client side error report answer', err.response.data);
+      })
   }
 
   handleUpvoteClick (id) {
-    //send a put req to server with question id as a param
-    //with axios.put
-    console.log(id);
+    document.getElementById(id).disabled = true;
+
     axios.put('http://localhost:3000/question/upvoteAnswerHelpful',{
       params:{
         answer_id: id
       }
     })
-      .then((res) => {
-        console.log('upvoted answer');
-      })
+      // .then((res) => {
+      //   console.log('upvoted answer');
+      // })
       .catch((err) => {
         console.log('client side error upvoting answer helpfulness', err.response.data);
       })
@@ -103,7 +124,9 @@ class Answers extends React.Component {
                 <small className='answer-helpfulness'> Helpful?
                 <button className="upvote-helpfulness" id={item.answer_id}
                 onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
-                  ({item.helpfulness})</small>
+                  ({item.helpfulness})
+                  <button className="report-answer" id={item.answer_id + "report"} name={item.answer_id}
+                  onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button></small>
                 <div className='answerer-name/time'>
                   <small className='answerer-name'>by {item.answerer_name}, </small>
                   <small className='answer-time'>{this.dateConverter(item.date)}</small>

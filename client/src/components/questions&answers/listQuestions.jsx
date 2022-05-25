@@ -106,8 +106,7 @@ class QuestionList extends React.Component {
                 <div className='question'>{item.question_body}
                   {/* show more details from question */}
                   <div className='answerList'>
-                    <Answers question_id={item.question_id}
-                      moreAnswers={this.state.moreAnswers} />
+                    <Answers question_id={item.question_id}/>
                   </div>
                 </div>
 

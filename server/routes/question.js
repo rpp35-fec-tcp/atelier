@@ -1,7 +1,11 @@
 const router = require('express').Router();
 const axios = require('axios');
-const APIurl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions';
+const APIurl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
 const config = require('../../config.js');
+
+///////////////////
+///   GET Q&A   //
+/////////////////
 
 //question route//
 router.get('/', (req, res) => {
@@ -17,7 +21,7 @@ router.get('/', (req, res) => {
     }
   };
 
-  axios.get(APIurl, options)
+  axios.get(`${APIurl}/qa/questions`, options)
     .then((APIres) => {
       res.status(200).send(APIres.data);
     })
@@ -40,7 +44,7 @@ router.get('/answers', (req, res) => {
     }
   };
 
-  axios.get(`${APIurl}/${question_id}/answers`, options)
+  axios.get(`${APIurl}/qa/questions/${question_id}/answers`, options)
     .then((answerAPIres) => {
       res.status(200).send(answerAPIres.data);
     })
@@ -50,15 +54,20 @@ router.get('/answers', (req, res) => {
     })
 });
 
+///////////////////
+// Upvote Q&A  ///
+/////////////////
+
+
 //upvote questions route
 router.put('/upvoteQuestionHelpful', (req, res) => {
-  let question_id = req.query.question_id;
+  let question_id = req.body.params.question_id;
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
     }}
 
-  axios.put(`${APIurl}/${question_id}/helpful`)
+  axios.put(`${APIurl}/qa/questions/${question_id}/helpful`)
     .then((APIres) => {
       res.sendStatus(204);
     })
@@ -70,14 +79,36 @@ router.put('/upvoteQuestionHelpful', (req, res) => {
 
 //upvote answers route
 router.put('/upvoteAnswerHelpful', (req, res) => {
-  let answer_id = req.query.answer_id;
+  let answer_id = req.body.params.answer_id;
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
     }}
 
-  axios.put(`${APIurl}/${answer_id}/helpful`)
+  axios.put(`${APIurl}/qa/answers/${answer_id}/helpful`)
     .then((APIres) => {
+      res.sendStatus(204);
+    })
+    .catch((err) =>{
+      console.log(err.response.data, 'Ahelp');
+      res.send(err);
+    })
+})
+
+///////////////////
+// Report Q&A  ///
+/////////////////
+
+router.put('/reportAnswer', (req, res) => {
+  let answer_id = req.body.params.answer_id;
+  let options = {
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }}
+
+  axios.put(`${APIurl}/qa/answers/${answer_id}/report`)
+    .then((APIres) => {
+      console.log('reported')
       res.sendStatus(204);
     })
     .catch((err) =>{
