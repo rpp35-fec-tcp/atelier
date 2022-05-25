@@ -18,6 +18,10 @@ app.use('/related', relatedRoute);
 app.use('/question', questionRoute);
 app.use('/reviews', reviews);
 
+app.get('/interactions', (req, res) => {
+  //send an axios request to the interactions API
+})
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

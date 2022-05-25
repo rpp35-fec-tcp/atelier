@@ -1,6 +1,10 @@
-import react from 'react';
-import react-DOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
 
-function askQuestion () {
-
-};
+class QuestionModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.
+  }
+}

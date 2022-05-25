@@ -13,6 +13,10 @@ class QuestionList extends React.Component {
     this.handleReportClick = this.handleReportClick.bind(this);
   }
 
+  handleAddQuestionClick () {
+    
+  }
+
   handleReportClick (id, name) {
     document.getElementById(id).disabled = true;
 
@@ -134,6 +138,7 @@ class QuestionList extends React.Component {
           })}
         </ul>
         <button id="moreQuestions" onClick={this.handleShowMoreClick}>MORE ANSWERED QUESTIONS</button>
+        <button id="addAQuestion" >ADD A QUESTION +</button>
       </div>
     )
   }
