@@ -26,6 +26,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
     <div>
       {(relatedProducts[0] !== null) &&
         <Carousel
+          ssr
           partialVisibile={true}
           itemClass="image-item"
           autoPlay={false}
