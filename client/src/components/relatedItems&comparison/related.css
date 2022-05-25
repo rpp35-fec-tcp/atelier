@@ -22,7 +22,6 @@ Modal.Body {
 }
 
 .image-item {
-  /* padding: 20px 0 20px 20px; */
   margin-left: 1%;
   margin-Right: 1%;
 }
@@ -68,7 +67,6 @@ Modal.Body {
   position: absolute; /*newly added*/
   right: 5px; /*newly added*/
   top: 5px;/*newly added*/
-  /* padding: 1%; */
 }
 .icon:hover {
   color: yellow;
@@ -77,8 +75,6 @@ Modal.Body {
 .card-img-top {
   height:100%;
   width:100%;
-  /* float: left; */
-  /* object-fit: cover; */
 }
 
 .exceptOverview {

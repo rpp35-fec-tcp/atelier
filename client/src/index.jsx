@@ -21,13 +21,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
+        {/* <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/> */}
         <Related
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.changeCurrentProductId}
         />
-        <Questions currentProductId={this.state.currentProductId} />
-        <Reviews currentProductId={this.state.currentProductId} />
+        {/* <Questions currentProductId={this.state.currentProductId} /> */}
+        {/* <Reviews currentProductId={this.state.currentProductId} /> */}
       </div>
     );
   }
