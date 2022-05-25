@@ -1,0 +1,7 @@
+.reviews-breakdown {
+  flex: 0 290px;
+}
+
+.reviews-breakdown > div {
+  padding: 10px 0 10px;
+}

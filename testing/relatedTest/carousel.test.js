@@ -2,6 +2,7 @@ import React from 'react';
 import SimpleCarousel from '../../client/src/components/relatedItems&comparison/carousel.jsx';
 import ReactShallowRenderer from 'react-test-renderer/shallow';
 import fakeProductInfos from './fakeData.js';
+import {render} from "@testing-library/react";
 
 describe('SimpleCarousal', function() {
 

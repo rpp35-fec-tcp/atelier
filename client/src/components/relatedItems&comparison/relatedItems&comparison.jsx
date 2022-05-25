@@ -1,66 +1,154 @@
+// import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'react-multi-carousel/lib/styles.css';
 import SimpleCarousel from './carousel.jsx';
-// import './related.css';
 import $ from 'jquery';
-import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
+import {getOneProductStyle, getReviews, getRelatedProducts} from './getAndPost.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-multi-carousel/lib/styles.css';
+import './related.css';
 
 class RelatedComponent extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      //this id needs to to lift up a state to the index.jsx, so all 4 widgets could interact with it
-      //currentProductId: null,
-      currentProductInfo: null,
-      relatedProducts: []
+      currentProductId: this.props.currentProductId,
+      relatedProducts: [],
+      // outfitList:[null, 71699, 71698, 71697]
+      outfitList: [null]
     };
+    this.addToOutfit = this.addToOutfit.bind(this);
+    this.deleteOutfit = this.deleteOutfit.bind(this);
+    //this.renderOutfit = this.renderOutfit.bind(this);
   }
-  getRelatedProducts (successCB) {
-    $.ajax({
-      type: 'GET',
-      url: '/related/getRelatedProducts',
-      contentType: 'application/json',
-      data: {
-        id: this.props.currentProductId
-      },
-      success: successCB,
-      error: function(err) {
-        console.log(err);
-      }
-    })
+  addToOutfit (id) {
+    if (!this.state.outfitList.includes(id)) {
+      this.setState({
+        outfitList: [null, id, ...this.state.outfitList.slice(1)]
+      })
+    }
+  }
+  deleteOutfit (id) {
+    this.setState({
+      outfitList: this.state.outfitList.filter((item) => item !== id)
+    });
   }
   componentDidMount () {
-    //console.log('id in related:', this.state.currentProductId)
-    this.getRelatedProducts((data) => {
-      //console.log(data);
+    getRelatedProducts(this.state.currentProductId, (data) => {
       this.setState({
         relatedProducts: data
       })
     })
-    getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
+    //this.renderOutfit();
   }
   componentDidUpdate (prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
-      this.getRelatedProducts((data) => {
-        //console.log(data);
+      getRelatedProducts(this.props.currentProductId, (data) => {
         this.setState({
           relatedProducts: data
         })
       })
-      getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
+      this.setState({currentProductId: this.props.currentProductId})
     }
-    // this.prevProductId = this.props.currentProductId
-    //console.log('id in related:', this.state.currentProductInfo.id, this.props.currentProductId)
   }
+  // renderOutfit () {
+  //   var $list = `<SimpleCarousel relatedProducts=${this.state.outfitList} currentProductId=${this.state.currentProductId} changeCurrentProductId=${this.props.changeCurrentProductId} addToOutfit=${this.addToOutfit} deleteOutfit=${this.deleteOutfit} />`
+  //   $('#outfit').empty();
+  //   $('#outfit').append($list);
+  // }
   render () {
     return (
       <div className='exceptOverview'>
-        <p style={{color: 'gray', marginLeft: '2%', fontSize:'20px'}}>Related Product</p>
-        <SimpleCarousel relatedProducts={this.state.relatedProducts} currentProductInfo={this.state.currentProductInfo} changeCurrentProductId={this.props.changeCurrentProductId}/>
+
+        <p className='list' >RELATED PRODUCT</p>
+        <SimpleCarousel
+          relatedProducts={this.state.relatedProducts}
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.props.changeCurrentProductId}
+        />
+
+        <p className='list'>YOUR OUTFIT</p>
+        <SimpleCarousel
+          relatedProducts={this.state.outfitList}
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.props.changeCurrentProductId}
+          addToOutfit={this.addToOutfit}
+          deleteOutfit={this.deleteOutfit}
+        />
+
       </div>
     );
   }
 }
+
+// class RelatedComponent extends React.Component{
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       currentProductInfo: null,
+//       relatedProducts: [],
+//       outfitList:[null, 71709, 71698, 71699, 71702]
+//     };
+//     this.addToOutfit = this.addToOutfit.bind(this);
+//     this.deleteOutfit = this.deleteOutfit.bind(this);
+//   }
+//   addToOutfit (id) {
+//     if (!this.state.outfitList.includes(id)) {
+//       this.setState({
+//         outfitList: [...this.state.outfitList, id]
+//       });
+//     }
+//   }
+//   deleteOutfit (id) {
+//     this.setState({
+//       outfitList: this.state.outfitList.filter((item) => item !== id)
+//     });
+//   }
+//   componentDidMount () {
+//     getRelatedProducts(this.props.currentProductId, (data) => {
+//       this.setState({
+//         relatedProducts: data
+//       })
+//     })
+//     getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
+//   }
+//   componentDidUpdate (prevProps) {
+//     if (prevProps.currentProductId !== this.props.currentProductId) {
+//       getRelatedProducts(this.props.currentProductId, (data) => {
+//         this.setState({
+//           relatedProducts: data
+//         })
+//       })
+//       getOneProduct(this.props.currentProductId, (data) => {this.setState({currentProductInfo: data})})
+//     }
+//   }
+//   render () {
+//     return (
+//       <div className='exceptOverview'>
+
+//         <p className='list' >RELATED PRODUCT</p>
+//         <SimpleCarousel
+//           relatedProducts={this.state.relatedProducts}
+//           currentProductId={this.props.currentProductId}
+//           currentProductInfo={this.state.currentProductInfo}
+//           changeCurrentProductId={this.props.changeCurrentProductId}
+//           addToOutfit={this.addToOutfit}
+//           deleteOutfit={this.deleteOutfit}
+//         />
+
+//         <p className='list'>YOUR OUTFIT</p>
+//         <SimpleCarousel
+//           relatedProducts={this.state.outfitList}
+//           currentProductId={this.props.currentProductId}
+//           currentProductInfo={this.state.currentProductInfo}
+//           changeCurrentProductId={this.props.changeCurrentProductId}
+//           addToOutfit={this.addToOutfit}
+//           deleteOutfit={this.deleteOutfit}
+//         />
+
+//       </div>
+//     );
+//   }
+// }
 
 export default RelatedComponent;

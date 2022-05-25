@@ -1,15 +1,37 @@
+const axios = require('axios');
 const express = require('express');
-const router = express.Router();
-const { getReviews } = require('../../helpers/reviews.js');
+const { TOKEN: AUTH_TOKEN } = require('../../config');
 
-router.get('/', (req, res) => {
-  getReviews()
-    .then(({ data }) => {
-      res.send(data.results);
-    })
-    .catch(({ response }) => {
-      res.status(response.status).send(response.statusText);
-    });
+const router = express.Router();
+const CAMPUS = 'hr-rpp';
+const instance = axios.create({
+  baseURL: `https://app-hrsei-api.herokuapp.com/api/fec2/${CAMPUS}/reviews`,
+  timeout: 4000,
+  headers: { Authorization: AUTH_TOKEN }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const { data } = await instance.get(
+      '/',
+      { params: { ...req.query } }
+    );
+    res.send(data.results);
+  } catch({ response }) {
+    res.status(response.status).send(response.statusText);
+  }
+});
+
+router.get('/meta', async (req, res) => {
+  try {
+    const { data } = await instance.get(
+      '/meta',
+      { params: { ...req.query } }
+    );
+    res.send(data);
+  } catch({ response }) {
+    res.status(response.status).send(response.statusText);
+  }
 });
 
 module.exports = router;
