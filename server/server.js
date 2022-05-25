@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const path = require('path');
 const app = express();
 const cors = require('cors');
@@ -14,7 +15,7 @@ const questionRoute = require('./routes/question.js');
 const reviews = require('./routes/reviews');
 
 app.use('/overview', overviewRoute);
-app.use('/related', relatedRoute);
+app.use('/related', compression(), relatedRoute);
 app.use('/question', questionRoute);
 app.use('/reviews', reviews);
 
