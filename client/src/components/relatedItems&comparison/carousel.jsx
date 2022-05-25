@@ -1,5 +1,5 @@
 import Carousel from 'react-multi-carousel';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './card.jsx';
 import AddToOutfit from './addToOutfit.jsx';
 
@@ -21,7 +21,7 @@ const responsive = {
   }
 };
 
-const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
+const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
   return (
     <div>
       {(relatedProducts[0] !== null) &&
@@ -32,19 +32,19 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
           autoPlay={false}
           responsive={responsive}
         >
-          {relatedProducts.map(productId => (setTimeout(
+          {relatedProducts.map(productId => (
             <div>
               <Card
                 id={productId}
                 key={productId}
                 changeCurrentProductId={changeCurrentProductId}
-                currentProductId={currentProductId}
+                currentProductInfo={currentProductInfo}
                 type='related'
                 draggable={false}
                 style={{ width: "100%", height: "100%"}}
               />
             </div>
-          )), 10000)}
+          ))}
       </Carousel>
       }
 
@@ -54,7 +54,6 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
-          //arrows={true}
           renderArrowsWhenDisabled={false}
         >
           {relatedProducts.map(productId => (
@@ -67,7 +66,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, changeCurrentProduct
                   key={productId}
                   addToOutfit={addToOutfit}
                   changeCurrentProductId={changeCurrentProductId}
-                  currentProductId={currentProductId}
+                  currentProductInfo={currentProductInfo}
                   type='outfit'
                   deleteOutfit={deleteOutfit}
                   draggable={false}

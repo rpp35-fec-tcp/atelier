@@ -2,27 +2,15 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import {useState, useEffect} from 'react';
-import {getOneProduct, getReviews} from './getAndPost.jsx';
+import {getReviews} from './getAndPost.jsx';
 import {GrCheckmark} from 'react-icons/gr';
 import {TableEntry} from './tableEntry.jsx';
 
-function Compare({show, comparedProductInfo, currentProductId, changeShow}) {
-  const [currentProductInfoFeatures, setInfo] = useState('');
-  //var cur = currentProductInfo.features;
+function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
+  var cur = currentProductInfo.features;
   var com = comparedProductInfo.features;
   var combinedFeatures = [];
   var existedFeatures = new Set();
-
-  useEffect (() => {
-    setInfo(
-      getOneProduct(this.props.currentProductId, (data) => {
-        this.setState({
-          currentProductInfoFeatures: data.features
-        })
-      }, () => getFeatures(););
-    )
-  })
   const getFeatures = () => {
     for (var i = 0; i < cur.length; i++) {
       combinedFeatures[i] = [];
@@ -43,11 +31,10 @@ function Compare({show, comparedProductInfo, currentProductId, changeShow}) {
       }
     }
   }
-  // getFeatures();
+  getFeatures();
 
   return (
-
-    <div>
+   <div>
       <Modal show={show} onHide={changeShow} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Comparing</Modal.Title>
