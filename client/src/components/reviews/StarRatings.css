@@ -1,0 +1,19 @@
+.stars-empty {
+  display: inline-block;
+  position: relative;
+}
+
+.stars-empty::before {
+  content: attr(data-content);
+}
+
+.stars-filled {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-filled::before {
+  content: attr(data-content)
+}
