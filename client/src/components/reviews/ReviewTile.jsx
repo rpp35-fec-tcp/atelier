@@ -17,7 +17,12 @@ function ReviewTile({ review }) {
         ? (
           <div className="review-photo">
             {review.photos.map((photo) => (
-              <img alt="clothing" key={photo.id} src={photo.url} />
+              <img
+                alt="clothing"
+                className="review-img"
+                key={photo.id}
+                src={photo.url}
+              />
             ))}
           </div>
         )
