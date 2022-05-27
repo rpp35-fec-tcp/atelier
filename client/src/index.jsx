@@ -16,18 +16,22 @@ class App extends React.Component {
   }
 
   handleInteraction (element, widget) {
-    //axios post request to a server route with the following body
-      //body: {
-      //   element: element, widget: widget, time: create a new timestamp
-      // }
-
       let date = new Date();
-      let time = date.getTime(); //return UTC time stamp;
+      let time = date.getTime(); //returns UTC time stamp;
 
       axios.post('http://localhost:3000/interactions', {
-        //insert the body object here
+        data: {
+          element: element,
+          widget: widget,
+          time: time
+        }
       })
-
+        .then ((res) => {
+          console.log(res.status);
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+        })
   }
 
   changeCurrentProductId(id) {
