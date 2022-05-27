@@ -7,7 +7,31 @@ import ProductDescription from './ProductDescription.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import config from '../../../../config.js';
-import './style.css';
+import styled from 'styled-components';
+
+const OverviewContainer = styled.div`
+  margin-top: 64px;
+  margin-bottom: 64px;
+  padding-left: 80px;
+`;
+
+const Flexcontainer = styled.div`
+  display: flex;
+`;
+
+const FlexColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Text = styled.div`
+  padding: 0px 80px;
+  margin-top: 48px;
+`;
+
+const Strong = styled.strong`
+  margin-bottom: 4px;
+`;
 
 class Overview extends React.Component {
   constructor(props) {
@@ -141,37 +165,38 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div className='product-overview'>
-        <div className='image-view'>
+      <OverviewContainer>
+        <Flexcontainer>
           <ImageGallery
             photoURL={this.state.photoURL}
             currentProduct={this.state.currentStyle}
             changePhoto={this.changePhoto}
           />
-        </div>
-        <div className='product-info'>
-          <ProductInfo
-            productInfo={this.state.productInfo}
-            styles={this.state.styles}
-            ratings={this.state.ratings}
-            reviewsCount={this.state.reviewsCount}
-          />
-          <ProductDescription productInfo={this.state.productInfo} />
-          <FillerComponent />
-        </div>
-        <div className='style-selector'>
-          {this.state.styles.length > 0 && (
-            <StyleSelector
-              thumbnails={this.state.styles[this.state.currentStyle].photos}
-              changeStyle={this.changeStyle.bind(this)}
-              styles={this.state.styles}
-            />
-          )}
-        </div>
-        <div className='add-to-cart'>
-          <AddToCart />
-        </div>
-      </div>
+          <FlexColumn>
+            {this.state.styles.length > 0 && (
+              <StyleSelector
+                thumbnails={this.state.styles[this.state.currentStyle].photos}
+                changeStyle={this.changeStyle.bind(this)}
+                styles={this.state.styles}
+              />
+            )}
+            <Text>
+              <Strong>
+                <ProductInfo
+                  productInfo={this.state.productInfo}
+                  styles={this.state.styles}
+                  ratings={this.state.ratings}
+                  reviewsCount={this.state.reviewsCount}
+                />
+              </Strong>
+            </Text>
+            <FillerComponent />
+
+            <AddToCart />
+          </FlexColumn>
+        </Flexcontainer>
+        <ProductDescription productInfo={this.state.productInfo} />
+      </OverviewContainer>
     );
   }
 }
