@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-// import widgets from './components/relatedItems&comparison/relatedItems&comparison.jsx';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 import axios from 'axios';
@@ -19,7 +17,6 @@ class App extends React.Component {
     this.setState({
       currentProductId: id,
     });
-    //console.log(this.state.currentProductId);
   }
 
   render() {

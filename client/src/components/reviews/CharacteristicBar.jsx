@@ -1,10 +1,12 @@
+import propTypes from 'prop-types';
 import React from 'react';
-import './CharacteristicBar';
+import './CharacteristicBar.css';
 
-const CharacteristicBar = (props) => (
-  <div className='characteristic-bar'>
-    {props.value}
-  </div>
-);
+function CharacteristicBar({ value }) {
+  return <div className="characteristic-bar">{value}</div>;
+}
+
+CharacteristicBar.defaultProps = { value: null };
+CharacteristicBar.propTypes = { value: propTypes.number };
 
 export default CharacteristicBar;
