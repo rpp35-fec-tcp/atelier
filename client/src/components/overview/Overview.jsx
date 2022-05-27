@@ -37,10 +37,10 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      styles: [],
+      photos: [],
       currentPicture: 0,
       currentStyle: 0,
-      photoURL: '',
-      styles: [],
       productInfo: [],
       maxLength: 0,
       ratings: 0,
@@ -60,7 +60,7 @@ class Overview extends React.Component {
         this.setState({
           styles: results.data.results,
           maxLength: results.data.results.map((id) => id.photos).length,
-          photoURL: results.data.results[this.state.currentStyle].photos[0].url,
+          photos: results.data.results[this.state.currentStyle].photos,
         });
       });
   }
@@ -124,7 +124,7 @@ class Overview extends React.Component {
       if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
           photoURL:
-            this.state.styles[this.state.currentStyle].photos[
+            this.state.photos[
               this.state.currentPicture + 1
             ].url,
 
@@ -168,8 +168,9 @@ class Overview extends React.Component {
       <OverviewContainer>
         <Flexcontainer>
           <ImageGallery
-            photoURL={this.state.photoURL}
-            currentProduct={this.state.currentStyle}
+
+            photos={this.state.photos}
+            currentStyle={this.state.currentStyle}
             changePhoto={this.changePhoto}
           />
           <FlexColumn>
