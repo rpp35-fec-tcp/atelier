@@ -7,9 +7,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProductId: 71709
+      currentProductId: 71697
     };
     this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
+    console.log('window.location.pathname: ', window.location.pathname);
   }
 
   changeCurrentProductId(id) {
@@ -21,13 +22,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
+        {/* <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/> */}
         <Related
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.changeCurrentProductId}
         />
-        <Questions currentProductId={this.state.currentProductId} />
-        <Reviews currentProductId={this.state.currentProductId} />
+        {/* <Questions currentProductId={this.state.currentProductId} /> */}
+        {/* <Reviews currentProductId={this.state.currentProductId} /> */}
       </div>
     );
   }

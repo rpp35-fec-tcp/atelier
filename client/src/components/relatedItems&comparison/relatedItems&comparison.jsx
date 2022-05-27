@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import SimpleCarousel from './carousel.jsx';
+const SimpleCarousel = React.lazy(() => import('./carousel.jsx'));
 import $ from 'jquery';
 import {getOneProductStyle, getOneProduct, getReviews, getRelatedProducts} from './getAndPost.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';

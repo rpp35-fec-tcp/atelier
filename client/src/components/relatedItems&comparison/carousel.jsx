@@ -1,6 +1,6 @@
 import Carousel from 'react-multi-carousel';
 import React from 'react';
-import Card from './card.jsx';
+const Card = React.lazy(() => import('./card.jsx'));
 import AddToOutfit from './addToOutfit.jsx';
 
 const responsive = {
@@ -38,6 +38,7 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
                 id={productId}
                 key={productId}
                 changeCurrentProductId={changeCurrentProductId}
+
                 currentProductInfo={currentProductInfo}
                 type='related'
                 draggable={false}
