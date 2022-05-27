@@ -10,10 +10,10 @@ function ReviewsList({ productId }) {
   const [reviewCount, setReviewCount] = useState(0);
   const [reviews, setReviews] = useState([]);
 
-  const fetchData = async (id) => {
+  const fetchData = async (product_id, sort='relevant') => {
     const { data } = await axios.get(
       '/reviews',
-      { params: { product_id: id } },
+      { params: { product_id, sort } },
     );
     setReviewCount(data.length);
     setReviews(data);
@@ -23,11 +23,22 @@ function ReviewsList({ productId }) {
     setDisplayCount(Math.min(displayCount + 2, reviewCount));
   };
 
+  const handleSortChange = (e) => {
+    fetchData(productId, e.target.value);
+  };
+
   useEffect(() => { fetchData(productId); }, [productId]);
 
   return (
     <div className="reviews-list">
-      {reviewCount ? <ReviewsSummary reviewCount={reviewCount} /> : null}
+      {reviewCount
+        ? (
+          <ReviewsSummary
+            handleSortChange={handleSortChange}
+            reviewCount={reviewCount}
+          />
+        )
+        : null}
       {reviews.slice(0, displayCount).map((review) => (
         <ReviewTile key={review.review_id} review={review} />
       ))}

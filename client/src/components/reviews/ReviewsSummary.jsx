@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './ReviewsSummary.css';
 
-function ReviewsSummary({ reviewCount }) {
+function ReviewsSummary({ handleSortChange, reviewCount }) {
   return (
-    <div className="reviews-summary">
+    <div className="reviews-summary" onChange={handleSortChange}>
       <span>{`${reviewCount} reviews, sorted by `}</span>
       <select name="sort">
         <option value="relevant">relevance</option>
