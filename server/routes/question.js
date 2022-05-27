@@ -65,13 +65,14 @@ router.put('/upvoteQuestionHelpful', (req, res) => {
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
-    }}
+    }
+  }
 
   axios.put(`${APIurl}/qa/questions/${question_id}/helpful`)
     .then((APIres) => {
       res.sendStatus(204);
     })
-    .catch((err) =>{
+    .catch((err) => {
       console.log(err.response.data);
       res.send(err);
     })
@@ -83,13 +84,14 @@ router.put('/upvoteAnswerHelpful', (req, res) => {
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
-    }}
+    }
+  }
 
   axios.put(`${APIurl}/qa/answers/${answer_id}/helpful`)
     .then((APIres) => {
       res.sendStatus(204);
     })
-    .catch((err) =>{
+    .catch((err) => {
       console.log(err.response.data, 'Ahelp');
       res.send(err);
     })
@@ -104,13 +106,14 @@ router.put('/reportQuestion', (req, res) => {
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
-    }}
+    }
+  }
 
   axios.put(`${APIurl}/qa/questions/${question_id}/report`)
     .then((APIres) => {
       res.sendStatus(204);
     })
-    .catch((err) =>{
+    .catch((err) => {
       console.log(err.response.data);
       res.send(err);
     })
@@ -121,14 +124,15 @@ router.put('/reportAnswer', (req, res) => {
   let options = {
     headers: {
       'Authorization': `${config.TOKEN}`
-    }}
+    }
+  }
 
   axios.put(`${APIurl}/qa/answers/${answer_id}/report`)
     .then((APIres) => {
       console.log('reported')
       res.sendStatus(204);
     })
-    .catch((err) =>{
+    .catch((err) => {
       console.log(err.response.data);
       res.send(err);
     })
@@ -138,5 +142,38 @@ router.put('/reportAnswer', (req, res) => {
 //// Add Q&A  ////
 /////////////////
 
+router.post('/addAnswer', (req, res) => {
+  let question_id = req.body.data.question_id;
+  let body = req.body.data.body;
+  let name = req.body.data.name;
+  let email = req.body.data.email;
+  let photos = req.body.data.photos;
+
+  console.log(req.body.data);
+
+  let options = {
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    },
+    params: {
+      question_id: question_id
+    },
+    data: {
+      body,
+      name,
+      email,
+      photos
+    }
+  }
+
+  axios.post(`${APIurl}/qa/questions/${question_id}/answers`, options)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err.response.data);
+    })
+
+})
 
 module.exports = router;

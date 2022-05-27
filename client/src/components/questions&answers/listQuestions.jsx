@@ -2,23 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Answers from './answers.jsx';
+import AnswerModal from './answerQuestion.jsx'
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { questions: [], showMore: false };
+    this.state = { questions: [],
+      showMore: false,
+      showQuestionModal: false,
+      showAnswerModal: false};
+
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
     this.handleShowMoreClick = this.handleShowMoreClick.bind(this);
     this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
     this.handleReportClick = this.handleReportClick.bind(this);
+    this.showOrHideAnswerModal = this.showOrHideAnswerModal.bind(this);
   }
 
-  handleAddQuestionClick () {
-    
+  showOrHideAnswerModal (id) {
+    // this.props.handleInteraction(id, 'QuestionList');
+    this.setState({showAnswerModal: !this.state.showAnswerModal}, () => {
+      console.log(this.state.showAnswerModal);
+    });
   }
 
-  handleReportClick (id, name) {
+  handleReportClick(id, name) {
     document.getElementById(id).disabled = true;
+    this.props.handleInteraction(id, 'QuestionList');
 
     axios.put('http://localhost:3000/question/reportQuestion', {
       params: {
@@ -29,20 +39,21 @@ class QuestionList extends React.Component {
         console.log('reported question');
       })
       .catch((err) => {
-        console.log ('client side error report question', err.response.data);
+        console.log('client side error report question', err.response.data);
       })
   }
 
-  handleShowMoreClick () {
-    this.setState({showMore: !this.state.showMore})
+  handleShowMoreClick() {
+    this.setState({ showMore: !this.state.showMore })
+    this.props.handleInteraction('moreQuestions', 'QuestionList');
   }
 
-  handleUpvoteClick (id) {
-    //send a put req to server with question id as a param
-    //with axios.put
+  handleUpvoteClick(id) {
+    this.props.handleInteraction(id, 'QuestionList');
+
     console.log(id);
-    axios.put('http://localhost:3000/question/upvoteQuestionHelpful',{
-      params:{
+    axios.put('http://localhost:3000/question/upvoteQuestionHelpful', {
+      params: {
         question_id: id
       }
     })
@@ -113,23 +124,28 @@ class QuestionList extends React.Component {
       )
     }
 
+
     return (
       <div className="questionList">
         <ul>
           {questionData.map((item) => {
             return (
               <li key={item.question_id}>
+                <AnswerModal show={this.state.showAnswerModal} close={this.showOrHideAnswerModal}
+                question_id={item.question_id}/>
                 <h4 id='question-header'>Q: </h4>
                 <small className='question-helpfulness'> Helpful?
-                <button className="upvote-helpfulness" id={item.question_id}
-                onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
+                  <button className="upvote-helpfulness" id={item.question_id}
+                    onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
                   ({item.question_helpfulness})
-                  <button className="report-question" id={item.question_id + "report"} name={item.question_id}
-                  onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button></small>
+                  {/* <button className="report-question" id={item.question_id + "report"} name={item.question_id}
+                  onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button>*/}
+                  <button id="addAnAnswer" onClick={(e) => this.showOrHideAnswerModal(e.target.id)}>Add Answer</button>
+                </small>
                 <div className='question'>{item.question_body}
-                  {/* show more details from question */}
+
                   <div className='answerList'>
-                    <Answers question_id={item.question_id}/>
+                    <Answers question_id={item.question_id} handleInteraction={this.props.handleInteraction} />
                   </div>
                 </div>
 

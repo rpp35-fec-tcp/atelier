@@ -15,25 +15,6 @@ class App extends React.Component {
     this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
   }
 
-  handleInteraction (element, widget) {
-      let date = new Date();
-      let time = date.getTime(); //returns UTC time stamp;
-
-      axios.post('http://localhost:3000/interactions', {
-        data: {
-          element: element,
-          widget: widget,
-          time: time
-        }
-      })
-        .then ((res) => {
-          console.log(res.status);
-        })
-        .catch((err) => {
-          console.log(err.response.data);
-        })
-  }
-
   changeCurrentProductId(id) {
     this.setState({
       currentProductId: id,

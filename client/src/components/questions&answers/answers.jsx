@@ -12,15 +12,14 @@ class Answers extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
     this.handleReportClick = this.handleReportClick.bind(this);
-  }
-
-  addAnswer (question_id) {
-    //make an axios call to server with question id and added answer data
 
   }
+
 
   handleReportClick (id, name) {
     document.getElementById(id).disabled = true;
+    this.props.handleInteraction(id, 'Answers');
+
 
     axios.put('http://localhost:3000/question/reportAnswer', {
       params: {
@@ -37,6 +36,7 @@ class Answers extends React.Component {
 
   handleUpvoteClick (id) {
     document.getElementById(id).disabled = true;
+    this.props.handleInteraction(id, 'Answers');
 
     axios.put('http://localhost:3000/question/upvoteAnswerHelpful',{
       params:{
@@ -52,6 +52,7 @@ class Answers extends React.Component {
   }
 
   handleClick () {
+    this.props.handleInteraction('moreAnswers', 'Answers');
     this.setState({moreAnswers: !this.state.moreAnswers});
   }
 
