@@ -7,7 +7,7 @@ class StyleSelector extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div >
         <h1>Style Selector</h1>
         {this.props.thumbnails
           ? this.props.thumbnails.map((i, id) => (
