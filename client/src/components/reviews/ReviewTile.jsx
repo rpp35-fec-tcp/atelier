@@ -18,7 +18,7 @@ function ReviewTile({ review }) {
       setHelpfulness(helpfulness + 1);
       setHelpfulnessClicked(true);
     } catch ({ response }) {
-      console.error(response.data);
+      //
     }
   };
 
@@ -29,7 +29,7 @@ function ReviewTile({ review }) {
       );
       setReportClicked(true);
     } catch ({ response }) {
-      console.error(response.data);
+      //
     }
   };
 
@@ -106,6 +106,7 @@ ReviewTile.propTypes = {
     rating: propTypes.number,
     recommend: propTypes.bool,
     response: propTypes.string,
+    review_id: propTypes.number,
     reviewer_name: propTypes.string,
     summary: propTypes.string,
   }),

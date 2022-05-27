@@ -10,7 +10,7 @@ function ReviewsList({ productId }) {
   const [reviewCount, setReviewCount] = useState(0);
   const [reviews, setReviews] = useState([]);
 
-  const fetchData = async (product_id, sort='relevant') => {
+  const fetchData = async (product_id, sort = 'relevant') => {
     const { data } = await axios.get(
       '/reviews',
       { params: { product_id, sort } },
