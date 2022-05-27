@@ -19,7 +19,7 @@ function ReviewsList({ productId }) {
     setReviews(data);
   };
 
-  const handleButtonClick = () => {
+  const handleMoreReviewsClick = () => {
     setDisplayCount(Math.min(displayCount + 2, reviewCount));
   };
 
@@ -45,7 +45,7 @@ function ReviewsList({ productId }) {
       <div className="reviews-buttons">
         {(reviewCount > 2) && (displayCount < reviewCount)
           ? (
-            <button onClick={handleButtonClick} type="button">
+            <button onClick={handleMoreReviewsClick} type="button">
               <b>MORE REVIEWS</b>
             </button>
           )
