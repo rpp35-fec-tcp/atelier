@@ -1,10 +1,38 @@
+import axios from 'axios';
 import moment from 'moment';
 import propTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import StarRatings from './StarRatings';
 import './ReviewTile.css';
 
 function ReviewTile({ review }) {
+  const [helpfulness, setHelpfulness] = useState(review.helpfulness);
+  const [helpfulnessClicked, setHelpfulnessClicked] = useState(false);
+  const [reportClicked, setReportClicked] = useState(false);
+
+  const handleHelpfulClick = async () => {
+    try {
+      await axios.put(
+        `/reviews/${review.review_id}/helpful`,
+      );
+      setHelpfulness(helpfulness + 1);
+      setHelpfulnessClicked(true);
+    } catch ({ response }) {
+      console.error(response.data);
+    }
+  };
+
+  const handleReportClick = async () => {
+    try {
+      await axios.put(
+        `/reviews/${review.review_id}/report`,
+      );
+      setReportClicked(true);
+    } catch ({ response }) {
+      console.error(response.data);
+    }
+  };
+
   return (
     <div className="review-tile">
       <StarRatings rating={review.rating} />
@@ -43,7 +71,23 @@ function ReviewTile({ review }) {
         )
         : null}
       <div className="review-helpfulness">
-        {`Helpful?  Yes (${review.helpfulness})\u00A0\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0\u00A0Report`}
+        Helpful?
+        <button
+          disabled={helpfulnessClicked}
+          onClick={handleHelpfulClick}
+          type="button"
+        >
+          Yes
+        </button>
+        {`(${helpfulness})`}
+        &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <button
+          disabled={reportClicked}
+          onClick={handleReportClick}
+          type="button"
+        >
+          {reportClicked ? 'Reported' : 'Report'}
+        </button>
       </div>
       <hr className="hr" />
     </div>

@@ -34,4 +34,38 @@ router.get('/meta', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const { data } = await instance.post(
+      '/',
+      { params: { ...req.query } },
+    );
+    res.send(data);
+  } catch ({ response }) {
+    res.status(response.status).send(response.statusText);
+  }
+});
+
+router.put('/:review_id/helpful', async (req, res) => {
+  try {
+    const { data } = await instance.put(
+      `/${req.params.review_id}/helpful`,
+    );
+    res.send(data);
+  } catch ({ response }) {
+    res.status(response.status).send(response.statusText);
+  }
+});
+
+router.put('/:review_id/report', async (req, res) => {
+  try {
+    const { data } = await instance.put(
+      `/${req.params.review_id}/report`,
+    );
+    res.send(data);
+  } catch ({ response }) {
+    res.status(response.status).send(response.statusText);
+  }
+});
+
 module.exports = router;
