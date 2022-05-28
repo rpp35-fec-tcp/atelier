@@ -21,12 +21,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Rating */ "./node_modules/@mui/material/Rating/Rating.js");
-/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Stack */ "./node_modules/@mui/material/Stack/Stack.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
+/* harmony import */ var _mui_material_Rating__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material/Rating */ "./node_modules/@mui/material/Rating/Rating.js");
+/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Stack */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
 /* harmony import */ var _getAndPost_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./getAndPost.jsx */ "./client/src/components/relatedItems&comparison/getAndPost.jsx");
 /* harmony import */ var _compare_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./compare.jsx */ "./client/src/components/relatedItems&comparison/compare.jsx");
+/* harmony import */ var _interactions_jsx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./interactions.jsx */ "./client/src/components/relatedItems&comparison/interactions.jsx");
 
 
 
@@ -42,6 +43,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -144,9 +146,9 @@ var Card = /*#__PURE__*/function (_React$Component) {
     key: "rating",
     value: function rating(value) {
       if (value !== -1) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_11__["default"], {
           spacing: 1
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_12__["default"], {
           name: "read-only",
           size: "small",
           value: value,
@@ -191,9 +193,11 @@ var Card = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
         className: "card",
-        onClick: function onClick() {
+        onClick: function onClick(e) {
           if (_this4.starClicked === false) {
             _this4.props.changeCurrentProductId(_this4.state.relatedProductInfo.id);
+
+            (0,_interactions_jsx__WEBPACK_IMPORTED_MODULE_10__.Interaction)(e, 'related');
           } else {
             _this4.starClicked = false;
           }
@@ -202,7 +206,8 @@ var Card = /*#__PURE__*/function (_React$Component) {
         className: "image-holder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("img", {
         src: this.state.defaultItem.photos[0].thumbnail_url,
-        className: "card-img-top",
+        element: "changeCardClicked",
+        className: "card-image",
         alt: this.state.defaultItem.name
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
         className: "card-body"
@@ -215,7 +220,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
         comparedProductInfo: this.state.relatedProductInfo,
         currentProductInfo: this.props.currentProductInfo,
         changeShow: this.changeShow.bind(this)
-      })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_12__.FaRegStar, {
+      })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_13__.FaRegStar, {
         className: "icon",
         onClick: function onClick(e) {
           _this4.starClicked = true;
@@ -224,8 +229,9 @@ var Card = /*#__PURE__*/function (_React$Component) {
             show: true
           });
         }
-      }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_13__.BsXLg, {
+      }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_14__.BsXLg, {
         className: "icon",
+        element: "comparison",
         onClick: function onClick(e) {
           _this4.props.deleteOutfit(_this4.props.id);
         }
@@ -340,6 +346,47 @@ function Compare(_ref) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Compare);
+
+/***/ }),
+
+/***/ "./client/src/components/relatedItems&comparison/interactions.jsx":
+/*!************************************************************************!*\
+  !*** ./client/src/components/relatedItems&comparison/interactions.jsx ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Interaction": () => (/* binding */ Interaction)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function Interaction(e, widget) {
+  var d = new Date();
+  var time = d.getTime() + '';
+  var element = e.target.getAttribute('element');
+  console.log(element);
+  jquery__WEBPACK_IMPORTED_MODULE_1___default().ajax({
+    type: 'POST',
+    url: '/related/interactions',
+    data: JSON.stringify({
+      element: element,
+      widget: widget,
+      time: time
+    }),
+    contentType: 'application/json',
+    success: function success() {
+      return console.log('success');
+    },
+    err: function err(_err) {
+      return console.log(_err);
+    }
+  });
+}
 
 /***/ }),
 

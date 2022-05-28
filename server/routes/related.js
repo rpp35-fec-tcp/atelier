@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const url = require('url');
 const querystring = require('querystring');
-const {getRelatedProducts, getOneProduct, getOneProductStyle, getReviews} = require('../../githubs/related.js');
+const {getRelatedProducts, getOneProduct, getOneProductStyle, getReviews, postInteractions} = require('../../githubs/related.js');
 
 router.get('/getOneProduct', (req, res) => {
   let parsedUrl = url.parse(req.url);
@@ -38,5 +38,12 @@ router.get('/getReviews', (req, res) => {
     .then((response) => res.send(response.data))
     .catch((err) => {console.log(err); res.sendStatus(400)})
 });
+
+router.post('/interactions', (req, res) => {
+  var data = req.body;
+  return postInteractions(data)
+    .then((response) => res.end())
+    .catch((err) => console.log(err))
+})
 
 module.exports = router;
