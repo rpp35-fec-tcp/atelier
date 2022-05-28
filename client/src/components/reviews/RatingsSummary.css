@@ -1,4 +1,4 @@
-.rating-summary {
+.ratings-summary {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -12,4 +12,5 @@
 
 .star-ratings {
   flex: 0 90px;
+  padding-top: 15px;
 }
