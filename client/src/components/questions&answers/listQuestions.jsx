@@ -4,14 +4,17 @@ import axios from 'axios';
 import Answers from './answers.jsx';
 import AnswerModal from './answerQuestion.jsx';
 import QuestionModal from './askQuestion.jsx';
+import './listQuestions.css';
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { questions: [],
+    this.state = {
+      questions: [],
       showMore: false,
       showQuestionModal: false,
-      showAnswerModal: false};
+      showAnswerModal: false
+    };
 
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
     this.handleShowMoreClick = this.handleShowMoreClick.bind(this);
@@ -21,15 +24,15 @@ class QuestionList extends React.Component {
     this.showOrHideQuestionModal = this.showOrHideQuestionModal.bind(this);
   }
 
-  showOrHideAnswerModal (id) {
+  showOrHideAnswerModal(id) {
     // this.props.handleInteraction(id, 'QuestionList');
-    this.setState({showAnswerModal: !this.state.showAnswerModal});
-    
+    this.setState({ showAnswerModal: !this.state.showAnswerModal });
+
   }
 
-  showOrHideQuestionModal (id) {
+  showOrHideQuestionModal(id) {
     // this.props.handleInteraction(id, 'QuestionList');
-    this.setState({showQuestionModal: !this.state.showQuestionModal});
+    this.setState({ showQuestionModal: !this.state.showQuestionModal });
   }
 
   handleReportClick(id, name) {
@@ -127,22 +130,22 @@ class QuestionList extends React.Component {
       return (
         <div className="no-questions">
           <h4>Sorry, there are no questions listed for this product</h4>
+          <button id="addAQuestion" onClick={(e) => this.showOrHideQuestionModal(e.target.id)}>ADD A QUESTION +</button>
         </div>
       )
     }
 
 
     return (
-      <div className="questionList">
-        <ul>
+      <div className="question-main">
+        <ul className="questionList" >
           {questionData.map((item) => {
             return (
-              <li key={item.question_id}>
+              <li className="oneQuestion" key={item.question_id}>
                 <AnswerModal show={this.state.showAnswerModal} close={this.showOrHideAnswerModal}
-                question_id={item.question_id}/>
+                  question_id={item.question_id} />
                 <QuestionModal show={this.state.showQuestionModal} close={this.showOrHideQuestionModal}
-                product_id={this.props.product_id}/>
-                <h4 id='question-header'>Q: </h4>
+                  product_id={this.props.product_id} />
                 <small className='question-helpfulness'> Helpful?
                   <button className="upvote-helpfulness" id={item.question_id}
                     onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
@@ -151,7 +154,7 @@ class QuestionList extends React.Component {
                   onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button>*/}
                   <button id="addAnAnswer" onClick={(e) => this.showOrHideAnswerModal(e.target.id)}>Add Answer</button>
                 </small>
-                <div className='question'>{item.question_body}
+                <div className='question'>Q: {item.question_body}
 
                   <div className='answerList'>
                     <Answers question_id={item.question_id} handleInteraction={this.props.handleInteraction} />

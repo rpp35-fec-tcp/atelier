@@ -1,0 +1,12 @@
+#questionContainer {
+  margin: auto;
+  /* margin-top: 50px;
+  margin-bottom: 50px; */
+  width: 75%;
+}
+
+.questionHeader {
+  position: relative;
+  width: 80%;
+  left: 50px;
+}

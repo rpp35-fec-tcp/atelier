@@ -4,6 +4,7 @@ import RelatedComponent from './components/relatedItems&comparison/relatedItems&
 import QuestionList from './components/questions&answers/listQuestions.jsx'
 import AppOverview from './components/overview/AppOverview.js';
 import axios from 'axios';
+import './components/questions&answers/questions.css'
 
 export class Overview extends React.Component {
   constructor(props) {
@@ -63,8 +64,8 @@ export class Questions extends React.Component {
   render() {
 
     return (
-      <div>
-        <h1>Question</h1>
+      <div id="questionContainer">
+        <h5 className="questionsHeader">Questions & Answers</h5>
         <QuestionList product_id={this.props.currentProductId}
         handleInteraction={this.handleInteraction}/>
       </div>

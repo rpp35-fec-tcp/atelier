@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import './answers.css';
 
 class Answers extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Answers extends React.Component {
   }
 
 
-  handleReportClick (id, name) {
+  handleReportClick(id, name) {
     document.getElementById(id).disabled = true;
     this.props.handleInteraction(id, 'Answers');
 
@@ -30,16 +31,16 @@ class Answers extends React.Component {
         console.log('reported answer');
       })
       .catch((err) => {
-        console.log ('client side error report answer', err.response.data);
+        console.log('client side error report answer', err.response.data);
       })
   }
 
-  handleUpvoteClick (id) {
+  handleUpvoteClick(id) {
     document.getElementById(id).disabled = true;
     this.props.handleInteraction(id, 'Answers');
 
-    axios.put('http://localhost:3000/question/upvoteAnswerHelpful',{
-      params:{
+    axios.put('http://localhost:3000/question/upvoteAnswerHelpful', {
+      params: {
         answer_id: id
       }
     })
@@ -51,9 +52,9 @@ class Answers extends React.Component {
       })
   }
 
-  handleClick () {
+  handleClick() {
     this.props.handleInteraction('moreAnswers', 'Answers');
-    this.setState({moreAnswers: !this.state.moreAnswers});
+    this.setState({ moreAnswers: !this.state.moreAnswers });
   }
 
   fetchAnswerData(options, cb) {
@@ -66,7 +67,7 @@ class Answers extends React.Component {
       })
   }
 
-  dateConverter (UTC) {
+  dateConverter(UTC) {
     let date = new Date(UTC)
     date = date.toLocaleString();
     return date;
@@ -107,7 +108,7 @@ class Answers extends React.Component {
     if (answerData.length === 0) {
       return (
         <div className="no-answers">
-          <h4>Be the first to answer this question!</h4>
+          <h6>Be the first to answer this question!</h6>
         </div>
       )
     }
@@ -118,20 +119,22 @@ class Answers extends React.Component {
         <ul>
           {answerData.map((item) => {
             return (
-              <li key={item.answer_id}>
-                <h4 id='answer-header'>A:</h4>
-                <span  className='answerBody'>{item.body}</span>
-                  <br></br>
-                <small className='answer-helpfulness'> Helpful?
-                <button className="upvote-helpfulness" id={item.answer_id}
-                onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
-                  ({item.helpfulness})
-                  <button className="report-answer" id={item.answer_id + "report"} name={item.answer_id}
-                  onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button></small>
-                <div className='answerer-name/time'>
-                  <small className='answerer-name'>by {item.answerer_name}, </small>
-                  <small className='answer-time'>{this.dateConverter(item.date)}</small>
-                </div>
+              <li className="oneAnswer" key={item.answer_id}>
+                <span className='answerBody'>A: {item.body}</span>
+                <br></br>
+                <span className="sub-answer" >
+
+                  <span className='answerer-name/time'>
+                    <small className='answerer-name'>by {item.answerer_name}, </small>
+                    <small className='answer-time'>{this.dateConverter(item.date)}</small>
+                  </span>
+                  <small className='answer-helpfulness'> Helpful?
+                    <button className="upvote-helpfulness" id={item.answer_id}
+                      onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
+                    ({item.helpfulness})</small>
+                    <small><button className="report-answer" id={item.answer_id + "report"} name={item.answer_id}
+                      onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button></small>
+                </span>
               </li>
             )
           })}
