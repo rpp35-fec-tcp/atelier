@@ -10,9 +10,16 @@
 
 .image-view {
   height: 100%;
+<<<<<<< HEAD
+  width: 100%;
+  /* box-sizing: 100%; */
+  /* min-height: 50vh;
+  max-height: 50vh; */
+=======
   width: 100%; 
   box-sizing: 100%;
   max-height: 50vh;
+>>>>>>> development
   display: grid;
   grid-row: 1/2;
   grid-column: 1/2;
