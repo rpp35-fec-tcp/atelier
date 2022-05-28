@@ -7,17 +7,17 @@ const CAMPUS = 'hr-rpp';
 const instance = axios.create({
   baseURL: `https://app-hrsei-api.herokuapp.com/api/fec2/${CAMPUS}/reviews`,
   timeout: 4000,
-  headers: { Authorization: AUTH_TOKEN }
+  headers: { Authorization: AUTH_TOKEN },
 });
 
 router.get('/', async (req, res) => {
   try {
     const { data } = await instance.get(
       '/',
-      { params: { ...req.query } }
+      { params: { ...req.query } },
     );
     res.send(data.results);
-  } catch({ response }) {
+  } catch ({ response }) {
     res.status(response.status).send(response.statusText);
   }
 });
@@ -26,10 +26,10 @@ router.get('/meta', async (req, res) => {
   try {
     const { data } = await instance.get(
       '/meta',
-      { params: { ...req.query } }
+      { params: { ...req.query } },
     );
     res.send(data);
-  } catch({ response }) {
+  } catch ({ response }) {
     res.status(response.status).send(response.statusText);
   }
 });

@@ -24,12 +24,17 @@ let getReviews = (id) => {
   return axios.get(`/reviews/meta`, {params: {product_id: id}});
 }
 
+let postInteractions = (data) => {
+  return axios.post(`/interactions`, data);
+}
+
 
 
 module.exports.getOneProduct = getOneProduct;
 module.exports.getRelatedProducts = getRelatedProducts;
 module.exports.getOneProductStyle = getOneProductStyle;
 module.exports.getReviews = getReviews;
+module.exports.postInteractions = postInteractions;
 
 
 

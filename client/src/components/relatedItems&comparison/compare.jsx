@@ -2,9 +2,8 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-import {getReviews} from './getAndPost.jsx';
-import {GrCheckmark} from 'react-icons/gr';
-import {TableEntry} from './tableEntry.jsx';
+import { GrCheckmark } from 'react-icons/gr';
+import { TableEntry } from './tableEntry';
 
 function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
   var cur = currentProductInfo.features;
