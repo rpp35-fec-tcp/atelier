@@ -1,13 +1,14 @@
+const cors = require('cors');
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+
 const app = express();
-const cors = require('cors');
 const port = 3000;
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
-app.use(express.json())
+app.use(express.json());
 
 // app.get('/*', (req, res) => {
 //   // console.log(req.params.id);

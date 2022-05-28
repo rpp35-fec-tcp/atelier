@@ -30,11 +30,12 @@
   flex-wrap: wrap;
 }
 
-img {
+.review-img {
   height: 150px;
 }
 
 .review-response {
+  background: #ebebeb;
   padding: 20px;
 }
 
