@@ -24,6 +24,7 @@ class QuestionList extends React.Component {
   showOrHideAnswerModal (id) {
     // this.props.handleInteraction(id, 'QuestionList');
     this.setState({showAnswerModal: !this.state.showAnswerModal});
+    
   }
 
   showOrHideQuestionModal (id) {

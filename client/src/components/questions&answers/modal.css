@@ -26,9 +26,57 @@
   display: none;
 }
 
-input[type=text] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+.exitAnswerModal {
+  position: relative;
+  bottom: 80%;
+  left: 90%;
+  background-color: rgb(13, 96, 112);
+  color: white;
+  border: none;
+}
+
+.exitQuestionModal {
+  position: relative;
+  bottom: 55%;
+  left: 90%;
+  background-color: rgb(13, 96, 112);
+  color: white;
+  border: none;
+}
+
+#modal-body {
+  width: 50%;
+  height: 100%;
+  padding: 10px 20px;
+  margin: 100px 100px;
   box-sizing: border-box;
+}
+
+.qamodalinput {
+  padding: 8px 20px;
+  margin: 20px 20px;
+  width: 75%;
+}
+
+#closeAnswerModal {
+  position: relative;
+  left: 40px;
+  background-color: rgb(13, 96, 112);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#closeQuestionModal {
+  position: relative;
+  top: 80px;
+  left: 40px;
+  background-color: rgb(13, 96, 112);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
