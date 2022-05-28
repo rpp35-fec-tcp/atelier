@@ -75,13 +75,13 @@ class AnswerModal extends React.Component {
     return (
       <div className={display}>
         <form className="modal-main">
-          <label>
+          <label className="qamodalinput">
             Required:
             <br></br>
             <input type="text" name="name" value={this.state.name} placeholder="Username"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
-            <textarea type="text" name="body" value={this.state.body} placeholder="Please add your answer here"
+            <textarea  type="text" name="body" value={this.state.body} placeholder="Please add your answer here"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
             <input type="text" name="email" value={this.state.email} placeholder="Email"
@@ -89,7 +89,7 @@ class AnswerModal extends React.Component {
             <br></br>
             <br></br>
             Optional, upload photos:
-            <input type="file" multiple onChange={this.selectPhoto} />
+            <input  type="file" multiple onChange={this.selectPhoto} />
 
 
           </label>

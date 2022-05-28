@@ -54,6 +54,7 @@ class QuestionList extends React.Component {
   }
 
   handleUpvoteClick(id) {
+    document.getElementById(id).disabled = true;
     this.props.handleInteraction(id, 'QuestionList');
 
     console.log(id);
