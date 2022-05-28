@@ -123,10 +123,7 @@ class Overview extends React.Component {
     if (event.target.id === 'forward') {
       if (this.state.currentStyle < this.state.maxLength - 1) {
         this.setState({
-          photoURL:
-            this.state.photos[
-              this.state.currentPicture + 1
-            ].url,
+          photoURL: this.state.photos[this.state.currentPicture + 1].url,
 
           currentPicture: this.state.currentPicture + 1,
         });
@@ -167,12 +164,13 @@ class Overview extends React.Component {
     return (
       <OverviewContainer>
         <Flexcontainer>
-          <ImageGallery
-
-            photos={this.state.photos}
-            currentStyle={this.state.currentStyle}
-            changePhoto={this.changePhoto}
-          />
+          {this.state.photos.length > 0 && (
+            <ImageGallery
+              photos={this.state.photos}
+              currentStyle={this.state.currentStyle}
+              changePhoto={this.changePhoto}
+            />
+          )}
           <FlexColumn>
             {this.state.styles.length > 0 && (
               <StyleSelector
