@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 

@@ -46,9 +46,9 @@
     "react-multi-carousel": "^2.8.0",
     "react-responsive-carousel": "^3.2.23",
     "react-test": "^0.14.1",
-    "styled-components": "^5.3.5",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
+    "styled-components": "^5.3.5",
     "url": "^0.11.0"
   },
   "devDependencies": {
