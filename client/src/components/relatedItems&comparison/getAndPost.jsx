@@ -1,5 +1,21 @@
 import $ from 'jquery';
 
+export function getId (successCB) {
+  $.ajax({
+    type: 'GET',
+    url: '/id/:id',
+    data: {
+      id: id
+    },
+    // headers: {'Content-Encoding': 'gzip'},
+    contentType: 'application/json',
+    success: successCB,
+    error: function(err) {
+      console.log(err);
+    }
+  })
+};
+
 export function getOneProduct (id, successCB){
   //console.log('getOne id', id)
   $.ajax({

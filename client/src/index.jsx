@@ -3,19 +3,28 @@ import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
+// import {getId} from './components/relatedItems&comparison/getAndPost.jsx';
 
+console.log('window.location: ', window.location.href);
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     console.log(window.location.pathname)
     this.state = {
-      currentProductId: Number(window.location.pathname.slice(1))
-      //currentProductId: 71697
+      currentProductId: 71697
     };
     this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
-    console.log('this.state.currentProductId: ', this.state.currentProductId);
+    //console.log('window.location.pathname: ', window.location.pathname);
   }
-
+  // componentDidMount() {
+  //   getId((id) => {
+  //     this.setState({
+  //       currentProductId:id
+  //     })
+  //     console.log(id)
+  //   })
+  // }
   changeCurrentProductId(id) {
     this.setState({
       currentProductId: id,
@@ -23,7 +32,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(window.location.pathname)
     return (
       <div>
         <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
