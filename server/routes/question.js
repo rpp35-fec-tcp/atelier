@@ -142,6 +142,40 @@ router.put('/reportAnswer', (req, res) => {
 //// Add Q&A  ////
 /////////////////
 
+router.post('/addQuestion', (req, res) => {
+  let product_id = req.body.data.product_id;
+  let body = req.body.data.body;
+  let name = req.body.data.name;
+  let email = req.body.data.email;
+
+  console.log(req.body.data);
+
+  let options = {
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    },
+    params: {
+      product_id
+    },
+    data: {
+      body,
+      name,
+      email
+    }
+  }
+
+  axios.post(`${APIurl}/qa/questions`, options)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err.response.data);
+      console.log(err.response.status);
+      res.send(err);
+    })
+
+})
+
 router.post('/addAnswer', (req, res) => {
   let question_id = req.body.data.question_id;
   let body = req.body.data.body;
@@ -172,6 +206,7 @@ router.post('/addAnswer', (req, res) => {
     })
     .catch((err) => {
       console.error(err.response.data);
+      res.send(err);
     })
 
 })

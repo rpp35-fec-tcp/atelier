@@ -23,40 +23,50 @@ class AnswerModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props.question_id);
 
-
-
-    axios.post('http://localhost:3000/question/addAnswer', {
-      data: {
-        question_id: this.props.question_id,
-        name: this.state.name,
-        body: this.state.body,
-        email: this.state.email,
-        photos: this.state.photos
-      }
-    })
-      .then((res) => {
-        console.log(res.status);
-        this.setState({name: '',
-          body: '',
-          email: '',
-          photos: []});
-        alert('Answer successfully added');
-        this.props.close(e.target.id);
+    if (this.state.name === '') {
+      alert('Please fill in Username');
+      return;
+    } else if (this.state.body === '') {
+      alert('Please fill in answer body');
+      return;
+    } else if (this.state.email === '') {
+      alert('Please fill in email');
+      return;
+    } else {
+      axios.post('http://localhost:3000/question/addAnswer', {
+        data: {
+          question_id: this.props.question_id,
+          name: this.state.name,
+          body: this.state.body,
+          email: this.state.email,
+          photos: this.state.photos
+        }
       })
-      .catch((err) => {
-        console.error(err.response.data);
-      })
+        .then((res) => {
+          this.setState({
+            name: '',
+            body: '',
+            email: '',
+            photos: []
+          });
+          alert('Answer successfully added');
+          this.props.close(e.target.id);
+        })
+        .catch((err) => {
+          console.error(err.response.data);
+        })
+    }
   }
 
-  selectPhoto (e) {
+
+  selectPhoto(e) {
     let allFiles = [...e.target.files, ...this.state.photos];
     if (allFiles.length > 5) {
-      allFiles = allFiles.slice(0,5);
+      allFiles = allFiles.slice(0, 5);
     }
 
-    this.setState({photos: allFiles});
+    this.setState({ photos: allFiles });
   }
 
   render() {
@@ -69,17 +79,17 @@ class AnswerModal extends React.Component {
             Required:
             <br></br>
             <input type="text" name="name" value={this.state.name} placeholder="Username"
-             onChange={(e) => this.handleChange(e)} />
-             <br></br>
-             <textarea type="text" name="body" value={this.state.body} placeholder="Please add your answer here"
-             onChange={(e) => this.handleChange(e)} />
-             <br></br>
-             <input type="text" name="email" value={this.state.email} placeholder="Email"
-             onChange={(e) => this.handleChange(e)} />
-             <br></br>
-             <br></br>
-             Optional, upload photos:
-             <input type="file" multiple onChange={this.selectPhoto}/>
+              onChange={(e) => this.handleChange(e)} />
+            <br></br>
+            <textarea type="text" name="body" value={this.state.body} placeholder="Please add your answer here"
+              onChange={(e) => this.handleChange(e)} />
+            <br></br>
+            <input type="text" name="email" value={this.state.email} placeholder="Email"
+              onChange={(e) => this.handleChange(e)} />
+            <br></br>
+            <br></br>
+            Optional, upload photos:
+            <input type="file" multiple onChange={this.selectPhoto} />
 
 
           </label>

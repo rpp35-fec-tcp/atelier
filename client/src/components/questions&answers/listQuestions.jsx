@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Answers from './answers.jsx';
-import AnswerModal from './answerQuestion.jsx'
+import AnswerModal from './answerQuestion.jsx';
+import QuestionModal from './askQuestion.jsx';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -17,13 +18,17 @@ class QuestionList extends React.Component {
     this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
     this.handleReportClick = this.handleReportClick.bind(this);
     this.showOrHideAnswerModal = this.showOrHideAnswerModal.bind(this);
+    this.showOrHideQuestionModal = this.showOrHideQuestionModal.bind(this);
   }
 
   showOrHideAnswerModal (id) {
     // this.props.handleInteraction(id, 'QuestionList');
-    this.setState({showAnswerModal: !this.state.showAnswerModal}, () => {
-      console.log(this.state.showAnswerModal);
-    });
+    this.setState({showAnswerModal: !this.state.showAnswerModal});
+  }
+
+  showOrHideQuestionModal (id) {
+    // this.props.handleInteraction(id, 'QuestionList');
+    this.setState({showQuestionModal: !this.state.showQuestionModal});
   }
 
   handleReportClick(id, name) {
@@ -133,6 +138,8 @@ class QuestionList extends React.Component {
               <li key={item.question_id}>
                 <AnswerModal show={this.state.showAnswerModal} close={this.showOrHideAnswerModal}
                 question_id={item.question_id}/>
+                <QuestionModal show={this.state.showQuestionModal} close={this.showOrHideQuestionModal}
+                product_id={this.props.product_id}/>
                 <h4 id='question-header'>Q: </h4>
                 <small className='question-helpfulness'> Helpful?
                   <button className="upvote-helpfulness" id={item.question_id}
@@ -154,7 +161,7 @@ class QuestionList extends React.Component {
           })}
         </ul>
         <button id="moreQuestions" onClick={this.handleShowMoreClick}>MORE ANSWERED QUESTIONS</button>
-        <button id="addAQuestion" >ADD A QUESTION +</button>
+        <button id="addAQuestion" onClick={(e) => this.showOrHideQuestionModal(e.target.id)}>ADD A QUESTION +</button>
       </div>
     )
   }
