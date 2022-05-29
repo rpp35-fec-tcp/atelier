@@ -25,15 +25,16 @@ export class Questions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMore: false,
     };
+    this.handleInteraction = this.handleInteraction.bind(this);
   }
 
   render() {
     return (
       <div>
         <h1>Question</h1>
-        <QuestionList product_id={this.props.currentProductId} />
+        <QuestionList product_id={this.props.currentProductId}
+        handleInteraction={this.handleInteraction}/>
       </div>
     );
   }
