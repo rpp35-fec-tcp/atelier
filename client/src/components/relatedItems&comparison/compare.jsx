@@ -1,3 +1,6 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-plusplus */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -5,7 +8,9 @@ import Table from 'react-bootstrap/Table';
 import { GrCheckmark } from 'react-icons/gr';
 import { TableEntry } from './tableEntry';
 
-function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
+function Compare({
+  show, comparedProductInfo, currentProductInfo, changeShow,
+}) {
   const cur = currentProductInfo.features;
   const com = comparedProductInfo.features;
   const combinedFeatures = [];
@@ -49,13 +54,13 @@ function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
               </tr>
             </thead>
             <tbody>
-              <TableEntry current={currentProductInfo.slogan} description='slogan' compared={comparedProductInfo.slogan} />
-              <TableEntry current={currentProductInfo.description} description='description' compared={comparedProductInfo.description} />
-              <TableEntry current={currentProductInfo.default_price} description='default price' compared={comparedProductInfo.default_price} />
-              <TableEntry current={currentProductInfo.category} description='category' compared={comparedProductInfo.category} />
+              <TableEntry current={currentProductInfo.slogan} description="slogan" compared={comparedProductInfo.slogan} />
+              <TableEntry current={currentProductInfo.description} description="description" compared={comparedProductInfo.description} />
+              <TableEntry current={currentProductInfo.default_price} description="default price" compared={comparedProductInfo.default_price} />
+              <TableEntry current={currentProductInfo.category} description="category" compared={comparedProductInfo.category} />
               {combinedFeatures.length > 0 && combinedFeatures.map((combine, index) => (
                 <TableEntry
-                  key={ index }
+                  key={index}
                   current={(combine[1] === true && <GrCheckmark />) || combine[1]}
                   description={combine[0]}
                   compared={(combine[2] === true && <GrCheckmark />) || combine[2]}

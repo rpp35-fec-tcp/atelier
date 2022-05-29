@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Overview, Related, Questions } from './widgets';

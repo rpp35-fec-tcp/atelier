@@ -257,6 +257,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap_Table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Table */ "./node_modules/react-bootstrap/esm/Table.js");
 /* harmony import */ var react_icons_gr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/gr */ "./node_modules/react-icons/gr/index.esm.js");
 /* harmony import */ var _tableEntry__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tableEntry */ "./client/src/components/relatedItems&comparison/tableEntry.jsx");
+/* eslint-disable react/no-array-index-key */
+
+/* eslint-disable no-plusplus */
+
+/* eslint-disable react/prop-types */
 
 
 
