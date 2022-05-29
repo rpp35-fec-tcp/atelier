@@ -7,6 +7,7 @@ const config = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, DIST_DIR),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -35,6 +36,11 @@ const config = {
   },
   stats: {
     errorDetails: true,
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true,
   },
 };
 

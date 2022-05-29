@@ -215,7 +215,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
         currentProductInfo: this.props.currentProductInfo,
         changeShow: this.changeShow
       })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_12__.FaRegStar, {
-        className: "icon",
+        className: "iconTop",
         onClick: function onClick() {
           _this4.starClicked = true;
 
@@ -224,7 +224,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
           });
         }
       }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_13__.BsXLg, {
-        className: "icon'",
+        className: "iconTop",
         element: "comparison",
         onClick: function onClick() {
           _this4.props.deleteOutfit(_this4.props.id);
@@ -275,13 +275,13 @@ function Compare(_ref) {
   var existedFeatures = new Set();
 
   var getFeatures = function getFeatures() {
-    for (var i = 0; i < cur.length; i + 1) {
+    for (var i = 0; i < cur.length; i++) {
       combinedFeatures[i] = [];
       combinedFeatures[i][0] = cur[i].feature;
       combinedFeatures[i][1] = cur[i].value;
       existedFeatures.add(cur[i].feature);
 
-      for (var j = 0; j < com.length; j + 1) {
+      for (var j = 0; j < com.length; j++) {
         if (com[j].feature === cur[i].feature) {
           combinedFeatures[i][2] = com[j].value;
         } else {
@@ -290,11 +290,13 @@ function Compare(_ref) {
       }
     }
 
-    for (var _i = 0; _i < com.length; _i + 1) {
+    for (var _i = 0; _i < com.length; _i++) {
       if (!existedFeatures.has(com[_i].feature)) {
         combinedFeatures[combinedFeatures.length] = [com[_i].feature, '', com[_i].value];
       }
     }
+
+    console.log(combinedFeatures);
   };
 
   getFeatures();

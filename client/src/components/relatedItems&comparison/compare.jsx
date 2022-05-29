@@ -11,12 +11,12 @@ function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
   const combinedFeatures = [];
   const existedFeatures = new Set();
   const getFeatures = () => {
-    for (let i = 0; i < cur.length; i + 1) {
+    for (let i = 0; i < cur.length; i++) {
       combinedFeatures[i] = [];
       combinedFeatures[i][0] = cur[i].feature;
       combinedFeatures[i][1] = cur[i].value;
       existedFeatures.add(cur[i].feature);
-      for (let j = 0; j < com.length; j + 1) {
+      for (let j = 0; j < com.length; j++) {
         if (com[j].feature === cur[i].feature) {
           combinedFeatures[i][2] = com[j].value;
         } else {
@@ -24,11 +24,12 @@ function Compare({show, comparedProductInfo, currentProductInfo, changeShow}) {
         }
       }
     }
-    for (let i = 0; i < com.length; i + 1) {
+    for (let i = 0; i < com.length; i++) {
       if (!existedFeatures.has(com[i].feature)) {
         combinedFeatures[combinedFeatures.length] = [com[i].feature, '', com[i].value];
       }
     }
+    console.log(combinedFeatures);
   };
   getFeatures();
 

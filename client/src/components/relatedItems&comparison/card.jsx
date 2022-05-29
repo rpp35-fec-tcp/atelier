@@ -126,8 +126,8 @@ class Card extends React.Component {
             />
           )}
         </div>
-        {this.props.type === 'related' && <FaRegStar className="icon" onClick={() => { this.starClicked = true; this.setState({ show: true }); }} />}
-        {this.props.type === 'outfit' && <BsXLg className="icon'" element="comparison" onClick={() => { this.props.deleteOutfit(this.props.id); }} />}
+        {this.props.type === 'related' && <FaRegStar className="iconTop" onClick={() => { this.starClicked = true; this.setState({ show: true }); }} />}
+        {this.props.type === 'outfit' && <BsXLg className="iconTop" element="comparison" onClick={() => { this.props.deleteOutfit(this.props.id); }} />}
       </div>
     );
   }

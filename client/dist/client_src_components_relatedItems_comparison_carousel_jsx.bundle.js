@@ -13,6 +13,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable react/prop-types */
+
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 
 
 function AddToOutfit(_ref) {
@@ -20,6 +23,8 @@ function AddToOutfit(_ref) {
       addToOutfit = _ref.addToOutfit;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "card",
+    role: "button",
+    tabIndex: 0,
     onClick: function onClick() {
       return addToOutfit(id);
     }

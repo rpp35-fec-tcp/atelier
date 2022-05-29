@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/';
 
 // Important: If axios is used with multiple domains, the AUTH_TOKEN will be sent to all of them.
 // See below for an example using Custom instance defaults instead.
-axios.defaults.headers.common['Authorization'] = `${config.TOKEN}`;
+axios.defaults.headers.common.Authorization = `${config.TOKEN}`;
 
 const getRelatedProducts = (id) => axios.get(`/products/${id}/related`);
 

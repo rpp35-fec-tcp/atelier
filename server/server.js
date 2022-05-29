@@ -10,13 +10,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(express.json());
 
-// app.get('/*', (req, res) => {
-//   // console.log(req.params.id);
-//   // res.send(req.params.id)
-//   res.send(express.static(path.join(__dirname, '/../client/dist')));
-//   //res.sendFile(path.join(__dirname, '/../client/dist/index.html'), (err) => res.status(500).send(err));
-// }
-// )
+app.get('/id', (req, res) => {
+  res.sendFile(path.join(__dirname, '/../client/dist', 'index.html'));
+});
+
 const overviewRoute = require('./routes/overview');
 const relatedRoute = require('./routes/related');
 const questionRoute = require('./routes/question');

@@ -40,11 +40,11 @@ class RelatedComponent extends React.Component{
         relatedProducts: data
       })
     })
-    getOneProduct(id, (data) => {
+    getOneProduct(id, (data) =>
       this.setState({
         currentProductInfo: data
-      }, ()=> {console.log('current id: ', id, 'currentInfo: ', this.state.currentProductInfo)})
-    })
+      })
+    )
   }
   componentDidMount () {
     this.getData(this.props.currentProductId);
