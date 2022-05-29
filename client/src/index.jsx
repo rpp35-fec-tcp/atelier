@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {

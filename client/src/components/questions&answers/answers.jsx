@@ -10,9 +10,49 @@ class Answers extends React.Component {
     this.fetchAnswerData = this.fetchAnswerData.bind(this);
     this.dateConverter = this.dateConverter.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
+    this.handleReportClick = this.handleReportClick.bind(this);
+
+  }
+
+
+  handleReportClick (id, name) {
+    document.getElementById(id).disabled = true;
+    this.props.handleInteraction(id, 'Answers');
+
+
+    axios.put('http://localhost:3000/question/reportAnswer', {
+      params: {
+        answer_id: name
+      }
+    })
+      .then((res) => {
+        console.log('reported answer');
+      })
+      .catch((err) => {
+        console.log ('client side error report answer', err.response.data);
+      })
+  }
+
+  handleUpvoteClick (id) {
+    document.getElementById(id).disabled = true;
+    this.props.handleInteraction(id, 'Answers');
+
+    axios.put('http://localhost:3000/question/upvoteAnswerHelpful',{
+      params:{
+        answer_id: id
+      }
+    })
+      // .then((res) => {
+      //   console.log('upvoted answer');
+      // })
+      .catch((err) => {
+        console.log('client side error upvoting answer helpfulness', err.response.data);
+      })
   }
 
   handleClick () {
+    this.props.handleInteraction('moreAnswers', 'Answers');
     this.setState({moreAnswers: !this.state.moreAnswers});
   }
 
@@ -81,8 +121,15 @@ class Answers extends React.Component {
               <li key={item.answer_id}>
                 <h4 id='answer-header'>A:</h4>
                 <span  className='answerBody'>{item.body}</span>
+                  <br></br>
+                <small className='answer-helpfulness'> Helpful?
+                <button className="upvote-helpfulness" id={item.answer_id}
+                onClick={(e) => this.handleUpvoteClick(e.target.id)}>Yes</button>
+                  ({item.helpfulness})
+                  <button className="report-answer" id={item.answer_id + "report"} name={item.answer_id}
+                  onClick={(e) => this.handleReportClick(e.target.id, e.target.name)}>Report</button></small>
                 <div className='answerer-name/time'>
-                  <small className='answerer-name'>{item.answerer_name}</small>
+                  <small className='answerer-name'>by {item.answerer_name}, </small>
                   <small className='answer-time'>{this.dateConverter(item.date)}</small>
                 </div>
               </li>
