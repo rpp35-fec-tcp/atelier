@@ -1,43 +1,27 @@
 const axios = require('axios');
-const config = require('../config.js');
+const config = require('../config');
 
-axios.defaults.baseURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/`;
+axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/';
 
 // Important: If axios is used with multiple domains, the AUTH_TOKEN will be sent to all of them.
 // See below for an example using Custom instance defaults instead.
 axios.defaults.headers.common['Authorization'] = `${config.TOKEN}`;
 
-let getRelatedProducts = (id) => {
-  //console.log('current id: ', id)
-  return axios.get(`/products/${id}/related`)
-}
+const getRelatedProducts = (id) => axios.get(`/products/${id}/related`);
 
-let getOneProduct = (id) => {
-  return axios.get(`/products/${id}`);
-}
+const getOneProduct = (id) => axios.get(`/products/${id}`);
 
-let getOneProductStyle = (id) => {
-  return axios.get(`/products/${id}/styles`);
-}
+const getOneProductStyle = (id) => axios.get(`/products/${id}/styles`);
 
-let getReviews = (id) => {
-  return axios.get(`/reviews/meta`, {params: {product_id: id}});
-}
+const getReviews = (id) => axios.get('/reviews/meta', { params: { product_id: id } });
 
-let postInteractions = (data) => {
-  return axios.post(`/interactions`, data);
-}
-
-
+const postInteractions = (data) => axios.post('/interactions', data);
 
 module.exports.getOneProduct = getOneProduct;
 module.exports.getRelatedProducts = getRelatedProducts;
 module.exports.getOneProductStyle = getOneProductStyle;
 module.exports.getReviews = getReviews;
 module.exports.postInteractions = postInteractions;
-
-
-
 
 // let getProduct = () => {
 //   // TODO - Use the axios module to request repos for a specific

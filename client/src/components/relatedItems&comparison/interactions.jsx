@@ -1,17 +1,17 @@
-import React from 'react';
 import $ from 'jquery';
 
-export function Interaction(e, widget) {
-  var d = new Date();
-  var time = d.getTime() + '';
-  var element = e.target.getAttribute('element');
-  console.log(element)
+function Interaction(e, widget) {
+  const d = new Date();
+  const time = `${d.getTime()}`;
+  const element = e.target.getAttribute('element');
   $.ajax({
     type: 'POST',
     url: '/related/interactions',
-    data: JSON.stringify({element, widget, time}),
+    data: JSON.stringify({ element, widget, time }),
     contentType: 'application/json',
-    success: ()=>console.log('success'),
-    err: (err)=>console.log(err)
-  })
+    success: () => console.log('success'),
+    err: (err) => console.log(err),
+  });
 }
+
+export default Interaction;

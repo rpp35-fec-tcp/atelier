@@ -7,8 +7,6 @@ import AppOverview from './components/overview/AppOverview.js';
 export class Overview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
   }
   render() {
     return (
@@ -37,7 +35,6 @@ export class Questions extends React.Component {
       showMore: false
     };
   }
-
 
   render() {
 

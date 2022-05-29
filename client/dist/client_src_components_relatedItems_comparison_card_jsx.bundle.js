@@ -13,18 +13,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _mui_material_Rating__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Rating */ "./node_modules/@mui/material/Rating/Rating.js");
-/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Stack */ "./node_modules/@mui/material/Stack/Stack.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
-/* harmony import */ var _getAndPost__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./getAndPost */ "./client/src/components/relatedItems&comparison/getAndPost.jsx");
-/* harmony import */ var _compare__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./compare */ "./client/src/components/relatedItems&comparison/compare.jsx");
-/* harmony import */ var _interactions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./interactions */ "./client/src/components/relatedItems&comparison/interactions.jsx");
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Rating */ "./node_modules/@mui/material/Rating/Rating.js");
+/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Stack */ "./node_modules/@mui/material/Stack/Stack.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
+/* harmony import */ var _getAndPost__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getAndPost */ "./client/src/components/relatedItems&comparison/getAndPost.jsx");
+/* harmony import */ var _compare__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./compare */ "./client/src/components/relatedItems&comparison/compare.jsx");
+/* harmony import */ var _interactions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./interactions */ "./client/src/components/relatedItems&comparison/interactions.jsx");
+
 
 
 
@@ -37,7 +39,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
@@ -51,7 +53,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 var Card = /*#__PURE__*/function (_React$Component) {
-  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(Card, _React$Component);
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(Card, _React$Component);
 
   var _super = _createSuper(Card);
 
@@ -68,6 +70,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
       show: false
     };
     _this.starClicked = false;
+    _this.changeShow = _this.changeShow.bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this));
     return _this;
   }
 
@@ -79,7 +82,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
       this.update(); // unit test for getReviews, to check whether rating is calculated correctly,
       // also check whether rating is hidden is there is no review
 
-      (0,_getAndPost__WEBPACK_IMPORTED_MODULE_6__.getReviews)(this.props.id, function (data) {
+      (0,_getAndPost__WEBPACK_IMPORTED_MODULE_7__.getReviews)(this.props.id, function (data) {
         var ratings = data.ratings;
         var keys = Object.keys(ratings);
         var sum = 0;
@@ -130,9 +133,9 @@ var Card = /*#__PURE__*/function (_React$Component) {
     key: "rating",
     value: function rating(value) {
       if (value !== -1) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__["default"], {
           spacing: 1
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__["default"], {
           name: "read-only",
           size: "small",
           value: value,
@@ -145,14 +148,14 @@ var Card = /*#__PURE__*/function (_React$Component) {
     key: "price",
     value: function price(defaultItem) {
       if (defaultItem.sale_price === null) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("p", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("p", {
           className: "originalPrice"
         }, defaultItem.original_price);
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("p", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("p", {
         className: "crossOutOriginalPrice"
-      }, defaultItem.original_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("p", {
+      }, defaultItem.original_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("p", {
         className: "salePrice"
       }, defaultItem.sale_price));
     }
@@ -161,12 +164,12 @@ var Card = /*#__PURE__*/function (_React$Component) {
     value: function update() {
       var _this3 = this;
 
-      (0,_getAndPost__WEBPACK_IMPORTED_MODULE_6__.getOneProduct)(this.props.id, function (data) {
+      (0,_getAndPost__WEBPACK_IMPORTED_MODULE_7__.getOneProduct)(this.props.id, function (data) {
         _this3.setState({
           relatedProductInfo: data
         });
       });
-      (0,_getAndPost__WEBPACK_IMPORTED_MODULE_6__.getOneProductStyle)(this.props.id, function (data) {
+      (0,_getAndPost__WEBPACK_IMPORTED_MODULE_7__.getOneProductStyle)(this.props.id, function (data) {
         _this3.getDefaultItem(data.results);
       });
     }
@@ -182,48 +185,48 @@ var Card = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
         className: "card",
         onClick: function onClick(e) {
           if (_this4.starClicked === false) {
             _this4.props.changeCurrentProductId(_this4.state.relatedProductInfo.id);
 
-            (0,_interactions__WEBPACK_IMPORTED_MODULE_8__.Interaction)(e, 'related');
+            (0,_interactions__WEBPACK_IMPORTED_MODULE_9__["default"])(e, 'related');
           } else {
             _this4.starClicked = false;
           }
         }
-      }, this.state.defaultItem !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
+      }, this.state.defaultItem !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
         className: "image-holder"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("img", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("img", {
         src: this.state.defaultItem.photos[0].thumbnail_url,
         element: "changeCardClicked",
         className: "card-image",
         alt: this.state.defaultItem.name
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
         className: "card-body"
-      }, this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("h6", {
+      }, this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h6", {
         className: "card-subtitle mb-2 text-muted"
-      }, this.state.relatedProductInfo.category), this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("h5", {
+      }, this.state.relatedProductInfo.category), this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h5", {
         className: "card-title"
-      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && this.price(this.state.defaultItem), this.rating(this.state.reviewRating)), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && this.price(this.state.defaultItem), this.rating(this.state.reviewRating)), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_8__["default"], {
         show: this.state.show,
         comparedProductInfo: this.state.relatedProductInfo,
         currentProductInfo: this.props.currentProductInfo,
-        changeShow: this.changeShow.bind(this)
-      })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_11__.FaRegStar, {
+        changeShow: this.changeShow
+      })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_12__.FaRegStar, {
         className: "icon",
-        onClick: function onClick(e) {
+        onClick: function onClick() {
           _this4.starClicked = true;
 
           _this4.setState({
             show: true
           });
         }
-      }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_12__.BsXLg, {
-        className: "icon",
+      }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_13__.BsXLg, {
+        className: "icon'",
         element: "comparison",
-        onClick: function onClick(e) {
+        onClick: function onClick() {
           _this4.props.deleteOutfit(_this4.props.id);
         }
       }));
@@ -231,7 +234,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Card;
-}((react__WEBPACK_IMPORTED_MODULE_5___default().Component));
+}((react__WEBPACK_IMPORTED_MODULE_6___default().Component));
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Card);
 
@@ -272,13 +275,13 @@ function Compare(_ref) {
   var existedFeatures = new Set();
 
   var getFeatures = function getFeatures() {
-    for (var i = 0; i < cur.length; i++) {
+    for (var i = 0; i < cur.length; i + 1) {
       combinedFeatures[i] = [];
       combinedFeatures[i][0] = cur[i].feature;
       combinedFeatures[i][1] = cur[i].value;
       existedFeatures.add(cur[i].feature);
 
-      for (var j = 0; j < com.length; j++) {
+      for (var j = 0; j < com.length; j + 1) {
         if (com[j].feature === cur[i].feature) {
           combinedFeatures[i][2] = com[j].value;
         } else {
@@ -287,9 +290,9 @@ function Compare(_ref) {
       }
     }
 
-    for (var i = 0; i < com.length; i++) {
-      if (!existedFeatures.has(com[i].feature)) {
-        combinedFeatures[combinedFeatures.length] = [com[i].feature, '', com[i].value];
+    for (var _i = 0; _i < com.length; _i + 1) {
+      if (!existedFeatures.has(com[_i].feature)) {
+        combinedFeatures[combinedFeatures.length] = [com[_i].feature, '', com[_i].value];
       }
     }
   };
@@ -303,7 +306,7 @@ function Compare(_ref) {
     closeButton: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Title, null, "Comparing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Table__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
     className: "currentTitle"
-  }, currentProductInfo.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, comparedProductInfo.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+  }, currentProductInfo.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, comparedProductInfo.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
     current: currentProductInfo.slogan,
     description: "slogan",
     compared: comparedProductInfo.slogan
@@ -346,20 +349,17 @@ function Compare(_ref) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Interaction": () => (/* binding */ Interaction)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
 function Interaction(e, widget) {
   var d = new Date();
-  var time = d.getTime() + '';
+  var time = "".concat(d.getTime());
   var element = e.target.getAttribute('element');
-  console.log(element);
-  jquery__WEBPACK_IMPORTED_MODULE_1___default().ajax({
+  jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
     type: 'POST',
     url: '/related/interactions',
     data: JSON.stringify({
@@ -376,6 +376,8 @@ function Interaction(e, widget) {
     }
   });
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Interaction);
 
 /***/ }),
 

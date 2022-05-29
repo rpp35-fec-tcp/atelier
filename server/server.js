@@ -17,18 +17,15 @@ app.use(express.json());
 //   //res.sendFile(path.join(__dirname, '/../client/dist/index.html'), (err) => res.status(500).send(err));
 // }
 // )
-const overviewRoute = require('./routes/overview.js');
-const relatedRoute = require('./routes/related.js');
-const questionRoute = require('./routes/question.js');
+const overviewRoute = require('./routes/overview');
+const relatedRoute = require('./routes/related');
+const questionRoute = require('./routes/question');
 const reviews = require('./routes/reviews');
-
-
 
 app.use('/overview', overviewRoute);
 app.use('/related', compression(), relatedRoute);
 app.use('/question', questionRoute);
 app.use('/reviews', reviews);
-
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
