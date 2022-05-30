@@ -48,6 +48,8 @@ class Overview extends React.Component {
     };
     this.changePhoto = this.changePhoto.bind(this);
     this.url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
+    this.changeStylePrice = this.changeStylePrice.bind(this);
+    this.changeStyle = this.changeStyle.bind(this);
   }
 
   getProductStyles() {
@@ -118,6 +120,15 @@ class Overview extends React.Component {
     }
   }
 
+  changeStylePrice(index) {
+    const originalPrice = this.state.styles[index]['original_price'];
+    const salePrice = this.state.styles[index]['sale_price'];
+    this.setState({
+      originalPrice: originalPrice,
+      salePrice: salePrice,
+    });
+  }
+
   changePhoto(event) {
     let max = this.state.maxLength;
     if (event.target.id === 'forward') {
@@ -153,10 +164,10 @@ class Overview extends React.Component {
     }
   }
 
-  changeStyle(e) {
-    let id = Number.parseInt(e.target.id);
+  changeStyle(index) {
+    console.log('index is: ', index);
     this.setState({
-      photoURL: this.state.styles[this.state.currentStyle].photos[id].url,
+      currentStyle: index,
     });
   }
 
@@ -174,8 +185,9 @@ class Overview extends React.Component {
           <FlexColumn>
             {this.state.styles.length > 0 && (
               <StyleSelector
-                thumbnails={this.state.styles[this.state.currentStyle].photos}
-                changeStyle={this.changeStyle.bind(this)}
+                changeStylePrice={this.changeStylePrice}
+                changeStyle={this.changeStyle}
+                currentStyle={this.state.currentStyle}
                 styles={this.state.styles}
               />
             )}
