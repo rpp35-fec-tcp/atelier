@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ExpandedView from './ExpandedView.jsx';
 import {
   MdChevronLeft,
   MdChevronRight,
@@ -215,6 +216,11 @@ const MainImageEmpty = styled.div`
   justify-content: center;
 `;
 
+const LeftArrow = styled(MdChevronLeft)`
+  height: 22px;
+  width: 22px;
+`;
+
 class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
@@ -225,6 +231,19 @@ class ImageGallery extends React.Component {
     this.imageBack = this.imageBack.bind(this);
     this.imageForward = this.imageForward.bind(this);
     this.toggleExpandedView = this.toggleExpandedView.bind(this);
+    this.changeImage = this.changeImage.bind(this);
+  }
+
+  changeImage(e) {
+    const currentIndex =
+      parseInt(e.target.getAttribute('value')) ||
+      parseInt(e.currentTarget.getAttribute('value')) ||
+      0;
+    if (event.key === undefined || event.key === 'Enter') {
+      this.setState({
+        currentIndex: currentIndex,
+      });
+    }
   }
 
   imageBack(event, expandedView = false) {
@@ -367,6 +386,17 @@ class ImageGallery extends React.Component {
             </MainImageEmpty>
           )}
         </MainImageWrapper>
+        {this.state.modalIsOpen && (
+          <ExpandedView
+            currentIndex={this.state.currentIndex}
+            changeImage={this.changeImage}
+            imageCount={photos.length}
+            imageBack={this.imageBack}
+            imageForward={this.imageForward}
+            toggleExpandedView={this.toggleExpandedView}
+            url={photos[this.state.currentIndex]['url']}
+          ></ExpandedView>
+        )}
       </Gallery>
     );
   }
