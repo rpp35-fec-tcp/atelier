@@ -19,13 +19,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Rating */ "./node_modules/@mui/material/Rating/Rating.js");
-/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Stack */ "./node_modules/@mui/material/Stack/Stack.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
 /* harmony import */ var _getAndPost__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getAndPost */ "./client/src/components/relatedItems&comparison/getAndPost.jsx");
-/* harmony import */ var _compare__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./compare */ "./client/src/components/relatedItems&comparison/compare.jsx");
-/* harmony import */ var _interactions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./interactions */ "./client/src/components/relatedItems&comparison/interactions.jsx");
+/* harmony import */ var _rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./rating */ "./client/src/components/relatedItems&comparison/rating.jsx");
+/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./price */ "./client/src/components/relatedItems&comparison/price.jsx");
+/* harmony import */ var _compare__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./compare */ "./client/src/components/relatedItems&comparison/compare.jsx");
+/* harmony import */ var _interactions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./interactions */ "./client/src/components/relatedItems&comparison/interactions.jsx");
 
 
 
@@ -43,6 +43,11 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
+/* eslint-disable react/destructuring-assignment */
+
+/* eslint-disable react/prop-types */
 
 
 
@@ -71,6 +76,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
     };
     _this.starClicked = false;
     _this.changeShow = _this.changeShow.bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this));
+    _this.cardClicked = _this.cardClicked.bind((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this));
     return _this;
   }
 
@@ -130,21 +136,6 @@ var Card = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "price",
-    value: function price(defaultItem) {
-      if (defaultItem.sale_price === null) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("p", {
-          className: "originalPrice"
-        }, defaultItem.original_price);
-      }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("p", {
-        className: "crossOutOriginalPrice"
-      }, defaultItem.original_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("p", {
-        className: "salePrice"
-      }, defaultItem.sale_price));
-    }
-  }, {
     key: "update",
     value: function update() {
       var _this3 = this;
@@ -166,20 +157,26 @@ var Card = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "cardClicked",
+    value: function cardClicked(e) {
+      if (this.starClicked === false) {
+        this.props.changeCurrentProductId(this.state.relatedProductInfo.id);
+        (0,_interactions__WEBPACK_IMPORTED_MODULE_11__["default"])(e, 'related');
+      } else {
+        this.starClicked = false;
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
         className: "card",
+        role: "button",
+        tabIndex: "0",
         onClick: function onClick(e) {
-          if (_this4.starClicked === false) {
-            _this4.props.changeCurrentProductId(_this4.state.relatedProductInfo.id);
-
-            (0,_interactions__WEBPACK_IMPORTED_MODULE_9__["default"])(e, 'related');
-          } else {
-            _this4.starClicked = false;
-          }
+          return _this4.cardClicked(e);
         }
       }, this.state.defaultItem !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
         className: "image-holder"
@@ -194,15 +191,11 @@ var Card = /*#__PURE__*/function (_React$Component) {
         className: "card-subtitle mb-2 text-muted"
       }, this.state.relatedProductInfo.category), this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h5", {
         className: "card-title"
-      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && this.price(this.state.defaultItem), this.state.reviewRating !== -1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        spacing: 1
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__["default"], {
-        name: "read-only",
-        size: "small",
-        value: this.state.reviewRating,
-        precision: 0.1,
-        readOnly: true
-      }))), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_price__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        defaultItem: this.state.defaultItem
+      }), this.state.reviewRating !== -1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_rating__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        value: this.state.reviewRating
+      })), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_10__["default"], {
         show: this.state.show,
         comparedProductInfo: this.state.relatedProductInfo,
         currentProductInfo: this.props.currentProductInfo,
@@ -383,6 +376,77 @@ function Interaction(e, widget) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Interaction);
+
+/***/ }),
+
+/***/ "./client/src/components/relatedItems&comparison/price.jsx":
+/*!*****************************************************************!*\
+  !*** ./client/src/components/relatedItems&comparison/price.jsx ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable react/prop-types */
+
+
+function Price(_ref) {
+  var defaultItem = _ref.defaultItem;
+
+  if (defaultItem.sale_price === null) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+      className: "originalPrice"
+    }, defaultItem.original_price);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "crossOutOriginalPrice"
+  }, defaultItem.original_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "salePrice"
+  }, defaultItem.sale_price));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Price);
+
+/***/ }),
+
+/***/ "./client/src/components/relatedItems&comparison/rating.jsx":
+/*!******************************************************************!*\
+  !*** ./client/src/components/relatedItems&comparison/rating.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mui_material_Rating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Rating */ "./node_modules/@mui/material/Rating/Rating.js");
+/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material/Stack */ "./node_modules/@mui/material/Stack/Stack.js");
+/* eslint-disable react/prop-types */
+
+
+
+
+function StarRating(_ref) {
+  var value = _ref.value;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    spacing: 1
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    name: "read-only",
+    size: "small",
+    value: value,
+    precision: 0.1,
+    readOnly: true
+  }));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StarRating);
 
 /***/ }),
 

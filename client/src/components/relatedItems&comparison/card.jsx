@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
 import { FaRegStar } from 'react-icons/fa';
 import { BsXLg } from 'react-icons/bs';
 import { getOneProduct, getOneProductStyle, getReviews } from './getAndPost';
+import StarRating from './rating';
+import Price from './price';
 import Compare from './compare';
 import Interaction from './interactions';
 
@@ -18,6 +21,7 @@ class Card extends React.Component {
     };
     this.starClicked = false;
     this.changeShow = this.changeShow.bind(this);
+    this.cardClicked = this.cardClicked.bind(this);
   }
 
   componentDidMount() {
@@ -57,20 +61,6 @@ class Card extends React.Component {
     });
   }
 
-  price(defaultItem) {
-    if (defaultItem.sale_price === null) {
-      return (
-        <p className="originalPrice">{defaultItem.original_price}</p>
-      );
-    }
-    return (
-      <div>
-        <p className="crossOutOriginalPrice">{defaultItem.original_price}</p>
-        <p className="salePrice">{defaultItem.sale_price}</p>
-      </div>
-    );
-  }
-
   update() {
     getOneProduct(this.props.id, (data) => {
       this.setState({
@@ -86,26 +76,25 @@ class Card extends React.Component {
     this.setState({ show: false });
   }
 
+  cardClicked(e) {
+    if (this.starClicked === false) {
+      this.props.changeCurrentProductId(this.state.relatedProductInfo.id);
+      Interaction(e, 'related');
+    } else {
+      this.starClicked = false;
+    }
+  }
+
   render() {
     return (
       <div>
-        <div
-          className="card"
-          onClick={(e) => {
-            if (this.starClicked === false) {
-              this.props.changeCurrentProductId(this.state.relatedProductInfo.id);
-              Interaction(e, 'related');
-            } else {
-              this.starClicked = false;
-            }
-          }}
-        >
+        <div className="card" role="button" tabIndex="0" onClick={(e) => this.cardClicked(e)}>
           {this.state.defaultItem !== null && <div className="image-holder"><img src={this.state.defaultItem.photos[0].thumbnail_url} element="changeCardClicked" className='card-image' alt={this.state.defaultItem.name}/></div>}
           <div className="card-body">
             {this.state.relatedProductInfo !== null && <h6 className="card-subtitle mb-2 text-muted">{this.state.relatedProductInfo.category}</h6>}
-            {this.state.relatedProductInfo !== null && <h5 className="card-title" >{this.state.relatedProductInfo.name}</h5>}
-            {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
-            {this.state.reviewRating !== -1 && (<Stack spacing={1}><Rating name="read-only" size="small" value={this.state.reviewRating} precision={0.1} readOnly /></Stack>)}
+            {this.state.relatedProductInfo !== null && <h5 className="card-title">{this.state.relatedProductInfo.name}</h5>}
+            {this.state.defaultItem !== null && <Price defaultItem={this.state.defaultItem} />}
+            {this.state.reviewRating !== -1 && <StarRating value={this.state.reviewRating} />}
           </div>
           {this.state.show && (
             <Compare
