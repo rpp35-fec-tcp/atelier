@@ -57,16 +57,6 @@ class Card extends React.Component {
     });
   }
 
-  rating(value) {
-    if (value !== -1) {
-      return (
-        <Stack spacing={1}>
-          <Rating name="read-only" size="small" value={value} precision={0.1} readOnly />
-        </Stack>
-      );
-    }
-  }
-
   price(defaultItem) {
     if (defaultItem.sale_price === null) {
       return (
@@ -115,7 +105,7 @@ class Card extends React.Component {
             {this.state.relatedProductInfo !== null && <h6 className="card-subtitle mb-2 text-muted">{this.state.relatedProductInfo.category}</h6>}
             {this.state.relatedProductInfo !== null && <h5 className="card-title" >{this.state.relatedProductInfo.name}</h5>}
             {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
-            {this.rating(this.state.reviewRating)}
+            {this.state.reviewRating !== -1 && (<Stack spacing={1}><Rating name="read-only" size="small" value={this.state.reviewRating} precision={0.1} readOnly /></Stack>)}
           </div>
           {this.state.show && (
             <Compare

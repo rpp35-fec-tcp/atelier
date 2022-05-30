@@ -34,23 +34,22 @@ function Compare({
         combinedFeatures[combinedFeatures.length] = [com[i].feature, '', com[i].value];
       }
     }
-    console.log(combinedFeatures);
   };
   getFeatures();
 
   return (
     <div>
-      <Modal show={show} onHide={changeShow} size="lg">
+      <Modal title="modal" show={show} onHide={changeShow} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Comparing</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Table>
+          <Table role="table">
             <thead>
               <tr>
-                <th className="currentTitle">{currentProductInfo.name}</th>
+                <th title="currentTitle" className="currentTitle">{currentProductInfo.name}</th>
                 <th> </th>
-                <th>{comparedProductInfo.name}</th>
+                <th title="comparedTitle">{comparedProductInfo.name}</th>
               </tr>
             </thead>
             <tbody>
@@ -70,7 +69,7 @@ function Compare({
           </Table>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => changeShow()}>
+          <Button title="button" variant="secondary" onClick={() => changeShow()}>
             Close
           </Button>
         </Modal.Footer>

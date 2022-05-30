@@ -6,6 +6,7 @@ import {act} from 'react-dom/test-utils';
 import {render} from "@testing-library/react";
 
 describe('Card', function() {
-test('render Add to out fit', () => {
-  render(<AddToOutFit />>);
+  test('render Add to out fit', () => {
+    render(<AddToOutFit />);
+  })
 })

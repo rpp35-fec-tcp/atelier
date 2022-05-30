@@ -130,21 +130,6 @@ var Card = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "rating",
-    value: function rating(value) {
-      if (value !== -1) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          spacing: 1
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__["default"], {
-          name: "read-only",
-          size: "small",
-          value: value,
-          precision: 0.1,
-          readOnly: true
-        }));
-      }
-    }
-  }, {
     key: "price",
     value: function price(defaultItem) {
       if (defaultItem.sale_price === null) {
@@ -209,7 +194,15 @@ var Card = /*#__PURE__*/function (_React$Component) {
         className: "card-subtitle mb-2 text-muted"
       }, this.state.relatedProductInfo.category), this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h5", {
         className: "card-title"
-      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && this.price(this.state.defaultItem), this.rating(this.state.reviewRating)), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && this.price(this.state.defaultItem), this.state.reviewRating !== -1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        spacing: 1
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_mui_material_Rating__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        name: "read-only",
+        size: "small",
+        value: this.state.reviewRating,
+        precision: 0.1,
+        readOnly: true
+      }))), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_8__["default"], {
         show: this.state.show,
         comparedProductInfo: this.state.relatedProductInfo,
         currentProductInfo: this.props.currentProductInfo,
@@ -300,20 +293,24 @@ function Compare(_ref) {
         combinedFeatures[combinedFeatures.length] = [com[_i].feature, '', com[_i].value];
       }
     }
-
-    console.log(combinedFeatures);
   };
 
   getFeatures();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    title: "modal",
     show: show,
     onHide: changeShow,
     size: "lg"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Header, {
     closeButton: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Title, null, "Comparing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Table__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Title, null, "Comparing")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    role: "table"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    title: "currentTitle",
     className: "currentTitle"
-  }, currentProductInfo.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, comparedProductInfo.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+  }, currentProductInfo.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    title: "comparedTitle"
+  }, comparedProductInfo.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
     current: currentProductInfo.slogan,
     description: "slogan",
     compared: comparedProductInfo.slogan
@@ -337,6 +334,7 @@ function Compare(_ref) {
       compared: combine[2] === true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_gr__WEBPACK_IMPORTED_MODULE_4__.GrCheckmark, null) || combine[2]
     });
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    title: "button",
     variant: "secondary",
     onClick: function onClick() {
       return changeShow();

@@ -36,8 +36,16 @@ const fakeProductInfos = [
     "updated_at": "2022-05-11T19:38:15.373Z",
     "features": [
         {
+            "feature": "Sole",
+            "value": "Plastic"
+        },
+        {
             "feature": "Fabric",
             "value": "100% Cotton"
+        },
+        {
+            "feature": "Material",
+            "value": "FullControlSkin"
         },
         {
             "feature": "Cut",
