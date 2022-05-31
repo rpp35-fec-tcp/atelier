@@ -61,6 +61,15 @@ const SmallLink = styled.p`
   }
 `;
 
+const SalePrice = styled.p`
+  color: red;
+  margin-right: 12px;
+`;
+
+const DiscountedPrice = styled.p`
+  text-decoration: line-through;
+`;
+
 class Overview extends React.Component {
   constructor(props) {
     super(props);
@@ -74,10 +83,11 @@ class Overview extends React.Component {
       ratings: 0,
       reviewsCount: 0,
       meta: {},
+      originalPrice: 0,
+      salePrice: 0,
     };
     this.changePhoto = this.changePhoto.bind(this);
     this.url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
-    this.changeStylePrice = this.changeStylePrice.bind(this);
     this.changeStyle = this.changeStyle.bind(this);
   }
 
@@ -92,6 +102,9 @@ class Overview extends React.Component {
           styles: results.data.results,
           maxLength: results.data.results.map((id) => id.photos).length,
           photos: results.data.results[this.state.currentStyle].photos,
+          originalPrice:
+            results.data.results[this.state.currentStyle].original_price,
+          salePrice: results.data.results[this.state.currentStyle].sale_price,
         });
       });
   }
@@ -131,15 +144,6 @@ class Overview extends React.Component {
       this.getProductInfo();
       this.getReviews();
     }
-  }
-
-  changeStylePrice(index) {
-    const originalPrice = this.state.styles[index]['original_price'];
-    const salePrice = this.state.styles[index]['sale_price'];
-    this.setState({
-      originalPrice: originalPrice,
-      salePrice: salePrice,
-    });
   }
 
   changePhoto(event) {
@@ -185,9 +189,32 @@ class Overview extends React.Component {
   }
 
   render() {
-    const {category, default_price, description, features, id, name, slogan, styleData = []} = this.state.productInfo;
+    const {
+      category,
+      default_price,
+      description,
+      features,
+      id,
+      name,
+      slogan,
+      styleData = [],
+    } = this.state.productInfo;
+
+    let price =
+      this.state.salePrice === null ? (
+        <FlexRow>
+          <p>${this.state.originalPrice}</p>
+        </FlexRow>
+      ) : (
+        <FlexRow>
+          <SalePrice>${this.state.salePrice}</SalePrice>
+          <DiscountedPrice>${this.state.originalPrice}</DiscountedPrice>
+        </FlexRow>
+      );
+
     return (
       <OverviewContainer>
+        {console.log('originalPrice', this.state.originalPrice)}
         <Flexcontainer>
           {this.state.photos.length > 0 && (
             <ImageGallery
@@ -221,6 +248,7 @@ class Overview extends React.Component {
             </FlexRow>
             <h5>{category}</h5>
             <h2>{name}</h2>
+            {price}
             {this.state.styles.length > 0 && (
               <StyleSelector
                 changeStylePrice={this.changeStylePrice}
