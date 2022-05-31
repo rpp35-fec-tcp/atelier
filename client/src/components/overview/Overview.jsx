@@ -185,6 +185,7 @@ class Overview extends React.Component {
   }
 
   render() {
+    const {category, default_price, description, features, id, name, slogan, styleData = []} = this.state.productInfo;
     return (
       <OverviewContainer>
         <Flexcontainer>
@@ -218,6 +219,8 @@ class Overview extends React.Component {
                 Read all reviews
               </SmallLink>
             </FlexRow>
+            <h5>{category}</h5>
+            <h2>{name}</h2>
             {this.state.styles.length > 0 && (
               <StyleSelector
                 changeStylePrice={this.changeStylePrice}
