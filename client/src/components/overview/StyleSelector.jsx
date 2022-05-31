@@ -125,10 +125,11 @@ export default function StyleSelector({
     // <div>{console.log('styles array: ', styles[currentStyle])}</div>
 
     <div>
-      <h6><strong>Style: </strong>{styles[currentStyle]['name']}</h6>
-      <Styles>
-        {styleOptions}
-      </Styles>
+      <h6>
+        <strong>Style: </strong>
+        {styles[currentStyle]['name']}
+      </h6>
+      <Styles>{styleOptions}</Styles>
     </div>
   );
 }

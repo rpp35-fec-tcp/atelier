@@ -338,6 +338,7 @@ export default class ExpandedView extends React.Component {
         ];
 
     return (
+    
       <View>
         <Content>{content}</Content>
       </View>

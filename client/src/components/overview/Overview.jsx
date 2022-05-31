@@ -8,6 +8,7 @@ import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import config from '../../../../config.js';
 import styled from 'styled-components';
+import StarRating from './StarRating.jsx';
 
 const OverviewContainer = styled.div`
   margin-top: 64px;
@@ -33,6 +34,33 @@ const Strong = styled.strong`
   margin-bottom: 4px;
 `;
 
+const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 12px;
+  height: 32px;
+`;
+
+const Stars = styled.div`
+  margin-right: 12px;
+`;
+
+const SmallLink = styled.p`
+  & {
+    margin-bottom: 0px;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: var(--color-brand-300);
+    cursor: pointer;
+  }
+  &:active {
+    color: var(--color-brand-400);
+  }
+`;
+
 class Overview extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +73,7 @@ class Overview extends React.Component {
       maxLength: 0,
       ratings: 0,
       reviewsCount: 0,
+      meta: {},
     };
     this.changePhoto = this.changePhoto.bind(this);
     this.url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
@@ -84,24 +113,8 @@ class Overview extends React.Component {
           '/reviews/meta/?product_id=' +
           this.props.currentProductId
       )
-      .then((res) => {
-        // console.log('get product ratings: ', res.data.ratings['1']);
-        const reviewsCount =
-          Number(res.data.ratings['1'] || 0) +
-          Number(res.data.ratings['2'] || 0) +
-          Number(res.data.ratings['3'] || 0) +
-          Number(res.data.ratings['4'] || 0) +
-          Number(res.data.ratings['5'] || 0);
-        const ratings = (
-          (Number(res.data.ratings['1'] || 0) * 1 +
-            Number(res.data.ratings['2'] || 0) * 2 +
-            Number(res.data.ratings['3'] || 0) * 3 +
-            Number(res.data.ratings['4'] || 0) * 4 +
-            Number(res.data.ratings['5'] || 0) * 5) /
-          reviewsCount
-        ).toFixed(2);
-        console.log('ratings: ', ratings);
-        this.setState({ ratings, reviewsCount });
+      .then((data) => {
+        this.setState({ meta: data.data });
       })
       .catch((err) => console.error('get product rating error: ', err));
   }
@@ -183,6 +196,28 @@ class Overview extends React.Component {
             />
           )}
           <FlexColumn>
+            <FlexRow>
+              <Stars>
+                <StarRating ratings={this.state.meta.ratings} showAve={false} />
+              </Stars>
+              <SmallLink
+                tabIndex='0'
+                onClick={() => {
+                  document
+                    .getElementById('reviews')
+                    .scrollIntoView({ behavior: 'smooth' });
+                }}
+                onKeyPress={() => {
+                  if (event.key === 'Enter') {
+                    document
+                      .getElementById('reviews')
+                      .scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Read all reviews
+              </SmallLink>
+            </FlexRow>
             {this.state.styles.length > 0 && (
               <StyleSelector
                 changeStylePrice={this.changeStylePrice}

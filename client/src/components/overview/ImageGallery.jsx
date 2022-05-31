@@ -227,6 +227,7 @@ class ImageGallery extends React.Component {
     this.state = {
       currentIndex: 0,
       modalIsOpen: false,
+      landscapeOrientations: []
     };
     this.imageBack = this.imageBack.bind(this);
     this.imageForward = this.imageForward.bind(this);
@@ -244,6 +245,15 @@ class ImageGallery extends React.Component {
         currentIndex: currentIndex,
       });
     }
+  }
+
+  loadLandscapeOrientation(e, index){
+    let landscape = e.target.offsetWidth > e.target.offsetHeight ? true : false;
+    let orientations = this.state.landscapeOrientations;
+    orientations[index] = landscape;
+    this.setState({
+      landscapeOrientations: orientations
+    })
   }
 
   imageBack(event, expandedView = false) {
