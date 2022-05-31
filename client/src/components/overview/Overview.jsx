@@ -257,22 +257,14 @@ class Overview extends React.Component {
                 styles={this.state.styles}
               />
             )}
-            <Text>
-              <Strong>
-                <ProductInfo
-                  productInfo={this.state.productInfo}
-                  styles={this.state.styles}
-                  ratings={this.state.ratings}
-                  reviewsCount={this.state.reviewsCount}
-                />
-              </Strong>
-            </Text>
-            <FillerComponent />
-
             <AddToCart />
           </FlexColumn>
         </Flexcontainer>
-        <ProductDescription productInfo={this.state.productInfo} />
+        <Text>
+          <Strong>{slogan}</Strong>
+          <p>{description}</p>
+          <FillerComponent />
+        </Text>
       </OverviewContainer>
     );
   }
