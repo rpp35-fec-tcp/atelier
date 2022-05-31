@@ -2,6 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import fakeProductInfos from './fakeDataInfo';
 import Card from '../../client/src/components/relatedItems&comparison/card';
 
@@ -11,6 +12,7 @@ describe('Card', () => {
       id="71704"
       type="related"
       show="false"
+      currentProductInfo={fakeProductInfos[0]}
     />).toJSON();
     expect(modal).toMatchSnapshot();
   });
@@ -19,26 +21,22 @@ describe('Card', () => {
       id="71704"
       type="outfit"
       show="true"
+      currentProductInfo={fakeProductInfos[0]}
     />).toJSON();
     expect(modal).toMatchSnapshot();
     // expect(screen.getByTitle('modal')).toBeInTheDocument();
   });
-  // integration test
+  //integration test
   // test('when show changed to true, compare should render', async () => {
-  //   const wrapper = shallow(<Card
+  //   render(<Card
   //     id="71704"
   //     type="related"
   //     show="false"
-  //     // changeCurrentProductId={changeCurrentProductId}
   //     currentProductInfo={fakeProductInfos[0]}
   //   />);
-  //   await wrapper.instance().componentDidMount();
-  //   expect(wrapper.state('comparedProductInformation')).toHaveProperty('23123');
-    // const starElement = screen.getByTitle('star');
-    // // fireEvent.change(cardElement, { target: { }});
-    // fireEvent.click(starElement);
-    // const compareElemnet = screen.getByTitle('modal');
-    // expect(compareElemnet).toBeInTheDocument();
-    // card.setState({ show: 'true' });
+  //   const starElement = screen.getByTitle('star');
+  //   // fireEvent.change(cardElement, { target: { }});
+  //   await userEvent.click(starElement);
+  //   expect(screen.getByTitle('modal')).toBeTruthy();
   // });
 });

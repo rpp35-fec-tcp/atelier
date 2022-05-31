@@ -47,8 +47,12 @@ app.post('/interactions', (req, res) => {
     .catch((err) => {
       console.log(err.response.data);
       res.sendStatus(422);
-    })
-})
+    });
+});
+
+app.all('*', (req, res) => {
+  res.redirect('/id');
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
