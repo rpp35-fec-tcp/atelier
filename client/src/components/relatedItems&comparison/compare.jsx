@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import { GrCheckmark } from 'react-icons/gr';
-import { TableEntry } from './tableEntry';
+import TableEntry from './tableEntry';
 
 function Compare({
   show, comparedProductInfo, currentProductInfo, changeShow,

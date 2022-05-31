@@ -31,10 +31,17 @@ function AddToOutfit(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     style: {
       textAlign: 'center',
-      paddingTop: '60%',
-      fontSize: '30px'
+      paddingTop: '54%',
+      fontSize: '30px',
+      color: 'gray'
     }
-  }, "+"));
+  }, "+"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    style: {
+      textAlign: 'center',
+      fontSize: '20px',
+      color: 'gray'
+    }
+  }, "Add to OutFit List"));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddToOutfit);

@@ -1,6 +1,54 @@
 "use strict";
 (self["webpackChunkatelier"] = self["webpackChunkatelier"] || []).push([["client_src_components_relatedItems_comparison_card_jsx"],{
 
+/***/ "./client/src/components/relatedItems&comparison/calculateRating.jsx":
+/*!***************************************************************************!*\
+  !*** ./client/src/components/relatedItems&comparison/calculateRating.jsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+/* eslint-disable no-restricted-syntax */
+function calculateRating(ratings) {
+  var keys = Object.keys(ratings);
+  var sum = 0;
+  var count = 0;
+
+  if (keys.length > 0) {
+    var _iterator = _createForOfIteratorHelper(keys),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var key = _step.value;
+        sum += Number(key) * Number(ratings[key]);
+        count += Number(ratings[key]);
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    return sum / count;
+  }
+
+  return -1;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calculateRating);
+
+/***/ }),
+
 /***/ "./client/src/components/relatedItems&comparison/card.jsx":
 /*!****************************************************************!*\
   !*** ./client/src/components/relatedItems&comparison/card.jsx ***!
@@ -19,25 +67,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var react_icons_bs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-icons/bs */ "./node_modules/react-icons/bs/index.esm.js");
 /* harmony import */ var _getAndPost__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getAndPost */ "./client/src/components/relatedItems&comparison/getAndPost.jsx");
-/* harmony import */ var _rating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./rating */ "./client/src/components/relatedItems&comparison/rating.jsx");
-/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./price */ "./client/src/components/relatedItems&comparison/price.jsx");
-/* harmony import */ var _compare__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./compare */ "./client/src/components/relatedItems&comparison/compare.jsx");
-/* harmony import */ var _interactions__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./interactions */ "./client/src/components/relatedItems&comparison/interactions.jsx");
+/* harmony import */ var _calculateRating__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./calculateRating */ "./client/src/components/relatedItems&comparison/calculateRating.jsx");
+/* harmony import */ var _starRating__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./starRating */ "./client/src/components/relatedItems&comparison/starRating.jsx");
+/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./price */ "./client/src/components/relatedItems&comparison/price.jsx");
+/* harmony import */ var _compare__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./compare */ "./client/src/components/relatedItems&comparison/compare.jsx");
+/* harmony import */ var _interactions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./interactions */ "./client/src/components/relatedItems&comparison/interactions.jsx");
 
 
 
 
 
 
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
 
@@ -48,6 +91,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 /* eslint-disable react/destructuring-assignment */
 
 /* eslint-disable react/prop-types */
+
 
 
 
@@ -69,7 +113,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      relatedProductInfo: null,
+      comparedProducInfo: null,
       defaultItem: null,
       reviewRating: 0,
       show: false
@@ -85,45 +129,13 @@ var Card = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.update(); // unit test for getReviews, to check whether rating is calculated correctly,
-      // also check whether rating is hidden is there is no review
-
+      this.update();
       (0,_getAndPost__WEBPACK_IMPORTED_MODULE_7__.getReviews)(this.props.id, function (data) {
-        var ratings = data.ratings;
-        var keys = Object.keys(ratings);
-        var sum = 0;
-        var count = 0;
-        var rating = 0;
-
-        if (keys.length > 0) {
-          var _iterator = _createForOfIteratorHelper(keys),
-              _step;
-
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              var key = _step.value;
-              sum += Number(key) * Number(ratings[key]);
-              count += Number(ratings[key]);
-            }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-
-          rating = sum / count;
-        } else {
-          rating = -1;
-        }
-
         _this2.setState({
-          reviewRating: rating
+          reviewRating: (0,_calculateRating__WEBPACK_IMPORTED_MODULE_8__["default"])(data.ratings)
         });
       });
-    } // default is not always the 1st result in results array, so we need to check the defaul? === true
-    // unit test for price whether default true is selected for pricing,
-    // unit test for price whether sales price is used if it is not null
-
+    }
   }, {
     key: "getDefaultItem",
     value: function getDefaultItem(results) {
@@ -142,7 +154,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
 
       (0,_getAndPost__WEBPACK_IMPORTED_MODULE_7__.getOneProduct)(this.props.id, function (data) {
         _this3.setState({
-          relatedProductInfo: data
+          comparedProducInfo: data
         });
       });
       (0,_getAndPost__WEBPACK_IMPORTED_MODULE_7__.getOneProductStyle)(this.props.id, function (data) {
@@ -160,8 +172,8 @@ var Card = /*#__PURE__*/function (_React$Component) {
     key: "cardClicked",
     value: function cardClicked(e) {
       if (this.starClicked === false) {
-        this.props.changeCurrentProductId(this.state.relatedProductInfo.id);
-        (0,_interactions__WEBPACK_IMPORTED_MODULE_11__["default"])(e, 'related');
+        this.props.changeCurrentProductId(this.state.comparedProducInfo.id);
+        (0,_interactions__WEBPACK_IMPORTED_MODULE_12__["default"])(e, 'related');
       } else {
         this.starClicked = false;
       }
@@ -187,20 +199,21 @@ var Card = /*#__PURE__*/function (_React$Component) {
         alt: this.state.defaultItem.name
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
         className: "card-body"
-      }, this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h6", {
+      }, this.state.comparedProducInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h6", {
         className: "card-subtitle mb-2 text-muted"
-      }, this.state.relatedProductInfo.category), this.state.relatedProductInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h5", {
+      }, this.state.comparedProducInfo.category), this.state.comparedProducInfo !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("h5", {
         className: "card-title"
-      }, this.state.relatedProductInfo.name), this.state.defaultItem !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_price__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }, this.state.comparedProducInfo.name), this.state.defaultItem !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_price__WEBPACK_IMPORTED_MODULE_10__["default"], {
         defaultItem: this.state.defaultItem
-      }), this.state.reviewRating !== -1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_rating__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }), this.state.reviewRating !== -1 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_starRating__WEBPACK_IMPORTED_MODULE_9__["default"], {
         value: this.state.reviewRating
-      })), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      })), this.state.show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_compare__WEBPACK_IMPORTED_MODULE_11__["default"], {
         show: this.state.show,
-        comparedProductInfo: this.state.relatedProductInfo,
+        comparedProductInfo: this.state.comparedProducInfo,
         currentProductInfo: this.props.currentProductInfo,
         changeShow: this.changeShow
-      })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_12__.FaRegStar, {
+      })), this.props.type === 'related' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_13__.FaRegStar, {
+        title: "star",
         className: "iconTop",
         onClick: function onClick() {
           _this4.starClicked = true;
@@ -209,7 +222,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
             show: true
           });
         }
-      }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_13__.BsXLg, {
+      }), this.props.type === 'outfit' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(react_icons_bs__WEBPACK_IMPORTED_MODULE_14__.BsXLg, {
         className: "iconTop",
         element: "comparison",
         onClick: function onClick() {
@@ -303,24 +316,24 @@ function Compare(_ref) {
     className: "currentTitle"
   }, currentProductInfo.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
     title: "comparedTitle"
-  }, comparedProductInfo.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+  }, comparedProductInfo.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
     current: currentProductInfo.slogan,
     description: "slogan",
     compared: comparedProductInfo.slogan
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
     current: currentProductInfo.description,
     description: "description",
     compared: comparedProductInfo.description
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
     current: currentProductInfo.default_price,
     description: "default price",
     compared: comparedProductInfo.default_price
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
     current: currentProductInfo.category,
     description: "category",
     compared: comparedProductInfo.category
   }), combinedFeatures.length > 0 && combinedFeatures.map(function (combine, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__.TableEntry, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_tableEntry__WEBPACK_IMPORTED_MODULE_1__["default"], {
       key: index,
       current: combine[1] === true && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_icons_gr__WEBPACK_IMPORTED_MODULE_4__.GrCheckmark, null) || combine[1],
       description: combine[0],
@@ -396,16 +409,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function Price(_ref) {
   var defaultItem = _ref.defaultItem;
-
-  if (defaultItem.sale_price === null) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
-      className: "originalPrice"
-    }, defaultItem.original_price);
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, defaultItem.sale_price === null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "originalPrice"
+  }, defaultItem.original_price), defaultItem.sale_price !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "crossOutOriginalPrice"
-  }, defaultItem.original_price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  }, defaultItem.original_price), defaultItem.sale_price !== null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "salePrice"
   }, defaultItem.sale_price));
 }
@@ -414,10 +422,10 @@ function Price(_ref) {
 
 /***/ }),
 
-/***/ "./client/src/components/relatedItems&comparison/rating.jsx":
-/*!******************************************************************!*\
-  !*** ./client/src/components/relatedItems&comparison/rating.jsx ***!
-  \******************************************************************/
+/***/ "./client/src/components/relatedItems&comparison/starRating.jsx":
+/*!**********************************************************************!*\
+  !*** ./client/src/components/relatedItems&comparison/starRating.jsx ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -458,10 +466,12 @@ function StarRating(_ref) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TableEntry": () => (/* binding */ TableEntry)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable react/prop-types */
+
 
 function TableEntry(_ref) {
   var current = _ref.current,
@@ -471,6 +481,8 @@ function TableEntry(_ref) {
     className: "description"
   }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, compared || ''));
 }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TableEntry);
 
 /***/ })
 

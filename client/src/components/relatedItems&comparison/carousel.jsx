@@ -38,7 +38,6 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
                 id={productId}
                 key={productId}
                 changeCurrentProductId={changeCurrentProductId}
-
                 currentProductInfo={currentProductInfo}
                 type='related'
                 draggable={false}

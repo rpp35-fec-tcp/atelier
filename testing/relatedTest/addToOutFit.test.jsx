@@ -1,12 +1,12 @@
+/* eslint-disable no-undef */
 import React from 'react';
-import AddToOutFit from '../../client/src/components/relatedItems&comparison/addToOutfit.jsx';
-import ReactDOM from 'react-dom/client';
-import fakeProductInfos from './fakeData.js';
-import {act} from 'react-dom/test-utils';
-import {render} from "@testing-library/react";
+import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import AddToOutFit from '../../client/src/components/relatedItems&comparison/addToOutfit';
 
-describe('Card', function() {
-  test('render Add to out fit', () => {
-    render(<AddToOutFit />);
-  })
-})
+describe('AddToOutFit Component', () => {
+  test('snapshot test', () => {
+    expect(renderer.create(<AddToOutFit />).toJSON).toMatchSnapshot();
+  });
+});

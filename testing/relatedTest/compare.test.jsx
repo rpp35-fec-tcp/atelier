@@ -3,7 +3,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import fakeProductInfos from './fakeData';
+import fakeProductInfos from './fakeDataInfo';
 import Compare from '../../client/src/components/relatedItems&comparison/compare';
 
 describe('test Compare component', () => {
