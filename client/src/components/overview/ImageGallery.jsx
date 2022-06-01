@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ExpandedView from './ExpandedView.jsx';
 import {
   MdChevronLeft,
   MdChevronRight,
@@ -138,14 +139,121 @@ const DownArrow = styled(MdOutlineExpandMore)`
   width: 22px;
 `;
 
+const MainImageWrapper = styled.div`
+  max-height: 50vw;
+  max-width: 50vw;
+  position: relative;
+`;
+
+const ButtonArrowLeft = styled.div`
+  position: absolute;
+  top: min(calc(25vw - 28px), 276px);
+`;
+
+const ViewArrow = styled.div`
+  & {
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-grey-100);
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 1);
+    border-color: var(--color-grey-300);
+    color: var(--color-grey-300);
+  }
+  &:active {
+    background-color: var(--color-brand-100);
+    border-color: var(--color-brand-400);
+    color: var(--color-brand-400);
+  }
+`;
+
+const ButtonArrowRight = styled.div`
+  position: absolute;
+  top: min(calc(25vw - 28px), 276px);
+  right: 0px;
+`;
+
+const RightArrow = styled(MdChevronRight)`
+  height: 22px;
+  width: 22px;
+`;
+
+const MainImage = styled.div`
+  & {
+    border-radius: 4px;
+    height: min(50vw, 600px);
+    width: min(50vw, 600px);
+    overflow: hidden;
+    background-image: url(${(props) => props.url});
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &:hover {
+    cursor: zoom-in;
+  }
+  &:focus-visible {
+    outline: 4px solid var(--color-brand-200);
+  }
+`;
+
+const MainImageEmpty = styled.div`
+  border-radius: 4px;
+  font-size: 48px;
+  color: var(--color-grey-300);
+  background-color: var(--color-grey-050);
+  height: min(50vw, 600px);
+  width: min(50vw, 600px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const LeftArrow = styled(MdChevronLeft)`
+  height: 22px;
+  width: 22px;
+`;
+
 class ImageGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentIndex: 0,
+      modalIsOpen: false,
+      landscapeOrientations: []
     };
     this.imageBack = this.imageBack.bind(this);
     this.imageForward = this.imageForward.bind(this);
+    this.toggleExpandedView = this.toggleExpandedView.bind(this);
+    this.changeImage = this.changeImage.bind(this);
+  }
+
+  changeImage(e) {
+    const currentIndex =
+      parseInt(e.target.getAttribute('value')) ||
+      parseInt(e.currentTarget.getAttribute('value')) ||
+      0;
+    if (event.key === undefined || event.key === 'Enter') {
+      this.setState({
+        currentIndex: currentIndex,
+      });
+    }
+  }
+
+  loadLandscapeOrientation(e, index){
+    let landscape = e.target.offsetWidth > e.target.offsetHeight ? true : false;
+    let orientations = this.state.landscapeOrientations;
+    orientations[index] = landscape;
+    this.setState({
+      landscapeOrientations: orientations
+    })
   }
 
   imageBack(event, expandedView = false) {
@@ -170,6 +278,12 @@ class ImageGallery extends React.Component {
         currentIndex: prevState.currentIndex + 1,
       }));
     }
+  }
+
+  toggleExpandedView() {
+    this.setState((prevState) => ({
+      modalIsOpen: !prevState.modalIsOpen,
+    }));
   }
 
   render() {
@@ -241,6 +355,58 @@ class ImageGallery extends React.Component {
             </ImageButton>
           )}
         </ThumbnailsSection>
+        <MainImageWrapper>
+          {this.state.currentIndex > 0 && (
+            <ButtonArrowLeft>
+              <ViewArrow
+                onClick={this.imageBack}
+                onKeyPress={this.imageBack}
+                tabIndex='0'
+              >
+                <LeftArrow />
+              </ViewArrow>
+            </ButtonArrowLeft>
+          )}
+          {this.state.currentIndex < photos.length - 1 && (
+            <ButtonArrowRight>
+              <ViewArrow
+                onClick={this.imageForward}
+                onKeyPress={this.imageForward}
+                tabIndex='0'
+              >
+                <RightArrow />
+              </ViewArrow>
+            </ButtonArrowRight>
+          )}
+
+          {photos[this.state.currentIndex]['url'] ? (
+            <MainImage
+              onClick={this.toggleExpandedView}
+              onKeyPress={(event) => {
+                if (event.key === 'Enter') {
+                  this.toggleExpandedView();
+                }
+              }}
+              tabIndex='0'
+              url={photos[this.state.currentIndex]['url']}
+            />
+          ) : (
+            <MainImageEmpty>
+              <MdOutlineHideImage />
+            </MainImageEmpty>
+          )}
+        </MainImageWrapper>
+        {this.state.modalIsOpen && (
+          <ExpandedView
+            currentIndex={this.state.currentIndex}
+            changeImage={this.changeImage}
+            imageCount={photos.length}
+            imageBack={this.imageBack}
+            imageForward={this.imageForward}
+            toggleExpandedView={this.toggleExpandedView}
+            url={photos[this.state.currentIndex]['url']}
+          ></ExpandedView>
+        )}
       </Gallery>
     );
   }
