@@ -9,7 +9,7 @@ import StyleSelector from './StyleSelector.jsx';
 import config from '../../../../config.js';
 import styled from 'styled-components';
 import StarRating from './StarRating.jsx';
-import GlobalStyle from './globalStyles.js'
+import GlobalStyle from './globalStyles.js';
 
 const OverviewContainer = styled.div`
   margin-top: 64px;
@@ -43,6 +43,13 @@ const FlexRow = styled.div`
   margin-bottom: 12px;
   height: 32px;
 `;
+
+const FlexRowDesnFil = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
 
 const Stars = styled.div`
   margin-right: 12px;
@@ -272,69 +279,73 @@ class Overview extends React.Component {
 
     return (
       <>
-      <GlobalStyle />
-      <OverviewContainer>
-        {console.log('originalPrice', this.state.originalPrice)}
-        <Flexcontainer>
-          {this.state.photos.length > 0 && (
-            <ImageGallery
-              photos={this.state.photos}
-              currentStyle={this.state.currentStyle}
-              changePhoto={this.changePhoto}
-            />
-          )}
-          <FlexColumn>
-            <FlexRow>
-              <Stars>
-                <StarRating ratings={this.state.meta.ratings} showAve={false} />
-              </Stars>
-              <SmallLink
-                tabIndex='0'
-                onClick={() => {
-                  document
-                    .getElementById('reviews')
-                    .scrollIntoView({ behavior: 'smooth' });
-                }}
-                onKeyPress={() => {
-                  if (event.key === 'Enter') {
+        <GlobalStyle />
+        <OverviewContainer>
+          {console.log('originalPrice', this.state.originalPrice)}
+          <Flexcontainer>
+            {this.state.photos.length > 0 && (
+              <ImageGallery
+                photos={this.state.photos}
+                currentStyle={this.state.currentStyle}
+                changePhoto={this.changePhoto}
+              />
+            )}
+            <FlexColumn>
+              <FlexRow>
+                <Stars>
+                  <StarRating
+                    ratings={this.state.meta.ratings}
+                    showAve={false}
+                  />
+                </Stars>
+                <SmallLink
+                  tabIndex='0'
+                  onClick={() => {
                     document
                       .getElementById('reviews')
                       .scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Read all reviews
-              </SmallLink>
-            </FlexRow>
-            <h5>{category}</h5>
-            <h2>{name}</h2>
-            {price}
-            {this.state.styles.length > 0 && (
-              <StyleSelector
-                changeStylePrice={this.changeStylePrice}
-                changeStyle={this.changeStyle}
-                currentStyle={this.state.currentStyle}
-                styles={this.state.styles}
-              />
-            )}
-            {this.state.styles.length > 0 && (
-              <AddToCart
-                addOutfit={this.handleAddToOutfitClick}
-                addedOutfit={this.state.addedOutfit}
-                productId={this.props.currentProductId}
-                removeOutfit={this.handleRemoveOutfitFromListClick}
-                skus={this.state.styles[this.state.currentStyle].skus}
-              />
-            )}
-          </FlexColumn>
-        </Flexcontainer>
-        <Text>
-          <Strong>{slogan}</Strong>
-           
-          <p>{description}</p>
-          <FillerComponent />
-        </Text>
-      </OverviewContainer>
+                  }}
+                  onKeyPress={() => {
+                    if (event.key === 'Enter') {
+                      document
+                        .getElementById('reviews')
+                        .scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Read all reviews
+                </SmallLink>
+              </FlexRow>
+              <h5>{category}</h5>
+              <h2>{name}</h2>
+              {price}
+              {this.state.styles.length > 0 && (
+                <StyleSelector
+                  changeStylePrice={this.changeStylePrice}
+                  changeStyle={this.changeStyle}
+                  currentStyle={this.state.currentStyle}
+                  styles={this.state.styles}
+                />
+              )}
+              {this.state.styles.length > 0 && (
+                <AddToCart
+                  addOutfit={this.handleAddToOutfitClick}
+                  addedOutfit={this.state.addedOutfit}
+                  productId={this.props.currentProductId}
+                  removeOutfit={this.handleRemoveOutfitFromListClick}
+                  skus={this.state.styles[this.state.currentStyle].skus}
+                />
+              )}
+            </FlexColumn>
+          </Flexcontainer>
+          <Text>
+            <Strong>{slogan}</Strong>
+            <FlexRowDesnFil>
+              <p>{description}</p>
+              <FillerComponent />
+            </FlexRowDesnFil>
+          </Text>
+        </OverviewContainer>
       </>
     );
   }
