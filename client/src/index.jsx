@@ -1,24 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-// import widgets from './components/relatedItems&comparison/relatedItems&comparison.jsx';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProductId: 71697,
+      currentProductId: 71697
     };
+    this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
   }
 
   changeCurrentProductId(id) {
-    console.log(id);
     this.setState({
       currentProductId: id,
     });
-    //console.log(this.state.currentProductId);
   }
 
   render() {
@@ -27,7 +25,7 @@ class App extends React.Component {
         <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
         <Related
           currentProductId={this.state.currentProductId}
-          changeCurrentProductId={this.changeCurrentProductId.bind(this)}
+          changeCurrentProductId={this.changeCurrentProductId}
         />
         <Questions currentProductId={this.state.currentProductId} />
         <Reviews currentProductId={this.state.currentProductId} />

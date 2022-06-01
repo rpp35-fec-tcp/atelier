@@ -61,7 +61,7 @@ Modal.Body {
   font-size: 15px;
 }
 
-.star {
+.icon {
   display: block;
   float: right;
   z-index: 3;
@@ -70,7 +70,7 @@ Modal.Body {
   top: 5px;/*newly added*/
   /* padding: 1%; */
 }
-.star:hover {
+.icon:hover {
   color: yellow;
 }
 

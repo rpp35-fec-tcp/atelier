@@ -4,6 +4,7 @@ import $ from 'jquery';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import {FaRegStar} from 'react-icons/fa';
+import {BsXLg} from "react-icons/bs";
 import {getOneProduct, getOneProductStyle, getReviews} from './getAndPost.jsx';
 import Compare from './compare.jsx';
 
@@ -15,25 +16,15 @@ class Card extends React.Component {
       relatedProductStyle: null,
       defaultItem: null,
       reviewRating: 0,
-      currentProductInfo: this.props.currentProductInfo,
       show: false
     }
+    this.starClicked = false;
   }
   changeShow () {
     this.setState({show: false});
   }
   componentDidMount () {
-    getOneProduct(this.props.id, (data) => {
-      this.setState({
-        relatedProductInfo: data
-      })
-    });
-    getOneProductStyle(this.props.id, (data) => {
-      this.setState({
-        relatedProductStyle: data
-      });
-      this.getDefaultItem(data.results);
-    });
+    this.update();
     //unit test for getReviews, to check whether rating is calculated correctly, also check whether rating is hidden is there is no review
     getReviews(this.props.id, (data) => {
       var ratings = data.ratings;
@@ -53,6 +44,19 @@ class Card extends React.Component {
       this.setState({
         reviewRating: rating
       })
+    });
+  }
+  update () {
+    getOneProduct(this.props.id, (data) => {
+      this.setState({
+        relatedProductInfo: data
+      })
+    });
+    getOneProductStyle(this.props.id, (data) => {
+      this.setState({
+        relatedProductStyle: data
+      });
+      this.getDefaultItem(data.results);
     });
   }
   rating (value) {
@@ -91,18 +95,24 @@ class Card extends React.Component {
   render () {
     return (
       <div>
-        <div className="card" onClick={() => this.props.changeCurrentProductId(this.state.relatedProductInfo.id)}>
+        <div className="card" onClick={() => {
+          if (this.starClicked === false) {
+            this.props.changeCurrentProductId(this.state.relatedProductInfo.id);
+          } else {
+            this.starClicked = false;
+          }
+          }}>
         {this.state.defaultItem !== null && <div className='image-holder'><img src={this.state.defaultItem.photos[0].thumbnail_url} className="card-img-top" alt={this.state.defaultItem.name}/></div>}
         <div className="card-body" >
           {this.state.relatedProductInfo !== null && <h6 className="card-subtitle mb-2 text-muted" >{this.state.relatedProductInfo.category}</h6>}
           {this.state.relatedProductInfo !== null && <h5 className="card-title" >{this.state.relatedProductInfo.name}</h5>}
           {this.state.defaultItem !== null && this.price(this.state.defaultItem)}
-          {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
           {this.rating(this.state.reviewRating)}
         </div>
-        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.relatedProductInfo} currentProductInfo={this.state.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
+        {this.state.show && <Compare show={this.state.show} comparedProductInfo={this.state.relatedProductInfo} currentProductInfo={this.props.currentProductInfo} changeShow={this.changeShow.bind(this)}/>}
       </div>
-      <FaRegStar className='star' onClick={(e) => {e.stopPropagation();this.setState({show: true}); }}/>
+      {this.props.type === 'related' && <FaRegStar className='icon' onClick={(e) => {this.starClicked = true; this.setState({show: true}); }}/>}
+      {this.props.type === 'outfit' && <BsXLg className='icon' onClick={(e) => {this.props.deleteOutfit(this.props.id) }}/>}
       </div>
     );
   }
