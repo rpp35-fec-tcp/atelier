@@ -7,7 +7,6 @@
   \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -65,7 +64,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Card = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().lazy(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_react-bootstrap_esm_Button_js-node_modules_react-bootstrap_esm_Modal_js--cb9ca4"), __webpack_require__.e("client_src_components_relatedItems_comparison_card_jsx")]).then(__webpack_require__.bind(__webpack_require__, /*! ./card.jsx */ "./client/src/components/relatedItems&comparison/card.jsx"));
+  return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_mui_material_Rating_Rating_js-node_modules_mui_material_Stack_Stack_js-n-383062"), __webpack_require__.e("client_src_components_relatedItems_comparison_card_jsx")]).then(__webpack_require__.bind(__webpack_require__, /*! ./card.jsx */ "./client/src/components/relatedItems&comparison/card.jsx"));
 });
 
 var responsive = {
