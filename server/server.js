@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(express.json());
 
-app.get('/id', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/dist', 'index.html'));
 });
 
@@ -38,8 +38,8 @@ app.post('/interactions', (req, res) => {
     data: {
       element: data.element,
       widget: data.widget,
-      time: data.time
-    }
+      time: data.time,
+    },
   };
 
   axios.post(`${APIurl}/interactions`, options)
@@ -51,7 +51,7 @@ app.post('/interactions', (req, res) => {
 });
 
 app.all('*', (req, res) => {
-  res.redirect('/id');
+  res.redirect('/');
 });
 
 app.listen(port, () => {

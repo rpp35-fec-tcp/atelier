@@ -1,6 +1,8 @@
 const path = require('path');
+
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const config = {
   entry: ['regenerator-runtime/runtime.js', path.join(SRC_DIR, 'index.jsx')],
@@ -23,6 +25,22 @@ const config = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.(js|jsx)$/,
+        include: [path.resolve(__dirname, 'src', 'client')],
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              [
+                'import',
+                { libraryName: 'antd', style: true },
+                'antd',
+              ],
+            ],
+          },
+        }],
+      },
     ],
   },
   resolve: {
@@ -42,12 +60,18 @@ const config = {
     contentBase: './',
     hot: true,
   },
+  plugins: [
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      test: /.js$|.css$|.jsx$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    })],
 };
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     config.devtool = 'source-map';
   }
-
   return config;
 };

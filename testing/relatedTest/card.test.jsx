@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -26,7 +27,7 @@ describe('Card', () => {
     expect(modal).toMatchSnapshot();
     // expect(screen.getByTitle('modal')).toBeInTheDocument();
   });
-  //integration test
+  // integration test
   // test('when show changed to true, compare should render', async () => {
   //   render(<Card
   //     id="71704"
