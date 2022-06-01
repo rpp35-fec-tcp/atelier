@@ -45,7 +45,7 @@ const SelectWrapper = styled.div`
 
 const InputButton = styled.input`
   & {
-    background-color: white;
+    background-color: grey;
     border-radius: 4px;
     border: 2px solid var(--color-grey-100);
     color: var(--color-grey-200);

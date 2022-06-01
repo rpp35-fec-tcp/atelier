@@ -9,6 +9,7 @@ import StyleSelector from './StyleSelector.jsx';
 import config from '../../../../config.js';
 import styled from 'styled-components';
 import StarRating from './StarRating.jsx';
+import GlobalStyle from './globalStyles.js'
 
 const OverviewContainer = styled.div`
   margin-top: 64px;
@@ -270,6 +271,8 @@ class Overview extends React.Component {
       );
 
     return (
+      <>
+      <GlobalStyle />
       <OverviewContainer>
         {console.log('originalPrice', this.state.originalPrice)}
         <Flexcontainer>
@@ -331,6 +334,7 @@ class Overview extends React.Component {
           <FillerComponent />
         </Text>
       </OverviewContainer>
+      </>
     );
   }
 }
