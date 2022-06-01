@@ -16,7 +16,7 @@
   font-size: small;
 }
 
-#moreAnswers {
+.moreAnswers {
   font-weight: 700;
   font-size: small;
   border: none;

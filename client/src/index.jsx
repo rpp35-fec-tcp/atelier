@@ -1,8 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable comma-dangle */
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
-import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,7 +26,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Overview currentProductId={this.state.currentProductId}  changeCurrentProductId={this.changeCurrentProductId.bind(this)}/>
+        <Overview
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.changeCurrentProductId.bind(this)}
+        />
         <Related
           currentProductId={this.state.currentProductId}
           changeCurrentProductId={this.changeCurrentProductId}
