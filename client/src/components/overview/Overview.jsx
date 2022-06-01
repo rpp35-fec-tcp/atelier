@@ -330,6 +330,7 @@ class Overview extends React.Component {
         </Flexcontainer>
         <Text>
           <Strong>{slogan}</Strong>
+           
           <p>{description}</p>
           <FillerComponent />
         </Text>
