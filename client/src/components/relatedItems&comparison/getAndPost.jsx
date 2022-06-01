@@ -1,64 +1,55 @@
 import $ from 'jquery';
 
-export function getOneProduct (id, successCB){
-  //console.log('getOne id', id)
+export function getOneProduct(id, successCB) {
   $.ajax({
     type: 'GET',
     url: '/related/getOneProduct',
     contentType: 'application/json',
     data: {
-      id: id
+      id,
     },
+    headers: { 'Content-Encoding': 'gzip' },
     success: successCB,
-    error: function(err) {
-      console.log(err);
-    }
-  })
-};
+    error: (err) => console.log(err),
+  });
+}
 
-export function getOneProductStyle (id, successCB) {
-  //console.log('getOneStyle id', id)
+export function getOneProductStyle(id, successCB) {
   $.ajax({
     type: 'GET',
     url: '/related/getOneProductStyle',
     data: {
-      id: id
+      id,
     },
+    headers: { 'Content-Encoding': 'gzip' },
     contentType: 'application/json',
     success: successCB,
-    error: function(err) {
-      console.log(err);
-    }
-  })
-};
-export function getReviews (id, successCB) {
-  //console.log('getreviews id', id)
+    error: (err) => console.log(err),
+  });
+}
+
+export function getReviews(id, successCB) {
   $.ajax({
     type: 'GET',
     url: '/related/getReviews',
     data: {
-      id: id
+      id,
     },
     contentType: 'application/json',
     success: successCB,
-    error: function(err) {
-      console.log(err);
-    }
-  })
+    error: (err) => console.log(err),
+  });
 }
 
-export function getRelatedProducts (id, successCB) {
-  //console.log('getrelated id', id)
+export function getRelatedProducts(id, successCB) {
   $.ajax({
     type: 'GET',
     url: '/related/getRelatedProducts',
     contentType: 'application/json',
     data: {
-      id: id
+      id,
     },
     success: successCB,
-    error: function(err) {
-      console.log(err);
-    }
-  })
+    error: (err) => console.log(err),
+  });
 }

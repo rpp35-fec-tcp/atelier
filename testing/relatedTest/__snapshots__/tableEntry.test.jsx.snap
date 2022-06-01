@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableEntry Component snapshot test 1`] = `
+<tr>
+  <td />
+  <td
+    className="description"
+  />
+  <td />
+</tr>
+`;
