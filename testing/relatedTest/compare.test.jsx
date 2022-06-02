@@ -29,23 +29,21 @@ describe('test Compare component', () => {
     expect(screen.getByTitle('currentTitle').innerHTML).toBe(`${fakeProductInfos[1].name}`);
     expect(screen.getByTitle('comparedTitle').innerHTML).toBe(`${fakeProductInfos[0].name}`);
     expect(screen.getAllByRole('row')[1].innerHTML)
-      .toBe('<td>Make yourself a morning person</td><td class="description">slogan</td><td>Just jumped over jumpman</td>');
+      .toBe('<td>A risky call in the spring or fall</td><td class=\"description\">slogan</td><td>A sneaker dynasty</td>');
     expect(screen.getAllByRole('row')[2].innerHTML)
-      .toBe('<td>Whether you\'re a morning person or not.  Whether you\'re gym bound or not.  Everyone looks good in joggers.</td><td class="description">description</td><td>These stretchy knit shoes show off asymmetrical lacing and a big sculpted rubber midsole. In a nod to adidas soccer heritage.</td>');
+      .toBe('<td>Low-top panelled buffed leather and mesh sneakers. Sizing embroidered in black at round toe. Tonal lace-up closure. Pull-loop and rubberized style name at padded tongue. Padded collar. Pull-loop at heel collar. Logo embroidered in black at outer side. Tonal treaded rubber sole. Tonal stitching.</td><td class=\"description\">description</td><td>Now where da boxes where I keep mine? You should peep mine, maybe once or twice but never three times. I\'m just a sneaker pro, I love Pumas and shell toes, but can\'t nothin compare to a fresh crispy white pearl</td>');
     expect(screen.getAllByRole('row')[3].innerHTML)
-      .toBe('<td>40.00</td><td class="description">default price</td><td>450.00</td>');
+      .toBe('<td>59.00</td><td class=\"description\">default price</td><td>99.00</td>');
     expect(screen.getAllByRole('row')[4].innerHTML)
-      .toBe('<td>Pants</td><td class="description">category</td><td>Kicks</td>');
+      .toBe('<td>Kicks</td><td class=\"description\">category</td><td>Kicks</td>');
     expect(screen.getAllByRole('row')[5].innerHTML)
-      .toBe('<td>Plastic</td><td class="description">Sole</td><td></td>');
+      .toBe('<td>Rubber</td><td class=\"description\">Sole</td><td></td>');
     expect(screen.getAllByRole('row')[6].innerHTML)
-      .toBe('<td>100% Cotton</td><td class="description">Fabric</td><td></td>');
+      .toBe('<td>FullControlSkin</td><td class=\"description\">Material</td><td></td>');
     expect(screen.getAllByRole('row')[7].innerHTML)
-      .toBe('<td>FullControlSkin</td><td class="description">Material</td><td></td>');
+      .toBe('<td>ControlSupport Arch Bridge</td><td class=\"description\">Mid-Sole</td><td></td>');
     expect(screen.getAllByRole('row')[8].innerHTML)
-      .toBe('<td>Skinny</td><td class="description">Cut</td><td></td>');
-    expect(screen.getAllByRole('row')[9].innerHTML)
-      .toBe('<td></td><td class="description">Stitching</td><td>Double Stitch</td>');
+      .toBe('<td>Double Stitch</td><td class=\"description\">Stitching</td><td>Double Stitch</td>');
     expect(screen.getByTitle('button')).toBeTruthy();
     expect(screen.getByTitle('button').innerHTML).toBe('Close');
   });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test SimpleCarousal snapshot test 1`] = `
+exports[`test SimpleCarousal snapshot test for outfit list 1`] = `
 <div>
   <div
     className="react-multi-carousel-list  "
@@ -27,7 +27,7 @@ exports[`test SimpleCarousal snapshot test 1`] = `
 </div>
 `;
 
-exports[`test SimpleCarousal snapshot test 2`] = `
+exports[`test SimpleCarousal snapshot test for related list 1`] = `
 <div>
   <div
     className="react-multi-carousel-list  "

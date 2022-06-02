@@ -107,10 +107,11 @@ var SimpleCarousel = function SimpleCarousel(_ref) {
     itemClass: "image-item",
     autoPlay: false,
     responsive: responsive
-  }, relatedProducts.map(function (productId) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
-      id: productId,
-      key: productId,
+  }, relatedProducts.map(function (productInfo) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: productInfo.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
+      productInfo: productInfo,
       changeCurrentProductId: changeCurrentProductId,
       currentProductInfo: currentProductInfo,
       type: "related",
@@ -126,15 +127,17 @@ var SimpleCarousel = function SimpleCarousel(_ref) {
     autoPlay: false,
     responsive: responsive,
     renderArrowsWhenDisabled: false
-  }, relatedProducts.map(function (productId) {
-    return productId === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_addToOutfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, relatedProducts.map(function (productInfo) {
+    return productInfo === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: currentProductId
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_addToOutfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: currentProductId,
-      key: currentProductId,
       addToOutfit: addToOutfit,
       draggable: false
-    })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
-      id: productId,
-      key: productId,
+    })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: productInfo.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
+      productInfo: productInfo,
       addToOutfit: addToOutfit,
       changeCurrentProductId: changeCurrentProductId,
       currentProductInfo: currentProductInfo,
