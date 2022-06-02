@@ -27,13 +27,11 @@ class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: [],
       showMore: false,
       showQuestionModal: false,
       showAnswerModal: false
     };
 
-    this.fetchQuestionData = this.fetchQuestionData.bind(this);
     this.handleShowMoreClick = this.handleShowMoreClick.bind(this);
     this.handleUpvoteClick = this.handleUpvoteClick.bind(this);
     this.handleReportClick = this.handleReportClick.bind(this);
@@ -101,40 +99,8 @@ class QuestionList extends React.Component {
       })
   }
 
-  fetchQuestionData(cb) {
-    const options = {
-      method: 'GET',
-      url: 'http://localhost:3000/question',
-      params: {
-        product_id: this.props.product_id
-      }
-    };
-    axios(options)
-      .then((res) => {
-        console.log('data', res.data.results);
-        cb(res.data.results);
-      })
-      .catch((err) => {
-        console.log('error in fetchQuestionData', err.response.data);
-      })
-  }
-
-  componentDidMount() {
-    this.fetchQuestionData((data) => {
-      this.setState({ questions: data });
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.product_id !== prevProps.product_id) {
-      this.fetchQuestionData((data) => {
-        this.setState({ questions: data });
-      });
-    }
-  }
-
   render() {
-    let questionData = this.state.questions;
+    let questionData = this.props.questions;
     // sort by helpfulness
     questionData.sort((a, b) => {
       if (a.question_helpfulness > b.question_helpfulness) {

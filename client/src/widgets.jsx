@@ -8,6 +8,7 @@
 import React from 'react';
 import axios from 'axios';
 import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
+import SearchQuestion from './components/questions&answers/searchQuestions.jsx';
 import QuestionList from './components/questions&answers/listQuestions.jsx';
 import AppOverview from './components/overview/AppOverview.js';
 import './components/questions&answers/questions.css';
@@ -47,8 +48,42 @@ export class Questions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      questions: []
     };
     this.handleInteraction = this.handleInteraction.bind(this);
+    this.fetchQuestionData = this.fetchQuestionData.bind(this);
+  }
+
+  fetchQuestionData(cb) {
+    const options = {
+      method: 'GET',
+      url: 'http://localhost:3000/question',
+      params: {
+        product_id: this.props.currentProductId
+      }
+    };
+    axios(options)
+      .then((res) => {
+        console.log('data', res.data.results);
+        cb(res.data.results);
+      })
+      .catch((err) => {
+        console.log('error in fetchQuestionData', err.response.data);
+      })
+  }
+
+  componentDidMount() {
+    this.fetchQuestionData((data) => {
+      this.setState({ questions: data });
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.currentProductId !== prevProps.currentProductId) {
+      this.fetchQuestionData((data) => {
+        this.setState({ questions: data });
+      });
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -76,9 +111,11 @@ export class Questions extends React.Component {
     return (
       <div id="questionContainer">
         <h5 className="questionsHeader">Questions & Answers</h5>
+        <SearchQuestion/>
         <QuestionList
           product_id={this.props.currentProductId}
           handleInteraction={this.handleInteraction}
+          questions={this.state.questions}
         />
       </div>
     );
