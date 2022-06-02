@@ -10,7 +10,10 @@ class SearchQuestion extends React.Component {
   };
 
   handleChange (e) {
-    this.setState({searchValue: e.target.value})
+    this.setState({searchValue: e.target.value}, () => {
+      this.props.questionFilter(this.state.searchValue);
+    })
+
   }
   render () {
     return (

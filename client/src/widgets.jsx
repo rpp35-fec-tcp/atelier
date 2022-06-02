@@ -48,10 +48,20 @@ export class Questions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions: []
+      questions: [],
+      filteredQuestions: []
     };
     this.handleInteraction = this.handleInteraction.bind(this);
     this.fetchQuestionData = this.fetchQuestionData.bind(this);
+    this.questionFilter = this.questionFilter.bind(this);
+  }
+
+  questionFilter (filterString) {
+    const filtered = this.state.questions.filter((item) =>
+      item.question_body.includes(filterString)
+    )
+
+    this.setState({filteredQuestions: filtered});
   }
 
   fetchQuestionData(cb) {
@@ -108,14 +118,22 @@ export class Questions extends React.Component {
   }
 
   render() {
+    let filteredQuestions = this.state.questions;
+    if (this.state.filteredQuestions.length !== 0) {
+      filteredQuestions = this.state.filteredQuestions;
+    }
+
     return (
       <div id="questionContainer">
         <h5 className="questionsHeader">Questions & Answers</h5>
-        <SearchQuestion/>
+        <SearchQuestion
+          questions={this.state.questions}
+          questionFilter={this.questionFilter}
+        />
         <QuestionList
           product_id={this.props.currentProductId}
           handleInteraction={this.handleInteraction}
-          questions={this.state.questions}
+          questions={filteredQuestions}
         />
       </div>
     );
