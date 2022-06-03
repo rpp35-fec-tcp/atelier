@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Price Component snapshot test 1`] = `
+<div>
+  <p
+    className="originalPrice"
+  >
+    69.00
+  </p>
+</div>
+`;
+
+exports[`Price Component snapshot test 2`] = `
+<div>
+  <p
+    className="crossOutOriginalPrice"
+  >
+    69.00
+  </p>
+  <p
+    className="salePrice"
+  >
+    35.00
+  </p>
+</div>
+`;

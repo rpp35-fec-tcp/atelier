@@ -5,8 +5,6 @@ const FillerComponent = (props) => {
     <div className='POFiller'>
       <p>&#10003; GMO and Pesticide-free</p>
       <p>&#10003; Made with 100% Genetic Modification</p>
-      <p>&#10003; This is made up</p>
-      <p>&#10003; It doesn't matter</p>
     </div>
   );
 };

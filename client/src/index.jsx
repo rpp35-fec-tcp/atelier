@@ -11,16 +11,25 @@ import Reviews from './components/reviews/Reviews.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(window.location.pathname)
     this.state = {
-      currentProductId: 71697
+      currentProductId: 71697,
     };
     this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
+    this.changeURL = this.changeURL.bind(this);
+  }
+
+  changeURL() {
+    const nextURL = `/id/${this.state.currentProductId}`;
+    const nextTitle = `Product ${this.state.currentProductId}`;
+    const nextState = { additionalInformation: 'Updated the URL with JS' };
+    window.history.replaceState(nextState, nextTitle, nextURL);
   }
 
   changeCurrentProductId(id) {
     this.setState({
       currentProductId: id,
-    });
+    }, () => this.changeURL());
   }
 
   render() {
@@ -28,7 +37,7 @@ class App extends React.Component {
       <div>
         <Overview
           currentProductId={this.state.currentProductId}
-          changeCurrentProductId={this.changeCurrentProductId.bind(this)}
+          changeCurrentProductId={this.changeCurrentProductId}
         />
         <Related
           currentProductId={this.state.currentProductId}

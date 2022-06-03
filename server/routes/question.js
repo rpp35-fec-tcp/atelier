@@ -132,8 +132,13 @@ router.put('/reportAnswer', (req, res) => {
       console.log('reported')
       res.sendStatus(204);
     })
+<<<<<<< HEAD
+    .catch((err) =>{
+      console.log('upvote questions error', err.response.data);
+=======
     .catch((err) => {
       console.log(err.response.data);
+>>>>>>> 463947011e82c46782d3e9ad8dd98d474983cf10
       res.send(err);
     })
 })
