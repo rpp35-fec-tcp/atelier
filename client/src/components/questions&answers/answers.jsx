@@ -139,8 +139,7 @@ class Answers extends React.Component {
           {answerData.map((item) => (
             <li className="oneAnswer" key={item.answer_id}>
               <span className="answerBody">
-                A:
-                {item.body}
+                A: {item.body}
               </span>
               <br />
               <span className="sub-answer">

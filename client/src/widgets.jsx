@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
 /* eslint-disable react/prop-types */
 /* eslint-disable max-classes-per-file */
 import React from 'react';
@@ -5,6 +7,8 @@ import axios from 'axios';
 import RelatedComponent from './components/relatedItems&comparison/relatedComponent';
 import QuestionList from './components/questions&answers/listQuestions';
 import AppOverview from './components/overview/AppOverview';
+import SearchQuestion from './components/questions&answers/searchQuestions.jsx';
+import './components/questions&answers/questions.css';
 
 export function Overview({ currentProductId }) {
   return (
@@ -34,13 +38,6 @@ export class Questions extends React.Component {
     this.questionFilter = this.questionFilter.bind(this);
   }
 
-  questionFilter (filterString) {
-    const filtered = this.state.questions.filter((item) =>
-      item.question_body.includes(filterString)
-    )
-
-    this.setState({filteredQuestions: filtered});
-  }
 
   fetchQuestionData(cb) {
     const options = {
@@ -51,13 +48,13 @@ export class Questions extends React.Component {
       }
     };
     axios(options)
-      .then((res) => {
-        console.log('data', res.data.results);
-        cb(res.data.results);
-      })
-      .catch((err) => {
-        console.log('error in fetchQuestionData', err.response.data);
-      })
+    .then((res) => {
+      console.log('data', res.data.results);
+      cb(res.data.results);
+    })
+    .catch((err) => {
+      console.log('error in fetchQuestionData', err.response.data);
+    })
   }
 
   componentDidMount() {
@@ -87,12 +84,20 @@ export class Questions extends React.Component {
         time,
       },
     })
-      .then((res) => {
-        console.log('interaction status', res.status);
-      })
-      .catch((err) => {
-        console.log(err.response.data);
-      });
+    .then((res) => {
+      console.log('interaction status', res.status);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+    });
+  }
+
+  questionFilter (filterString) {
+    const filtered = this.state.questions.filter((item) =>
+      item.question_body.includes(filterString)
+    )
+
+    this.setState({ filteredQuestions: filtered });
   }
 
   render() {
