@@ -7,7 +7,6 @@
   \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -65,7 +64,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Card = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().lazy(function () {
-  return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_react-bootstrap_esm_Button_js-node_modules_react-bootstrap_esm_Modal_js--cb9ca4"), __webpack_require__.e("client_src_components_relatedItems_comparison_card_jsx")]).then(__webpack_require__.bind(__webpack_require__, /*! ./card.jsx */ "./client/src/components/relatedItems&comparison/card.jsx"));
+  return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_mui_material_Rating_Rating_js-node_modules_mui_material_Stack_Stack_js-n-383062"), __webpack_require__.e("client_src_components_relatedItems_comparison_card_jsx")]).then(__webpack_require__.bind(__webpack_require__, /*! ./card.jsx */ "./client/src/components/relatedItems&comparison/card.jsx"));
 });
 
 var responsive = {
@@ -108,10 +107,11 @@ var SimpleCarousel = function SimpleCarousel(_ref) {
     itemClass: "image-item",
     autoPlay: false,
     responsive: responsive
-  }, relatedProducts.map(function (productId) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
-      id: productId,
-      key: productId,
+  }, relatedProducts.map(function (productInfo) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: productInfo.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
+      productInfo: productInfo,
       changeCurrentProductId: changeCurrentProductId,
       currentProductInfo: currentProductInfo,
       type: "related",
@@ -127,15 +127,17 @@ var SimpleCarousel = function SimpleCarousel(_ref) {
     autoPlay: false,
     responsive: responsive,
     renderArrowsWhenDisabled: false
-  }, relatedProducts.map(function (productId) {
-    return productId === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_addToOutfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, relatedProducts.map(function (productInfo) {
+    return productInfo === null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: currentProductId
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_addToOutfit_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
       id: currentProductId,
-      key: currentProductId,
       addToOutfit: addToOutfit,
       draggable: false
-    })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
-      id: productId,
-      key: productId,
+    })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+      key: productInfo.id
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(Card, {
+      productInfo: productInfo,
       addToOutfit: addToOutfit,
       changeCurrentProductId: changeCurrentProductId,
       currentProductInfo: currentProductInfo,

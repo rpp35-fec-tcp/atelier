@@ -1,6 +1,7 @@
 const cors = require('cors');
 const express = require('express');
 const compression = require('compression');
+//const expressStaticGzip = require("express-static-gzip");
 const path = require('path');
 
 const app = express();
@@ -9,8 +10,10 @@ const axios = require('axios');
 const APIurl = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
 const config = require('../config.js');
 
+//app.use(expressStaticGzip("dist"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
+//app.use('/', expressStaticGzip(path.join(__dirname, '/../client/dist')));
 app.use(express.json());
 
 app.get('/', (req, res) => {

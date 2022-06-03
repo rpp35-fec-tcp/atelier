@@ -9,13 +9,40 @@ exports[`Card test snapshort 1`] = `
     tabIndex="0"
   >
     <div
+      className="image-holder"
+    >
+      <img
+        alt="White & White"
+        className="card-image"
+        element="changeCardClicked"
+        src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+      />
+    </div>
+    <div
       className="card-body"
     >
+      <h6
+        className="card-subtitle mb-2 text-muted"
+      >
+        Kicks
+      </h6>
+      <h5
+        className="card-title"
+      >
+        Heir Force Ones
+      </h5>
+      <div>
+        <p
+          className="originalPrice"
+        >
+          99.00
+        </p>
+      </div>
       <div
         className="css-1okj3ks-MuiStack-root"
       >
         <span
-          aria-label="0 Stars"
+          aria-label="3.5 Stars"
           className="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-1lauo1g-MuiRating-root"
           onMouseLeave={[Function]}
           onMouseMove={[Function]}
@@ -34,17 +61,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -59,17 +86,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -84,17 +111,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -109,17 +136,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -134,17 +161,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -159,17 +186,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -184,17 +211,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -209,17 +236,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -234,17 +261,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -253,17 +280,17 @@ exports[`Card test snapshort 1`] = `
               style={Object {}}
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -282,17 +309,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -307,17 +334,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -332,17 +359,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -357,17 +384,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -382,17 +409,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -407,17 +434,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -432,17 +459,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -457,17 +484,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -482,17 +509,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -501,17 +528,17 @@ exports[`Card test snapshort 1`] = `
               style={Object {}}
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -530,17 +557,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -555,17 +582,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -580,17 +607,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -605,17 +632,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -630,17 +657,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -655,17 +682,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -680,17 +707,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -705,17 +732,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -730,17 +757,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -749,17 +776,17 @@ exports[`Card test snapshort 1`] = `
               style={Object {}}
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -778,17 +805,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -803,17 +830,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -828,17 +855,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -853,17 +880,17 @@ exports[`Card test snapshort 1`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -873,22 +900,22 @@ exports[`Card test snapshort 1`] = `
                 Object {
                   "overflow": "hidden",
                   "position": "absolute",
-                  "width": "0%",
+                  "width": "50%",
                 }
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1300,13 +1327,40 @@ exports[`Card test snapshort 2`] = `
     tabIndex="0"
   >
     <div
+      className="image-holder"
+    >
+      <img
+        alt="White & White"
+        className="card-image"
+        element="changeCardClicked"
+        src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80"
+      />
+    </div>
+    <div
       className="card-body"
     >
+      <h6
+        className="card-subtitle mb-2 text-muted"
+      >
+        Kicks
+      </h6>
+      <h5
+        className="card-title"
+      >
+        Heir Force Ones
+      </h5>
+      <div>
+        <p
+          className="originalPrice"
+        >
+          99.00
+        </p>
+      </div>
       <div
         className="css-1okj3ks-MuiStack-root"
       >
         <span
-          aria-label="0 Stars"
+          aria-label="3.5 Stars"
           className="MuiRating-root MuiRating-sizeSmall MuiRating-readyOnly css-1lauo1g-MuiRating-root"
           onMouseLeave={[Function]}
           onMouseMove={[Function]}
@@ -1325,17 +1379,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1350,17 +1404,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1375,17 +1429,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1400,17 +1454,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1425,17 +1479,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1450,17 +1504,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1475,17 +1529,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1500,17 +1554,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1525,17 +1579,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1544,17 +1598,17 @@ exports[`Card test snapshort 2`] = `
               style={Object {}}
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1573,17 +1627,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1598,17 +1652,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1623,17 +1677,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1648,17 +1702,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1673,17 +1727,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1698,17 +1752,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1723,17 +1777,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1748,17 +1802,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1773,17 +1827,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1792,17 +1846,17 @@ exports[`Card test snapshort 2`] = `
               style={Object {}}
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1821,17 +1875,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1846,17 +1900,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1871,17 +1925,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1896,17 +1950,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1921,17 +1975,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1946,17 +2000,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1971,17 +2025,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -1996,17 +2050,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2021,17 +2075,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2040,17 +2094,17 @@ exports[`Card test snapshort 2`] = `
               style={Object {}}
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2069,17 +2123,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2094,17 +2148,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2119,17 +2173,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2144,17 +2198,17 @@ exports[`Card test snapshort 2`] = `
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>
@@ -2164,22 +2218,22 @@ exports[`Card test snapshort 2`] = `
                 Object {
                   "overflow": "hidden",
                   "position": "absolute",
-                  "width": "0%",
+                  "width": "50%",
                 }
               }
             >
               <span
-                className="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+                className="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
               >
                 <svg
                   aria-hidden={true}
                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
-                  data-testid="StarBorderIcon"
+                  data-testid="StarIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
                   <path
-                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                   />
                 </svg>
               </span>

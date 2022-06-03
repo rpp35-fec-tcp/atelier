@@ -4,8 +4,6 @@
 import React from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { BsXLg } from 'react-icons/bs';
-import { getOneProduct, getOneProductStyle, getReviews } from './getAndPost';
-import calculateRating from './calculateRating';
 import StarRating from './starRating';
 import Price from './price';
 import Compare from './compare';
@@ -15,42 +13,12 @@ class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comparedProducInfo: null,
-      defaultItem: null,
-      reviewRating: 0,
+      comparedProductInfo: this.props.productInfo,
       show: false,
     };
     this.starClicked = false;
     this.changeShow = this.changeShow.bind(this);
     this.cardClicked = this.cardClicked.bind(this);
-  }
-
-  componentDidMount() {
-    this.update();
-    getReviews(this.props.id, (data) => {
-      this.setState({
-        reviewRating: calculateRating(data.ratings),
-      });
-    });
-  }
-
-  getDefaultItem(results) {
-    let defaultItem = results.filter((result) => result['default?']);
-    defaultItem = defaultItem.length === 0 ? results[0] : defaultItem[0];
-    this.setState({
-      defaultItem,
-    });
-  }
-
-  update() {
-    getOneProduct(this.props.id, (data) => {
-      this.setState({
-        comparedProducInfo: data,
-      });
-    });
-    getOneProductStyle(this.props.id, (data) => {
-      this.getDefaultItem(data.results);
-    });
   }
 
   changeShow() {
@@ -59,7 +27,7 @@ class Card extends React.Component {
 
   cardClicked(e) {
     if (this.starClicked === false) {
-      this.props.changeCurrentProductId(this.state.comparedProducInfo.id);
+      this.props.changeCurrentProductId(this.state.comparedProductInfo.id);
       Interaction(e, 'related');
     } else {
       this.starClicked = false;
@@ -70,24 +38,24 @@ class Card extends React.Component {
     return (
       <div>
         <div className="card" role="button" tabIndex="0" onClick={(e) => this.cardClicked(e)}>
-          {this.state.defaultItem !== null && <div className="image-holder"><img src={this.state.defaultItem.photos[0].thumbnail_url} element="changeCardClicked" className='card-image' alt={this.state.defaultItem.name}/></div>}
+          <div className="image-holder"><img src={this.state.comparedProductInfo.defaultItem.photos[0].thumbnail_url} element="changeCardClicked" className='card-image' alt={this.state.comparedProductInfo.defaultItem.name}/></div>
           <div className="card-body">
-            {this.state.comparedProducInfo !== null && <h6 className="card-subtitle mb-2 text-muted">{this.state.comparedProducInfo.category}</h6>}
-            {this.state.comparedProducInfo !== null && <h5 className="card-title">{this.state.comparedProducInfo.name}</h5>}
-            {this.state.defaultItem !== null && <Price defaultItem={this.state.defaultItem} />}
-            {this.state.reviewRating !== -1 && <StarRating value={this.state.reviewRating} />}
+            <h6 className="card-subtitle mb-2 text-muted">{this.state.comparedProductInfo.category}</h6>
+            <h5 className="card-title">{this.state.comparedProductInfo.name}</h5>
+            <Price defaultItem={this.state.comparedProductInfo.defaultItem} />
+            {this.state.comparedProductInfo.reviewRating !== -1 && <StarRating value={this.state.comparedProductInfo.reviewRating} />}
           </div>
           {this.state.show && (
             <Compare
               show={this.state.show}
-              comparedProductInfo={this.state.comparedProducInfo}
+              comparedProductInfo={this.state.comparedProductInfo}
               currentProductInfo={this.props.currentProductInfo}
               changeShow={this.changeShow}
             />
           )}
         </div>
         {this.props.type === 'related' && <FaRegStar title="star" className="iconTop" onClick={() => { this.starClicked = true; this.setState({ show: true }); }} />}
-        {this.props.type === 'outfit' && <BsXLg className="iconTop" element="comparison" onClick={() => { this.props.deleteOutfit(this.props.id); }} />}
+        {this.props.type === 'outfit' && <BsXLg className="iconTop" element="comparison" onClick={() => { this.props.deleteOutfit(this.props.productInfo.id); }} />}
       </div>
     );
   }

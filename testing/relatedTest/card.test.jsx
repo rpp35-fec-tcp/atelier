@@ -11,18 +11,20 @@ describe('Card', () => {
   test('test snapshort', () => {
     const modal = renderer.create(<Card
       id="71704"
+      productInfo={fakeProductInfos[0]}
       type="related"
       show="false"
-      currentProductInfo={fakeProductInfos[0]}
+      currentProductInfo={fakeProductInfos}
     />).toJSON();
     expect(modal).toMatchSnapshot();
   });
   test('test snapshort', () => {
     const modal = renderer.create(<Card
       id="71704"
+      productInfo={fakeProductInfos[0]}
       type="outfit"
       show="true"
-      currentProductInfo={fakeProductInfos[0]}
+      currentProductInfo={fakeProductInfos}
     />).toJSON();
     expect(modal).toMatchSnapshot();
     // expect(screen.getByTitle('modal')).toBeInTheDocument();
