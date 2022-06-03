@@ -36,7 +36,7 @@ describe("Answers list is mounting", () => {
     expect(
 pretty(container.innerHTML)).toMatchInlineSnapshot(`
 "<div class=\\"no-answers\\">
-  <h4>Be the first to answer this question!</h4>
+  <h6>Be the first to answer this question!</h6>
 </div>"
 `);
     });

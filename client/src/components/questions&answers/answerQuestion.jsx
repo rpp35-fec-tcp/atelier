@@ -75,21 +75,22 @@ class AnswerModal extends React.Component {
     return (
       <div className={display}>
         <form className="modal-main">
-          <label>
+          <button className="exitAnswerModal" onClick={(e) => this.props.close(e.target.className)}>Exit</button>
+          <label id="modal-body">
             Required:
             <br></br>
-            <input type="text" name="name" value={this.state.name} placeholder="Username"
+            <input className="qamodalinput" type="text" name="name" value={this.state.name} placeholder="Username"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
-            <textarea type="text" name="body" value={this.state.body} placeholder="Please add your answer here"
+            <textarea className="qamodalinput"  type="text" name="body" value={this.state.body} placeholder="Please add your answer here"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
-            <input type="text" name="email" value={this.state.email} placeholder="Email"
+            <input className="qamodalinput" type="text" name="email" value={this.state.email} placeholder="Email"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
             <br></br>
             Optional, upload photos:
-            <input type="file" multiple onChange={this.selectPhoto} />
+            <input className="qamodalinput" type="file" multiple onChange={this.selectPhoto} />
 
 
           </label>

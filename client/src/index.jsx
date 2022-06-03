@@ -1,9 +1,12 @@
 /* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/destructuring-assignment */
+/* eslint-disable comma-dangle */
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Overview, Related, Questions } from './widgets';
-import Reviews from './components/reviews/Reviews';
+import { Overview, Related, Questions } from './widgets.jsx';
+import Reviews from './components/reviews/Reviews.jsx';
 
 class App extends React.Component {
   constructor(props) {
