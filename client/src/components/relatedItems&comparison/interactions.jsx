@@ -1,9 +1,8 @@
 import $ from 'jquery';
 
-function Interaction(e, widget) {
+function Interaction(element, widget) {
   const d = new Date();
   const time = `${d.getTime()}`;
-  const element = e.target.getAttribute('element');
   $.ajax({
     type: 'POST',
     url: '/related/interactions',

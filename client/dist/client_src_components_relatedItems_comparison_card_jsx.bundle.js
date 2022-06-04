@@ -82,7 +82,7 @@ var Card = /*#__PURE__*/function (_React$Component) {
     value: function cardClicked(e) {
       if (this.starClicked === false) {
         this.props.changeCurrentProductId(this.state.comparedProductInfo.id);
-        (0,_interactions__WEBPACK_IMPORTED_MODULE_7__["default"])(e, 'related');
+        (0,_interactions__WEBPACK_IMPORTED_MODULE_7__["default"])(e.target.getAttribute('element'), 'related');
       } else {
         this.starClicked = false;
       }
@@ -273,10 +273,9 @@ function Compare(_ref) {
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function Interaction(e, widget) {
+function Interaction(element, widget) {
   var d = new Date();
   var time = "".concat(d.getTime());
-  var element = e.target.getAttribute('element');
   jquery__WEBPACK_IMPORTED_MODULE_0___default().ajax({
     type: 'POST',
     url: '/related/interactions',
