@@ -9,6 +9,7 @@ import StyleSelector from './StyleSelector.jsx';
 import config from '../../../../config.js';
 import styled from 'styled-components';
 import StarRating from './StarRating.jsx';
+import GlobalStyle from './globalStyles.js';
 
 const OverviewContainer = styled.div`
   margin-top: 64px;
@@ -42,6 +43,13 @@ const FlexRow = styled.div`
   margin-bottom: 12px;
   height: 32px;
 `;
+
+const FlexRowDesnFil = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
 
 const Stars = styled.div`
   margin-right: 12px;
@@ -85,10 +93,24 @@ class Overview extends React.Component {
       meta: {},
       originalPrice: 0,
       salePrice: 0,
+      overview: {},
+      outfitList: [],
+      addedOutfit: false,
     };
     this.changePhoto = this.changePhoto.bind(this);
     this.url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
     this.changeStyle = this.changeStyle.bind(this);
+    this.handleAddToOutfitClick = this.handleAddToOutfitClick.bind(this);
+    this.handleRemoveOutfitFromListClick =
+      this.handleRemoveOutfitFromListClick.bind(this);
+  }
+
+  getProduct() {
+    axios
+      .get(this.props.url + '/products/' + this.props.currentProductId)
+      .then((results) => {
+        this.setState({ overview: results });
+      });
   }
 
   getProductStyles() {
@@ -127,7 +149,13 @@ class Overview extends React.Component {
           this.props.currentProductId
       )
       .then((data) => {
-        this.setState({ meta: data.data });
+        this.setState({
+          meta: data.data,
+          outfitList:
+            localStorage.getItem('outfit') === null
+              ? []
+              : JSON.parse(localStorage.getItem('outfit')),
+        });
       })
       .catch((err) => console.error('get product rating error: ', err));
   }
@@ -143,6 +171,14 @@ class Overview extends React.Component {
       this.getProductStyles();
       this.getProductInfo();
       this.getReviews();
+      const addedOutfit = this.state.outfitList.reduce(
+        (result, outfit) =>
+          (result = outfit.id === this.state['product_id'] ? true : result),
+        false
+      );
+      this.setState({
+        addedOutfit: addedOutfit,
+      });
     }
   }
 
@@ -188,6 +224,35 @@ class Overview extends React.Component {
     });
   }
 
+  handleAddToOutfitClick() {
+    var newOutfit = {
+      id: this.state.overview.id,
+      name: this.state.overview.name,
+      category: this.state.overview.category,
+      currentStylePhotos: this.state.styles[this.state.currentStyle].photos,
+      currentStylePrice:
+        this.state.styles[this.state.currentStyle].original_price,
+      currentStyleSalePrice:
+        this.state.styles[this.state.currentStyle].sale_price,
+      ratings: this.state.meta.ratings,
+    };
+    var updatedOutfitList = [...this.state.outfitList, newOutfit];
+    localStorage.setItem('outfit', JSON.stringify(updatedOutfitList));
+    this.setState({
+      outfitList: updatedOutfitList,
+    });
+  }
+
+  handleRemoveOutfitFromListClick(id) {
+    var updatedOutfitList = this.state.outfitList.filter(
+      (outfit) => outfit.id !== id
+    );
+    localStorage.setItem('outfit', JSON.stringify(updatedOutfitList));
+    this.setState({
+      outfitList: updatedOutfitList,
+    });
+  }
+
   render() {
     const {
       category,
@@ -213,59 +278,75 @@ class Overview extends React.Component {
       );
 
     return (
-      <OverviewContainer>
-        {console.log('originalPrice', this.state.originalPrice)}
-        <Flexcontainer>
-          {this.state.photos.length > 0 && (
-            <ImageGallery
-              photos={this.state.photos}
-              currentStyle={this.state.currentStyle}
-              changePhoto={this.changePhoto}
-            />
-          )}
-          <FlexColumn>
-            <FlexRow>
-              <Stars>
-                <StarRating ratings={this.state.meta.ratings} showAve={false} />
-              </Stars>
-              <SmallLink
-                tabIndex='0'
-                onClick={() => {
-                  document
-                    .getElementById('reviews')
-                    .scrollIntoView({ behavior: 'smooth' });
-                }}
-                onKeyPress={() => {
-                  if (event.key === 'Enter') {
+      <>
+        <GlobalStyle />
+        <OverviewContainer>
+          {console.log('originalPrice', this.state.originalPrice)}
+          <Flexcontainer>
+            {this.state.photos.length > 0 && (
+              <ImageGallery
+                photos={this.state.photos}
+                currentStyle={this.state.currentStyle}
+                changePhoto={this.changePhoto}
+              />
+            )}
+            <FlexColumn>
+              <FlexRow>
+                <Stars>
+                  <StarRating
+                    ratings={this.state.meta.ratings}
+                    showAve={false}
+                  />
+                </Stars>
+                <SmallLink
+                  tabIndex='0'
+                  onClick={() => {
                     document
                       .getElementById('reviews')
                       .scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Read all reviews
-              </SmallLink>
-            </FlexRow>
-            <h5>{category}</h5>
-            <h2>{name}</h2>
-            {price}
-            {this.state.styles.length > 0 && (
-              <StyleSelector
-                changeStylePrice={this.changeStylePrice}
-                changeStyle={this.changeStyle}
-                currentStyle={this.state.currentStyle}
-                styles={this.state.styles}
-              />
-            )}
-            <AddToCart />
-          </FlexColumn>
-        </Flexcontainer>
-        <Text>
-          <Strong>{slogan}</Strong>
-          <p>{description}</p>
-          <FillerComponent />
-        </Text>
-      </OverviewContainer>
+                  }}
+                  onKeyPress={() => {
+                    if (event.key === 'Enter') {
+                      document
+                        .getElementById('reviews')
+                        .scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Read all reviews
+                </SmallLink>
+              </FlexRow>
+              <h5>{category}</h5>
+              <h2>{name}</h2>
+              {price}
+              {this.state.styles.length > 0 && (
+                <StyleSelector
+                  changeStylePrice={this.changeStylePrice}
+                  changeStyle={this.changeStyle}
+                  currentStyle={this.state.currentStyle}
+                  styles={this.state.styles}
+                />
+              )}
+              {this.state.styles.length > 0 && (
+                <AddToCart
+                  addOutfit={this.handleAddToOutfitClick}
+                  addedOutfit={this.state.addedOutfit}
+                  productId={this.props.currentProductId}
+                  removeOutfit={this.handleRemoveOutfitFromListClick}
+                  skus={this.state.styles[this.state.currentStyle].skus}
+                />
+              )}
+            </FlexColumn>
+          </Flexcontainer>
+          <Text>
+            <Strong>{slogan}</Strong>
+            <FlexRowDesnFil>
+              <p>{description}</p>
+              <FillerComponent />
+            </FlexRowDesnFil>
+          </Text>
+        </OverviewContainer>
+      </>
     );
   }
 }

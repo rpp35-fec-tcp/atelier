@@ -13,6 +13,8 @@ config.js
 *.ttf
 *.woff
 *.bundle.js*
+bundle.js
+bundle.js.*
 
 # Logs
 logs

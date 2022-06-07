@@ -58,16 +58,17 @@ class QuestionModal extends React.Component {
     return (
       <div className={display}>
         <form className="modal-main">
-          <label>
+        <button className="exitQuestionModal" onClick={(e) => this.props.close(e.target.className)}>Exit</button>
+          <label id="modal-body">
             Required:
             <br></br>
-            <input type="text" name="name" value={this.state.name} placeholder="Username"
+            <input className="qamodalinput" type="text" name="name" value={this.state.name} placeholder="Username"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
-            <textarea type="text" name="body" value={this.state.body} placeholder="Please add your question here"
+            <textarea className="qamodalinput" type="text" name="body" value={this.state.body} placeholder="Please add your question here"
               onChange={(e) => this.handleChange(e)} />
             <br></br>
-            <input type="text" name="email" value={this.state.email} placeholder="Email"
+            <input className="qamodalinput" type="text" name="email" value={this.state.email} placeholder="Email"
               onChange={(e) => this.handleChange(e)} />
           </label>
 

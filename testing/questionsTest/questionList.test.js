@@ -34,9 +34,9 @@ describe("Questions list is mounting", () => {
     });
 
     expect(
-      pretty(container.innerHTML)).toMatchInlineSnapshot(`
+pretty(container.innerHTML)).toMatchInlineSnapshot(`
 "<div class=\\"no-questions\\">
-  <h4>Sorry, there are no questions listed for this product</h4>
+  <h4>Sorry, there are no questions listed for this product</h4><button id=\\"addAQuestion\\">ADD A QUESTION +</button>
 </div>"
 `);
 
