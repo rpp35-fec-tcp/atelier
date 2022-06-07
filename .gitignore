@@ -1,6 +1,9 @@
 # API Keys
 config.js
 
+#deployment
+deploy.sh
+
 # MacOS containing folder custom attributes
 .DS_Store
 
