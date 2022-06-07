@@ -1,54 +1,51 @@
 const axios = require('axios');
-const config = require('../config.js');
+const config = require('../config');
 
-axios.defaults.baseURL = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/`;
+axios.defaults.baseURL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/';
 
 // Important: If axios is used with multiple domains, the AUTH_TOKEN will be sent to all of them.
 // See below for an example using Custom instance defaults instead.
-axios.defaults.headers.common['Authorization'] = `${config.TOKEN}`;
+axios.defaults.headers.common.Authorization = `${config.TOKEN}`;
 
-let getRelatedProducts = (id) => {
-  return axios.get(`/products/${id}/related`)
-}
+// helper function to choose only required data
+const calculateRating = (ratings) => {
+  const keys = Object.keys(ratings);
+  let sum = 0;
+  let count = 0;
+  if (keys.length > 0) {
+    for (const key of keys) {
+      sum += Number(key) * Number(ratings[key]);
+      count += Number(ratings[key]);
+    }
+    return sum / count;
+  }
+  return -1;
+};
+const filterData = (data) => {
+  const result = data[0];
+  const defaultItem = data[1].results.filter((style) => style['default?']);
+  result.defaultItem = defaultItem.length === 0
+    ? data[1].results[0]
+    : defaultItem[0];
+  result.reviewRating = calculateRating(data[2].ratings);
+  return result;
+};
 
-let getOneProduct = (id) => {
-  return axios.get(`/products/${id}`);
-}
+const getRelatedProducts = (id) => axios.get(`/products/${id}/related`);
 
-let getOneProductStyle = (id) => {
-  return axios.get(`/products/${id}/styles`);
-}
+const getOneProduct = (id) => axios.get(`/products/${id}`).then((results) => results.data);
 
-let getReviews = (id) => {
-  return axios.get(`/reviews/meta/${id}`)
-}
+const getOneProductStyle = (id) => axios.get(`/products/${id}/styles`).then((results) => results.data);
 
+const getReviews = (id) => axios.get('/reviews/meta', { params: { product_id: id } }).then((results) => results.data);
 
+const getAllInfo = (id) => Promise.all([getOneProduct(id), getOneProductStyle(id), getReviews(id)])
+  .then((data) => filterData(data));
+
+const postInteractions = (data) => axios.post('/interactions', data);
 
 module.exports.getOneProduct = getOneProduct;
 module.exports.getRelatedProducts = getRelatedProducts;
-module.exports.getOneProductStyle = getOneProductStyle;
-module.exports.getReviews = getReviews;
+module.exports.postInteractions = postInteractions;
+module.exports.getAllInfo = getAllInfo;
 
-
-
-
-// let getProduct = () => {
-//   // TODO - Use the axios module to request repos for a specific
-//   // user from the github API
-//   // The options object has been provided to help you out,
-//   // but you'll have to fill in the URL
-//   let getPro = {
-//     method: 'get',
-//     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products`,
-//     headers: {
-//       'User-Agent': 'request',
-//       'Authorization': `${config.TOKEN}`
-//     },
-//     params: {
-//       page: 1,
-//       count: 5
-//     },
-//   };
-//   return axios(getPro);
-// }

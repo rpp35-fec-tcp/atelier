@@ -1,0 +1,48 @@
+.review-tile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.review-tile > * {
+  flex: 100%;
+  padding: 10px 0 10px;
+}
+
+.star-ratings {
+  flex: 0 90px;
+}
+
+.review-name-date {
+  flex: 0 205px;
+  font-size: xx-small;
+  text-align: right;
+}
+
+.review-summary {
+  font-size: small;
+  font-weight: bold;
+}
+
+.review-photo {
+  column-gap: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.review-img {
+  height: 150px;
+}
+
+.review-response {
+  background: #ebebeb;
+  padding: 20px;
+}
+
+.review-helpfulness {
+  font-size: xx-small;
+}
+
+.hr {
+  padding: 0;
+}

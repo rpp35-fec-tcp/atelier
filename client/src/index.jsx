@@ -1,70 +1,54 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable comma-dangle */
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
-class Overview extends React.Component{
+import { Overview, Related, Questions } from './widgets.jsx';
+import Reviews from './components/reviews/Reviews.jsx';
+
+class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    // console.log(window.location.pathname)
+    this.state = {
+      currentProductId: 71697,
+    };
+    this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
+    this.changeURL = this.changeURL.bind(this);
   }
+
+  changeURL() {
+    const nextURL = `/id/${this.state.currentProductId}`;
+    const nextTitle = `Product ${this.state.currentProductId}`;
+    const nextState = { additionalInformation: 'Updated the URL with JS' };
+    window.history.replaceState(nextState, nextTitle, nextURL);
+  }
+
+  changeCurrentProductId(id) {
+    this.setState({
+      currentProductId: id,
+    }, () => this.changeURL());
+  }
+
   render() {
     return (
       <div>
-        <h1>Overview</h1>
+        <Overview
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.changeCurrentProductId}
+        />
+        <Related
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.changeCurrentProductId}
+        />
+        <Questions currentProductId={this.state.currentProductId} />
+        <Reviews currentProductId={this.state.currentProductId} />
       </div>
-    )
+    );
   }
 }
 
-class Related extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-  render() {
-    return (
-      <div>
-        <RelatedComponent />
-      </div>
-    )
-  }
-}
-class Question extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-  render() {
-    return (
-      <div>
-        <h1>Question</h1>
-      </div>
-    )
-  }
-}
-
-class Rating extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-  render() {
-    return (
-      <div>
-        <h1>Rating</h1>
-      </div>
-    )
-  }
-}
-
-
-
-ReactDOM.createRoot(document.getElementById('Overview'))
-.render(<Overview />);
-ReactDOM.createRoot(document.getElementById('Question'))
-.render(<Question />);
-ReactDOM.createRoot(document.getElementById('Rating'))
-.render(<Rating />);
-ReactDOM.createRoot(document.getElementById('Related'))
-.render(<Related />);
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

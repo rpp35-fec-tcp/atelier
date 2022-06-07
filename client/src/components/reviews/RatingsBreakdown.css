@@ -1,0 +1,10 @@
+.ratings-breakdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.rating {
+  column-gap: 5px;
+  display: flex;
+  padding: 10px 0 10px;
+}
