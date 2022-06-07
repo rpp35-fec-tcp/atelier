@@ -1,119 +1,55 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable comma-dangle */
+/* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD
-import Card from './components/relatedItems&comparison/card.jsx';
-import QuestionList from './components/questions&answers/listQuestions.jsx';
-import axios from 'axios';
+import { Overview, Related, Questions } from './widgets.jsx';
+import Reviews from './components/reviews/Reviews.jsx';
 
-
-=======
-import RelatedComponent from './components/relatedItems&comparison/relatedItems&comparison.jsx';
->>>>>>> 0676bbd93293648c9e0561667a882bb12bd15df7
-class Overview extends React.Component{
+class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
-  }
-  render() {
-    return (
-      <div>
-        <h1>Overview</h1>
-      </div>
-    )
-  }
-}
-
-class Related extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-  render() {
-    return (
-      <div>
-        <RelatedComponent />
-      </div>
-    )
-  }
-}
-
-class Questions extends React.Component{
-  constructor(props) {
-    super(props);
+    // console.log(window.location.pathname)
     this.state = {
-      questions: [],
-      showMore: false,
-      currentProduct_id: null
+      currentProductId: 71697,
     };
-    this.fetchQuestionData = this.fetchQuestionData.bind(this);
+    this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
+    this.changeURL = this.changeURL.bind(this);
   }
 
-  //function to send a request to the server for questions data
-  fetchQuestionData (options) {
-    axios(options)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log('error in fetchQuestionData', err.response.data)
-      })
-      //then update state with res dataa
+  changeURL() {
+    const nextURL = `/id/${this.state.currentProductId}`;
+    const nextTitle = `Product ${this.state.currentProductId}`;
+    const nextState = { additionalInformation: 'Updated the URL with JS' };
+    window.history.replaceState(nextState, nextTitle, nextURL);
   }
 
-  componentDidMount () {
-    let options = {
-      method: 'GET',
-      url: 'http://localhost:3000/question',
-      params: {
-        product_id: 5
-      }
-    };
-
-    this.fetchQuestionData(options);
+  changeCurrentProductId(id) {
+    this.setState({
+      currentProductId: id,
+    }, () => this.changeURL());
   }
 
-  //invoke server req inside componentDidMount
-
-  render() {
-    let sampleData = [{question:'someQuestion', answers: [{answer:'someAnswer'}, {answer: 'anotherAnswer'}]}, {question:'someQuestion2', answers: [{answer:'someAnswer2'}, {answer: 'anotherAnswer2'}]},
-     {question:'someQuestion3', answers: [{answer:'someAnswer3'}, {answer: 'anotherAnswer3'}]}];
-    let questionData = sampleData;
-    if (this.state.showMore === false) {
-      questionData = sampleData.slice(0,2);
-    }
-
-    return (
-      <div>
-        <h1>Question</h1>
-        <QuestionList questions={questionData} />
-      </div>
-    )
-  }
-}
-
-class Rating extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
   render() {
     return (
       <div>
-        <h1>Rating</h1>
+        <Overview
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.changeCurrentProductId}
+        />
+        <Related
+          currentProductId={this.state.currentProductId}
+          changeCurrentProductId={this.changeCurrentProductId}
+        />
+        <Questions currentProductId={this.state.currentProductId} />
+        <Reviews currentProductId={this.state.currentProductId} />
       </div>
-    )
+    );
   }
 }
 
-
-
-ReactDOM.createRoot(document.getElementById('Overview'))
-.render(<Overview />);
-ReactDOM.createRoot(document.getElementById('Question'))
-.render(<Questions />);
-ReactDOM.createRoot(document.getElementById('Rating'))
-.render(<Rating />);
-ReactDOM.createRoot(document.getElementById('Related'))
-.render(<Related />);
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

@@ -1,0 +1,38 @@
+.no-answers {
+  font-weight: 550;
+}
+
+.answers {
+  font-weight: 400;
+  font-size: medium;
+}
+
+.oneAnswer {
+  list-style: none;
+}
+
+.sub-answer {
+  font-weight: 300;
+  font-size: small;
+}
+
+.moreAnswers {
+  font-weight: 700;
+  font-size: small;
+  border: none;
+  margin: 10px;
+}
+
+.report-answer {
+  border:none;
+  border-left: solid .5px;
+  text-decoration-line: underline;
+  padding-left: 8px;
+  margin-left: 8px;
+}
+
+.answer-helpfulness {
+  border-left: solid .5px;
+  padding-left: 8px;
+  margin-left: 8px;
+}
