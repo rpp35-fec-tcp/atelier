@@ -1,0 +1,1 @@
+ssh -i "/Users/yangshi/HackReactor/atelier/shen.pem" ubuntu@ec2-34-222-219-3.us-west-2.compute.amazonaws.com
