@@ -122,6 +122,7 @@ export class Questions extends React.Component {
     );
   }
 }
+
 export class Rating extends React.Component {
   constructor(props) {
     super(props);
