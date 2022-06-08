@@ -7,7 +7,7 @@ import axios from 'axios';
 import RelatedComponent from './components/relatedItems&comparison/relatedComponent';
 import QuestionList from './components/questions&answers/listQuestions';
 import AppOverview from './components/overview/AppOverview';
-import SearchQuestion from './components/questions&answers/searchQuestions.jsx';
+import SearchQuestion from './components/questions&answers/searchQuestions';
 import './components/questions&answers/questions.css';
 
 export function Overview({ currentProductId }) {

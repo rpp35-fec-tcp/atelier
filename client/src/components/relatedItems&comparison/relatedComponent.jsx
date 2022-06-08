@@ -5,7 +5,6 @@ import SimpleCarousel from './carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import './related.css';
-
 class RelatedComponent extends React.Component {
   constructor(props) {
     super(props);
