@@ -1,7 +1,6 @@
 import React from 'react';
 // const SimpleCarousel = React.lazy(() => import('./carousel.jsx'));
-import $ from 'jquery';
-import { getOneProduct, getRelatedProductsCombinedInfo } from './getAndPost.jsx';
+import { getOneProduct, getRelatedProductsCombinedInfo } from './getAndPost';
 import SimpleCarousel from './carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';

@@ -17,8 +17,8 @@ const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1.5,
-    paritialVisibilityGutter: 30
-  }
+    paritialVisibilityGutter: 30,
+  },
 };
 
 const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
