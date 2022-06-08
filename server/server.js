@@ -12,10 +12,14 @@ const config = require('../config.js');
 
 //app.use(expressStaticGzip("dist"));
 app.use(cors());
+app.get('*.js', (req, res, next) => {
+  req.url += '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 //app.use('/', expressStaticGzip(path.join(__dirname, '/../client/dist')));
 app.use(express.json());
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/dist', 'index.html'));
 });

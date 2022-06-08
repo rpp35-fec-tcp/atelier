@@ -28,7 +28,7 @@ class Card extends React.Component {
   cardClicked(e) {
     if (this.starClicked === false) {
       this.props.changeCurrentProductId(this.state.comparedProductInfo.id);
-      Interaction(e, 'related');
+      Interaction(e.target.getAttribute('element'), 'related');
     } else {
       this.starClicked = false;
     }
@@ -38,7 +38,8 @@ class Card extends React.Component {
     return (
       <div>
         <div className="card" role="button" tabIndex="0" onClick={(e) => this.cardClicked(e)}>
-          <div className="image-holder"><img src={this.state.comparedProductInfo.defaultItem.photos[0].thumbnail_url} element="changeCardClicked" className='card-image' alt={this.state.comparedProductInfo.defaultItem.name}/></div>
+
+          <div className="image-holder"><img src={this.state.comparedProductInfo.defaultItem.photos[0].thumbnail_url} element="changeCardClicked" className="card-image" alt={this.state.comparedProductInfo.defaultItem.name}/></div>
           <div className="card-body">
             <h6 className="card-subtitle mb-2 text-muted">{this.state.comparedProductInfo.category}</h6>
             <h5 className="card-title">{this.state.comparedProductInfo.name}</h5>

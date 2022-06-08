@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-const SimpleCarousel = React.lazy(() => import('./carousel.jsx'));
-import $ from 'jquery';
-import {getOneProduct, getRelatedProductsCombinedInfo} from './getAndPost.jsx';
+// const SimpleCarousel = React.lazy(() => import('./carousel.jsx'));
+import { getOneProduct, getRelatedProductsCombinedInfo } from './getAndPost';
+import SimpleCarousel from './carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import './related.css';
-class RelatedComponent extends React.Component{
+class RelatedComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,52 +18,57 @@ class RelatedComponent extends React.Component{
     this.addToOutfit = this.addToOutfit.bind(this);
     this.deleteOutfit = this.deleteOutfit.bind(this);
   }
-  addToOutfit (id) {
+
+  addToOutfit(id) {
     if (this.state.outfitListAllInfo.length !== 1) {
       for (const item of this.state.outfitListAllInfo.slice(1)) {
-        if (item.id === id){
+        if (item.id === id) {
           return;
         }
       }
     }
     this.setState({
       outfitListAllInfo: [null, this.state.currentProductInfo, ...this.state.outfitListAllInfo.slice(1)],
-    })
+    });
   }
-  deleteOutfit (id) {
+
+  deleteOutfit(id) {
     this.setState({
       outfitListAllInfo: this.state.outfitListAllInfo.filter((item) => ((item === null) || (item.id !== id))),
     });
   }
+
   getAllRelatedInfo(id) {
     getRelatedProductsCombinedInfo(id, (data) => {
       this.setState({
-        relatedProductsAllInfo: data
-      })
+        relatedProductsAllInfo: data,
+      });
     });
   }
+
   getOneProductInfo(id) {
-    getOneProduct(id, (data) =>
-      this.setState({
-        currentProductInfo: data
-      })
-    )
+    getOneProduct(id, (data) => this.setState({
+      currentProductInfo: data,
+    }));
   }
-  componentDidMount () {
+
+  componentDidMount() {
     this.getAllRelatedInfo(this.props.currentProductId);
     this.getOneProductInfo(this.props.currentProductId);
   }
-  componentDidUpdate (prevProps) {
+
+  componentDidUpdate(prevProps) {
     if (prevProps.currentProductId !== this.props.currentProductId) {
       this.getAllRelatedInfo(this.props.currentProductId);
       this.getOneProductInfo(this.props.currentProductId);
     }
   }
-  render () {
-    return (
-      <div className='exceptOverview'>
 
-        <p className='list' >RELATED PRODUCT</p>
+  render() {
+    return (
+      <div className="exceptOverview">
+
+        <p className="list">RELATED PRODUCT</p>
         <SimpleCarousel
           relatedProducts={this.state.relatedProductsAllInfo}
           currentProductId={this.props.currentProductId}
@@ -72,7 +76,7 @@ class RelatedComponent extends React.Component{
           changeCurrentProductId={this.props.changeCurrentProductId}
         />
 
-        <p className='list'>YOUR OUTFIT</p>
+        <p className="list">YOUR OUTFIT</p>
         <SimpleCarousel
           relatedProducts={this.state.outfitListAllInfo}
           currentProductId={this.props.currentProductId}

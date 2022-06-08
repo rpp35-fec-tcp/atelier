@@ -1,7 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import React from 'react';
-const Card = React.lazy(() => import('./card.jsx'));
-import AddToOutfit from './addToOutfit.jsx';
+import Card from './card';
+import AddToOutfit from './addToOutfit';
 
 const responsive = {
   desktop: {
@@ -17,8 +17,8 @@ const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1.5,
-    paritialVisibilityGutter: 30
-  }
+    paritialVisibilityGutter: 30,
+  },
 };
 
 const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
