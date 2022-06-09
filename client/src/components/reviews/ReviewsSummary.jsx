@@ -15,7 +15,12 @@ function ReviewsSummary({ handleSortChange, reviewCount }) {
   );
 }
 
-ReviewsSummary.defaultProps = { reviewCount: 0 };
-ReviewsSummary.propTypes = { reviewCount: PropTypes.number };
+ReviewsSummary.defaultProps = {
+  reviewCount: 0,
+};
+ReviewsSummary.propTypes = {
+  handleSortChange: PropTypes.func.isRequired,
+  reviewCount: PropTypes.number,
+};
 
 export default ReviewsSummary;
