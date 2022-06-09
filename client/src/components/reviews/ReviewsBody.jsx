@@ -13,7 +13,6 @@ function ReviewsBody({ productId }) {
   );
 }
 
-ReviewsBody.defaultProps = { productId: null };
-ReviewsBody.propTypes = { productId: propTypes.number };
+ReviewsBody.propTypes = { productId: propTypes.number.isRequired };
 
 export default ReviewsBody;

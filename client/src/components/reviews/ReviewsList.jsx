@@ -1,6 +1,7 @@
 import axios from 'axios';
 import propTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import AddReview from './AddReview';
 import ReviewsSummary from './ReviewsSummary';
 import ReviewTile from './ReviewTile';
 import './ReviewsList.css';
@@ -10,31 +11,41 @@ function ReviewsList({ productId }) {
   const [reviewCount, setReviewCount] = useState(0);
   const [reviews, setReviews] = useState([]);
 
-  const fetchData = async (id) => {
+  const fetchData = async (product_id, sort = 'relevant') => {
     const { data } = await axios.get(
       '/reviews',
-      { params: { product_id: id } },
+      { params: { product_id, sort } },
     );
     setReviewCount(data.length);
     setReviews(data);
   };
 
-  const handleButtonClick = () => {
+  const handleMoreReviewsClick = () => {
     setDisplayCount(Math.min(displayCount + 2, reviewCount));
   };
 
-  useEffect(() => { fetchData(productId); }, [productId]);
+  const handleSortChange = (e) => {
+    fetchData(productId, e.target.value);
+  };
 
+  useEffect(() => { fetchData(productId); }, [productId]);
   return (
     <div className="reviews-list">
-      {reviewCount ? <ReviewsSummary reviewCount={reviewCount} /> : null}
+      {reviewCount
+        ? (
+          <ReviewsSummary
+            handleSortChange={handleSortChange}
+            reviewCount={reviewCount}
+          />
+        )
+        : null}
       {reviews.slice(0, displayCount).map((review) => (
         <ReviewTile key={review.review_id} review={review} />
       ))}
       <div className="reviews-buttons">
         {(reviewCount > 2) && (displayCount < reviewCount)
           ? (
-            <button onClick={handleButtonClick} type="button">
+            <button onClick={handleMoreReviewsClick} type="button">
               <b>MORE REVIEWS</b>
             </button>
           )
@@ -43,11 +54,12 @@ function ReviewsList({ productId }) {
           <b>ADD A REVIEW&nbsp;&nbsp;&#65291;</b>
         </button>
       </div>
+      {/* <AddReview productId={productId} /> */}
+
     </div>
   );
 }
 
-ReviewsList.defaultProps = { productId: null };
-ReviewsList.propTypes = { productId: propTypes.number };
+ReviewsList.propTypes = { productId: propTypes.number.isRequired };
 
 export default ReviewsList;

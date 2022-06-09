@@ -5,6 +5,8 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import store from './components/store';
 import { Overview, Related, Questions } from './widgets.jsx';
 import Reviews from './components/reviews/Reviews.jsx';
 
@@ -51,4 +53,8 @@ class App extends React.Component {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+);
