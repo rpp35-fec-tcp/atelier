@@ -13,7 +13,6 @@ function Reviews({ currentProductId }) {
   );
 }
 
-Reviews.defaultProps = { currentProductId: null };
-Reviews.propTypes = { currentProductId: propTypes.number };
+Reviews.propTypes = { currentProductId: propTypes.number.isRequired };
 
 export default Reviews;
