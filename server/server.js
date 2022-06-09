@@ -20,6 +20,8 @@ app.get('*.js', (req, res, next) => {
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 //app.use('/', expressStaticGzip(path.join(__dirname, '/../client/dist')));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/dist', 'index.html'));
 });

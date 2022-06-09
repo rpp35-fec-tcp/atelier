@@ -36,7 +36,6 @@ function ReviewsBreakdown({ productId }) {
   );
 }
 
-ReviewsBreakdown.defaultProps = { productId: null };
-ReviewsBreakdown.propTypes = { productId: propTypes.number };
+ReviewsBreakdown.propTypes = { productId: propTypes.number.isRequired };
 
 export default ReviewsBreakdown;
