@@ -36,11 +36,13 @@ router.get('/meta', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { data } = await instance.post(
-      '/',
-      { params: { ...req.query } },
-    );
-    res.send(data);
+    console.log(req.body);
+    // const { data } = await instance.post(
+    //   '/',
+    //   { params: { ...req.body } },
+    // );
+    // res.send(data);
+    res.send('form received!');
   } catch ({ response }) {
     res.status(response.status).send(response.statusText);
   }
