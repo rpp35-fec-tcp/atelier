@@ -1,6 +1,7 @@
 import axios from 'axios';
 import propTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import AddReview from './AddReview';
 import ReviewsSummary from './ReviewsSummary';
 import ReviewTile from './ReviewTile';
 import './ReviewsList.css';
@@ -28,7 +29,6 @@ function ReviewsList({ productId }) {
   };
 
   useEffect(() => { fetchData(productId); }, [productId]);
-
   return (
     <div className="reviews-list">
       {reviewCount
@@ -54,11 +54,12 @@ function ReviewsList({ productId }) {
           <b>ADD A REVIEW&nbsp;&nbsp;&#65291;</b>
         </button>
       </div>
+      {/* <AddReview productId={productId} /> */}
+
     </div>
   );
 }
 
-ReviewsList.defaultProps = { productId: null };
-ReviewsList.propTypes = { productId: propTypes.number };
+ReviewsList.propTypes = { productId: propTypes.number.isRequired };
 
 export default ReviewsList;
