@@ -9,6 +9,8 @@ import Answers from '../../client/src/components/questions&answers/answers.jsx';
 
 describe("Answers list is mounting", () => {
   let container = null;
+  let fakequestion_id = 631392;
+
   beforeEach(() => {
     // setup a DOM element as a render target
     container = document.createElement("div");
@@ -26,8 +28,20 @@ describe("Answers list is mounting", () => {
     expect(React.Component.isPrototypeOf(Answers)).toBe(true);
   });
 
-  it('should render a list of questions given a product id', () => {
-    let fakequestion_id = 631392;
+  it('should render a default message if question data is empty', () => {
+    act(() => {
+      render(<Answers question_id={fakequestion_id} />, container)
+    });
+
+    expect(
+pretty(container.innerHTML)).toMatchInlineSnapshot(`
+"<div class=\\"no-answers\\">
+  <h6>Be the first to answer this question!</h6>
+</div>"
+`);
+    });
+
+  xit('should render a list of questions given a product id', () => {
 
     act(() => {
       render(<Answers question_id={fakequestion_id} />, container)

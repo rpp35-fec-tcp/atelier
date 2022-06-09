@@ -1,7 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import React from 'react';
-import Card from './card.jsx';
-import AddToOutfit from './addToOutfit.jsx';
+import Card from './card';
+import AddToOutfit from './addToOutfit';
 
 const responsive = {
   desktop: {
@@ -32,11 +32,10 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
           autoPlay={false}
           responsive={responsive}
         >
-          {relatedProducts.map(productId => (
-            <div>
+          {relatedProducts.map(productInfo => (
+            <div key={productInfo.id}>
               <Card
-                id={productId}
-                key={productId}
+                productInfo={productInfo}
                 changeCurrentProductId={changeCurrentProductId}
                 currentProductInfo={currentProductInfo}
                 type='related'
@@ -56,14 +55,13 @@ const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, 
           responsive={responsive}
           renderArrowsWhenDisabled={false}
         >
-          {relatedProducts.map(productId => (
-            (productId === null ?
-              <div><AddToOutfit id={currentProductId} key = {currentProductId}  addToOutfit={addToOutfit} draggable={false}/></div>
+          {relatedProducts.map(productInfo => (
+            (productInfo === null ?
+              <div key={currentProductId}><AddToOutfit id={currentProductId} addToOutfit={addToOutfit} draggable={false}/></div>
                :
-              <div>
+              <div key={productInfo.id}>
                 <Card
-                  id={productId}
-                  key={productId}
+                  productInfo={productInfo}
                   addToOutfit={addToOutfit}
                   changeCurrentProductId={changeCurrentProductId}
                   currentProductInfo={currentProductInfo}

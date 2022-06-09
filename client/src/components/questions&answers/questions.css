@@ -1,0 +1,10 @@
+#questionContainer {
+  margin: 5% 12.5% 5%;
+  width: 75%;
+}
+
+.questionsHeader {
+  position: relative;
+  width: 80%;
+  left: 50px;
+}
