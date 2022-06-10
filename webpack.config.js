@@ -20,6 +20,7 @@ const config = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+        sideEffects: true,
       },
       {
         test: /\.jsx?$/i,
@@ -28,10 +29,12 @@ const config = {
         use: {
           loader: 'babel-loader',
         },
+        sideEffects: true,
       },
       {
         test: /\.(js|jsx)$/,
         include: [path.resolve(__dirname, 'src', 'client')],
+        sideEffects: true,
         use: [{
           loader: 'babel-loader',
           options: {
@@ -64,9 +67,17 @@ const config = {
     contentBase: './',
     hot: true,
   },
-  mode: 'development',
+  // mode: 'development',
+  // optimization: {
+  //   usedExports: true,
+  // },
+  mode: 'production',
   optimization: {
     usedExports: true,
+    minimize: true,
+    minimizer: [
+      new TerserPlugin(),
+    ],
   },
   // plugins: [
   //   new CompressionPlugin({
@@ -95,12 +106,12 @@ const config = {
     }),
   ],
 };
-module.exports = {
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
-  },
-};
+// module.exports = {
+//   optimization: {
+//     minimize: true,
+//     minimizer: [new TerserPlugin()],
+//   },
+// };
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {

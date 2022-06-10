@@ -20,6 +20,7 @@ class App extends React.Component {
     };
     this.changeCurrentProductId = this.changeCurrentProductId.bind(this);
     this.changeURL = this.changeURL.bind(this);
+    this.changeURL();
   }
 
   changeURL() {
