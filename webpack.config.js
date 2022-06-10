@@ -64,9 +64,16 @@ const config = {
     contentBase: './',
     hot: true,
   },
-  mode: 'development',
+  // mode: 'development',
+  // optimization: {
+  //   usedExports: true,
+  // },
+  mode: 'production',
   optimization: {
     usedExports: true,
+    minimizer: [
+      new TerserPlugin(),
+    ],
   },
   // plugins: [
   //   new CompressionPlugin({
@@ -95,12 +102,12 @@ const config = {
     }),
   ],
 };
-module.exports = {
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
-  },
-};
+// module.exports = {
+//   optimization: {
+//     minimize: true,
+//     minimizer: [new TerserPlugin()],
+//   },
+// };
 
 module.exports = (env, argv) => {
   if (argv.mode === 'development') {

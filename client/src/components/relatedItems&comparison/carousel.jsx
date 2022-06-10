@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Carousel from 'react-multi-carousel';
 import React from 'react';
 import Card from './card';
@@ -21,62 +22,66 @@ const responsive = {
   },
 };
 
-const SimpleCarousel = ({relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit, deleteOutfit}) => {
+function SimpleCarousel({
+  relatedProducts, currentProductId, currentProductInfo, changeCurrentProductId, addToOutfit, deleteOutfit,
+}) {
   return (
     <div>
-      {(relatedProducts[0] !== null) &&
+      {(relatedProducts[0] !== null)
+        && (
         <Carousel
           ssr
-          partialVisibile={true}
+          partialVisibile
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
         >
-          {relatedProducts.map(productInfo => (
+          {relatedProducts.map((productInfo) => (
             <div key={productInfo.id}>
               <Card
                 productInfo={productInfo}
                 changeCurrentProductId={changeCurrentProductId}
                 currentProductInfo={currentProductInfo}
-                type='related'
+                type="related"
                 draggable={false}
-                style={{ width: "100%", height: "100%"}}
+                style={{ width: '100%', height: '100%' }}
               />
             </div>
           ))}
-      </Carousel>
-      }
+        </Carousel>
+        )}
 
-      {(relatedProducts[0] === null) &&
+      {(relatedProducts[0] === null)
+        && (
         <Carousel
-          partialVisibile={true}
+          partialVisibile
           itemClass="image-item"
           autoPlay={false}
           responsive={responsive}
           renderArrowsWhenDisabled={false}
         >
-          {relatedProducts.map(productInfo => (
-            (productInfo === null ?
-              <div key={currentProductId}><AddToOutfit id={currentProductId} addToOutfit={addToOutfit} draggable={false}/></div>
-               :
-              <div key={productInfo.id}>
-                <Card
-                  productInfo={productInfo}
-                  addToOutfit={addToOutfit}
-                  changeCurrentProductId={changeCurrentProductId}
-                  currentProductInfo={currentProductInfo}
-                  type='outfit'
-                  deleteOutfit={deleteOutfit}
-                  draggable={false}
-                  style={{ width: "100%", height: "100%"}}
-                />
-              </div>
-          )))}
-      </Carousel>
-      }
+          {relatedProducts.map((productInfo) => (
+            (productInfo === null
+              ? <div key={currentProductId}><AddToOutfit id={currentProductId} addToOutfit={addToOutfit} draggable={false} /></div>
+              : (
+                <div key={productInfo.id}>
+                  <Card
+                    productInfo={productInfo}
+                    addToOutfit={addToOutfit}
+                    changeCurrentProductId={changeCurrentProductId}
+                    currentProductInfo={currentProductInfo}
+                    type="outfit"
+                    deleteOutfit={deleteOutfit}
+                    draggable={false}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </div>
+              )
+            )))}
+        </Carousel>
+        )}
     </div>
   );
-};
+}
 
 export default SimpleCarousel;
-

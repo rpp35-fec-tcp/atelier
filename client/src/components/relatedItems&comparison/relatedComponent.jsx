@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/sort-comp */
 import React from 'react';
 // const SimpleCarousel = React.lazy(() => import('./carousel.jsx'));
 import { getOneProduct, getRelatedProductsCombinedInfo } from './getAndPost';
@@ -5,6 +8,7 @@ import SimpleCarousel from './carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-multi-carousel/lib/styles.css';
 import './related.css';
+
 class RelatedComponent extends React.Component {
   constructor(props) {
     super(props);
