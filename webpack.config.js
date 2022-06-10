@@ -20,6 +20,7 @@ const config = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+        sideEffects: true,
       },
       {
         test: /\.jsx?$/i,
@@ -28,10 +29,12 @@ const config = {
         use: {
           loader: 'babel-loader',
         },
+        sideEffects: true,
       },
       {
         test: /\.(js|jsx)$/,
         include: [path.resolve(__dirname, 'src', 'client')],
+        sideEffects: true,
         use: [{
           loader: 'babel-loader',
           options: {
@@ -71,6 +74,7 @@ const config = {
   mode: 'production',
   optimization: {
     usedExports: true,
+    minimize: true,
     minimizer: [
       new TerserPlugin(),
     ],
